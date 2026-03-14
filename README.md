@@ -1,4 +1,4 @@
-# 🍽️ Andaluzzia.es — Restaurante Sevillano con Arte - IA
+# Andaluzzia.es — Restaurante Sevillano con Arte - IA
 
 ## Stack
 | Capa         | Tecnología                        |
