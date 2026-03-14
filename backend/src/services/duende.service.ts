@@ -33,9 +33,21 @@ export interface UserStyle {
 
 // ── Detección de estilo del usuario ──────────────────────────────────────────
 const ANDALUZ_WORDS = [
-  'quillo', 'quilla', 'miarma', 'arma', 'ole', 'venga', 'na', 'pa', 'to',
-  'erse', 'joé', 'coño', 'anda', 'joder', 'hostia', 'tíos', 'macho',
-  'mola', 'guay', 'bueno', 'claro', 'pues', 'vamos', 'porfa', 'qué tal',
+  // saludos y vocativos sevillanos
+  'quillo', 'quilla', 'miarma', 'ole', 'venga', 'na', 'pa', 'to',
+  'erse', 'joé', 'coño', 'anda', 'joder', 'hostia', 'macho',
+  // argot sevillano específico
+  'jartá',       // mucho / cantidad
+  'no ni ná',    // afirmación rotunda (¡por supuesto!)
+  'malaje',      // persona antipática / mala suerte
+  'fite tú',     // fíjate tú
+  'aro',         // claro
+  'pejiguera',   // persona o cosa pesada/molesta
+  'trinqui',     // vaso de bebida
+  'jartible',    // pesado, insistente
+  'apalancao',   // quieto, sin ganas de moverse
+  'arrejuntarse',// vivir juntos sin casarse
+  'pirriaque',   // vino de baja calidad / cualquier bebida
 ];
 
 const URGENCY_WORDS = ['rápido', 'prisa', 'ya', 'urgente', 'deprisa', 'volando', 'pronto'];
