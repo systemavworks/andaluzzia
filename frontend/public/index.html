@@ -1,488 +1,614 @@
 <!DOCTYPE html>
-<html lang="es-ES">
+<html lang="es-ES" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <!-- SEO Meta Tags -->
-    <title>Andaluzzia | Bar Típico Sevillano en Triana - Tapas y Gastronomía Local</title>
-    <meta name="description" content="Andaluzzia - Bar típico sevillano en Triana desde 1984. Disfruta de las mejores tapas, gastronomía local andaluza y el mejor ambiente con Cruzcampo. ¡Reserva tu mesa!">
-    <meta name="keywords" content="bar sevillano, tapas Sevilla, Triana, restaurante andaluz, gastronomía local, Cruzcampo, Andaluzzia, bar tradicional Sevilla">
-    <meta name="author" content="Andaluzzia">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://andaluzzia.es">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://andaluzzia.es/">
-    <meta property="og:title" content="Andaluzzia | Bar Típico Sevillano - Tapas y Gastronomía Local">
-    <meta property="og:description" content="Auténtico bar sevillano en Triana desde 1984. Tapas tradicionales, buen ambiente y la mejor gastronomía andaluza.">
-    <meta property="og:image" content="https://andaluzzia.es/images/og-image.jpg">
-    <meta property="og:locale" content="es_ES">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://andaluzzia.es/">
-    <meta property="twitter:title" content="Andaluzzia | Bar Típico Sevillano en Triana">
-    <meta property="twitter:description" content="Auténtico bar sevillano en Triana desde 1984. Tapas tradicionales y gastronomía andaluza.">
-    <meta property="twitter:image" content="https://andaluzzia.es/images/twitter-image.jpg">
-    
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5B7C3B">
-    <meta name="msapplication-TileColor" content="#F4D03F">
-    <meta name="theme-color" content="#F4D03F">
-    
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://res.cloudinary.com">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Andaluzzia",
-        "image": "https://andaluzzia.es/logo.png",
-        "description": "Bar típico sevillano en Triana especializado en tapas y gastronomía local andaluza",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Calle Betis, 45",
-            "addressLocality": "Sevilla",
-            "addressRegion": "Andalucía",
-            "postalCode": "41010",
-            "addressCountry": "ES"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 37.3826,
-            "longitude": -6.0023
-        },
-        "url": "https://andaluzzia.es",
-        "telephone": "+34954000000",
-        "priceRange": "€€",
-        "servesCuisine": ["Española", "Andaluza", "Tapas", "Mediterránea"],
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                "opens": "12:00",
-                "closes": "00:00"
-            }
-        ],
-        "paymentAccepted": "Cash, Credit Card",
-        "currenciesAccepted": "EUR"
-    }
-    </script>
-    
-    <style>
-        /* Critical CSS Inline */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lato', sans-serif; line-height: 1.6; color: #333; }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        .bg-amber-50 { background-color: #FFFBEA; }
-        .bg-amber-100 { background-color: #FEF3C7; }
-        .text-amber-800 { color: #92400E; }
-        .text-amber-600 { color: #D97706; }
-        .bg-amber-600 { background-color: #D97706; }
-        .border-amber-200 { border-color: #FDE68A; }
-        .azulejo-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D97706' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        .loader {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #FFFBEA; display: flex; justify-content: center; align-items: center;
-            z-index: 9999; transition: opacity 0.5s;
-        }
-        .loader.hidden { opacity: 0; pointer-events: none; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Andaluzzia 🍺 | Cervecería Sevillana con Alma Flamenca</title>
+  <meta name="description" content="Andaluzzia: Cervecería artesanal en Sevilla. Tapas tradicionales, cerveza de grifo y flamenco en vivo. ¡Reserva tu mesa con vistas al Guadalquivir!">
+  <meta name="keywords" content="cervecería sevilla, tapas andaluzas, flamenco en vivo, cerveza artesana, terraza guadalquivir, reservas sevilla">
+  <meta name="author" content="Victor - SystemaV Works">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#8B4513">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:url" content="https://andaluzzia.es/">
+  <meta property="og:title" content="Andaluzzia 🍺 | Cervecería Sevillana con Alma Flamenca">
+  <meta property="og:description" content="Tapas tradicionales, cerveza artesana y flamenco bajo el cielo de Sevilla.">
+  <meta property="og:image" content="https://andaluzzia.es/assets/img/og/andaluzzia-hero.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Andaluzzia">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://andaluzzia.es/">
+  <meta name="twitter:title" content="Andaluzzia 🍺 | Cervecería Sevillana">
+  <meta name="twitter:description" content="Cerveza artesana, tapas con duende y flamenco en vivo.">
+  <meta name="twitter:image" content="https://andaluzzia.es/assets/img/og/andaluzzia-hero.jpg">
+  
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/icons/favicon-16x16.png">
+  <link rel="manifest" href="./manifest.json">
+  
+  <!-- Preconnect para rendimiento -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fuentes: Inter + una toque flamenco con 'Dancing Script' para títulos decorativos -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Dancing+Script:wght@600;700&display=swap">
+  
+  <!-- Critical CSS inline para renderizado inmediato -->
+  <style>
+    /* Critical Above-the-Fold Styles */
+    :root{--color-primary:#8B4513;--color-primary-dark:#65300F;--color-secondary:#DAA520;--color-accent:#2E7D32;--color-bg:#121212;--color-bg-elevated:#1E1E1E;--color-text-primary:#FFFFFF;--color-text-secondary:#B0B0B0}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--color-bg);color:var(--color-text-primary);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+    .skip-link{position:absolute;top:-100px;left:1rem;background:var(--color-primary);color:white;padding:.75rem 1rem;z-index:1000;transition:top.15s}
+    .skip-link:focus{top:1rem;outline:2px solid var(--color-secondary);outline-offset:2px}
+    .header{position:sticky;top:0;z-index:500;background:rgba(30,30,30,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1);padding:.75rem 0}
+    .header__container{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 1rem}
+    .header__logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:inherit}
+    .header__logo-img{height:40px;width:auto}
+    .header__logo-text{font-family:'Dancing Script',cursive;font-size:1.5rem;font-weight:700;color:var(--color-secondary)}
+    .nav-toggle{display:none;background:none;border:none;padding:.5rem;cursor:pointer}
+    .hamburger{display:block;width:24px;height:2px;background:var(--color-text-primary);position:relative}
+    .hamburger::before,.hamburger::after{content:'';position:absolute;width:24px;height:2px;background:var(--color-text-primary);left:0}
+    .hamburger::before{top:-8px}.hamburger::after{top:8px}
+    .nav{display:flex;gap:1rem;align-items:center}
+    .nav__list{display:flex;gap:1rem;list-style:none}
+    .nav__link{display:block;padding:.5rem 1rem;font-weight:500;color:var(--color-text-secondary);border-radius:4px;transition:all.2s}
+    .nav__link:hover,.nav__link--active{color:var(--color-secondary);background:rgba(218,165,32,.1)}
+    .nav__link--cta{background:var(--color-primary);color:white}
+    .nav__link--cta:hover{background:var(--color-primary-dark)}
+    .hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 1rem;background:linear-gradient(135deg,var(--color-primary-dark) 0%,#1a1a2e 50%,var(--color-bg) 100%);overflow:hidden}
+    .hero__pattern{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23DAA520' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");background-size:60px 60px;animation:patternMove 20s linear infinite}
+    @keyframes patternMove{0%{background-position:0 0}100%{background-position:60px 60px}}
+    .hero__content{position:relative;z-index:1;max-width:800px}
+    .hero__badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(218,165,32,.2);color:var(--color-secondary);padding:.5rem 1rem;border-radius:9999px;font-size:.875rem;font-weight:500;margin-bottom:1.5rem;border:1px solid var(--color-secondary)}
+    .hero__badge-icon{font-size:1.25rem}
+    .hero__title{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem;letter-spacing:-.025em}
+    .hero__title-accent{color:var(--color-secondary);font-family:'Dancing Script',cursive;display:block;font-size:clamp(3rem,6vw,5.5rem)}
+    .hero__subtitle{font-size:clamp(1.125rem,2vw,1.5rem);color:var(--color-text-secondary);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
+    .hero__actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:3rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.5rem;font-weight:600;border-radius:8px;cursor:pointer;transition:all.2s;border:2px solid transparent;text-decoration:none;font-size:1rem}
+    .btn--primary{background:var(--color-primary);color:white}
+    .btn--primary:hover{background:var(--color-primary-dark);transform:translateY(-2px);box-shadow:0 10px 25px rgba(139,69,19,.4)}
+    .btn--secondary{background:transparent;color:var(--color-secondary);border-color:var(--color-secondary)}
+    .btn--secondary:hover{background:var(--color-secondary);color:#121212}
+    .btn--ghost{background:rgba(255,255,255,.1);color:white}
+    .btn--ghost:hover{background:rgba(255,255,255,.2)}
+    .btn--lg{padding:1rem 2rem;font-size:1.125rem}
+    .hero__scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--color-text-secondary);animation:bounce 2s infinite}
+    @keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-10px)}60%{transform:translateX(-50%) translateY(-5px)}}
+    .hero__scroll-icon{width:24px;height:24px;border:2px solid currentColor;border-radius:50%;border-top-color:transparent;animation:spin 2s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .section{padding:5rem 1rem}
+    .section__header{text-align:center;margin-bottom:3rem}
+    .section__title{font-size:clamp(1.75rem,3vw,2.5rem);font-weight:700;margin-bottom:1rem}
+    .section__subtitle{color:var(--color-text-secondary);max-width:600px;margin:0 auto}
+    .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2rem 0;color:var(--color-secondary)}
+    .divider__line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--color-secondary),transparent)}
+    .divider__icon{font-size:1.5rem}
+    .features{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));max-width:1200px;margin:0 auto}
+    .feature-card{background:var(--color-bg-elevated);border-radius:16px;padding:2rem;border:1px solid rgba(255,255,255,.1);transition:transform.3s,box-shadow.3s}
+    .feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+    .feature-card__icon{font-size:3rem;margin-bottom:1rem}
+    .feature-card__title{font-size:1.25rem;font-weight:600;margin-bottom:.5rem}
+    .feature-card__text{color:var(--color-text-secondary);font-size:.95rem}
+    .tapas-showcase{background:linear-gradient(135deg,var(--color-bg-elevated),var(--color-bg));position:relative;overflow:hidden}
+    .tapas-showcase::before{content:'';position:absolute;top:-50%;right:-50%;width:100%;height:100%;background:radial-gradient(circle,rgba(218,165,32,.1) 0%,transparent 70%);pointer-events:none}
+    .tapas-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:1200px;margin:0 auto}
+    .tapa-card{display:flex;gap:1rem;background:rgba(255,255,255,.03);border-radius:12px;padding:1rem;border:1px solid rgba(255,255,255,.05);transition:background.2s}
+    .tapa-card:hover{background:rgba(255,255,255,.06)}
+    .tapa-card__img{width:80px;height:80px;border-radius:8px;object-fit:cover;flex-shrink:0;background:linear-gradient(135deg,var(--color-primary),var(--color-secondary))}
+    .tapa-card__content{flex:1}
+    .tapa-card__title{font-weight:600;margin-bottom:.25rem}
+    .tapa-card__desc{color:var(--color-text-secondary);font-size:.875rem;margin-bottom:.5rem}
+    .tapa-card__price{color:var(--color-secondary);font-weight:700;font-size:1.125rem}
+    .flamenco-section{position:relative;background:url('./assets/img/flamenco-bg.jpg') center/cover no-repeat fixed}
+    .flamenco-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(18,18,18,.95),rgba(139,69,19,.85))}
+    .flamenco-content{position:relative;z-index:1;text-align:center;color:white;max-width:800px;margin:0 auto}
+    .flamenco-content__title{font-family:'Dancing Script',cursive;font-size:clamp(2.5rem,4vw,4rem);margin-bottom:1rem}
+    .flamenco-content__text{font-size:1.125rem;margin-bottom:2rem;opacity:.9}
+    .event-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(218,165,32,.3);padding:.5rem 1rem;border-radius:9999px;font-size:.875rem;margin-bottom:1.5rem}
+    .testimonials{background:var(--color-bg-elevated)}
+    .testimonial-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));max-width:1200px;margin:0 auto}
+    .testimonial-card{background:var(--color-bg);border-radius:16px;padding:2rem;border-left:4px solid var(--color-secondary)}
+    .testimonial-card__quote{font-size:1.5rem;margin-bottom:1rem;font-style:italic}
+    .testimonial-card__author{display:flex;align-items:center;gap:1rem}
+    .testimonial-card__avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),var(--color-secondary))}
+    .testimonial-card__name{font-weight:600}
+    .testimonial-card__meta{color:var(--color-text-secondary);font-size:.875rem}
+    .cta-section{background:linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));text-align:center;padding:4rem 1rem}
+    .cta-section__title{font-size:clamp(1.75rem,3vw,2.5rem);font-weight:700;margin-bottom:1rem}
+    .cta-section__text{color:rgba(255,255,255,.9);max-width:600px;margin:0 auto 2rem}
+    .footer{background:var(--color-bg-elevated);border-top:1px solid rgba(255,255,255,.1);padding:3rem 1rem 1rem;margin-top:auto}
+    .footer__grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:1200px;margin:0 auto 2rem}
+    .footer__brand{display:flex;flex-direction:column;gap:1rem}
+    .footer__logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:inherit}
+    .footer__logo-text{font-family:'Dancing Script',cursive;font-size:1.5rem;font-weight:700;color:var(--color-secondary)}
+    .footer__tagline{color:var(--color-text-secondary);font-size:.9rem}
+    .footer__social{display:flex;gap:.75rem}
+    .social-link{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);border-radius:50%;color:white;transition:background.2s}
+    .social-link:hover{background:var(--color-secondary);color:#121212}
+    .footer__heading{font-weight:600;margin-bottom:1rem;color:var(--color-text-primary)}
+    .footer__list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    .footer__list a{color:var(--color-text-secondary);text-decoration:none;transition:color.2s}
+    .footer__list a:hover{color:var(--color-secondary)}
+    .footer__address{font-style:normal;color:var(--color-text-secondary);font-size:.9rem;line-height:1.8}
+    .footer__address a{color:var(--color-text-primary)}
+    .footer__bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);font-size:.875rem;color:var(--color-text-secondary);max-width:1200px;margin:0 auto}
+    .footer__legal{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer__legal a{color:var(--color-text-secondary);text-decoration:none}
+    .footer__legal a:hover{color:var(--color-text-primary)}
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--color-bg-elevated);border-top:1px solid rgba(255,255,255,.1);padding:1rem;z-index:900;animation:slideUp.3s ease}
+    @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+    .cookie-banner__content{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
+    .cookie-banner__content p{flex:1;min-width:280px;font-size:.9rem;color:var(--color-text-secondary)}
+    .cookie-banner__content a{color:var(--color-secondary)}
+    .cookie-banner__actions{display:flex;gap:.5rem}
+    .toast{position:fixed;bottom:1.5rem;right:1.5rem;padding:.75rem 1.25rem;border-radius:8px;font-weight:500;z-index:1000;animation:slideInRight.3s ease;box-shadow:0 10px 25px rgba(0,0,0,.5)}
+    .toast--success{background:var(--color-accent);color:white}
+    .toast--error{background:var(--color-error);color:white}
+    @keyframes slideInRight{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+    @media(max-width:768px){.nav-toggle{display:block}.nav{position:fixed;top:64px;left:0;right:0;background:var(--color-bg-elevated);border-bottom:1px solid rgba(255,255,255,.1);padding:1rem;transform:translateY(-150%);transition:transform.3s;z-index:400}.nav[aria-expanded="true"]{transform:translateY(0)}.nav__list{flex-direction:column;align-items:flex-start}.nav__link{padding:.75rem 1rem;width:100%}.hero__actions{flex-direction:column;align-items:center}.footer__grid{grid-template-columns:1fr;text-align:center}.footer__social{justify-content:center}.footer__bottom{flex-direction:column;text-align:center}.footer__legal{justify-content:center}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+  
+  <!-- Estilos principales (cargados asíncronamente) -->
+  <link rel="stylesheet" href="./assets/css/variables.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="./assets/css/main.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="./assets/css/variables.css"><link rel="stylesheet" href="./assets/css/main.css"></noscript>
+  
+  <!-- Schema.org para Restaurant -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "name": "Andaluzzia",
+    "image": "https://andaluzzia.es/assets/img/og/andaluzzia-hero.jpg",
+    "telephone": "+34954000000",
+    "priceRange": "€€",
+    "servesCuisine": "Española, Tapas, Cerveza Artesana",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Betis, 42",
+      "addressLocality": "Sevilla",
+      "postalCode": "41010",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.3834,
+      "longitude": -6.0021
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "12:00",
+      "closes": "02:00"
+    },
+    "hasMenu": "https://andaluzzia.es/carta/",
+    "acceptsReservations": "True",
+    "amenityFeature": [
+      {"@type": "LocationFeature", "name": "Terraza con vistas al Guadalquivir"},
+      {"@type": "LocationFeature", "name": "Flamenco en vivo los viernes"},
+      {"@type": "LocationFeature", "name": "Cerveza artesana de grifo"},
+      {"@type": "LocationFeature", "name": "Acceso para sillas de ruedas"}
+    ]
+  }
+  </script>
 </head>
 <body>
-    <!-- Loader -->
-    <div id="loader" class="loader">
-        <div class="text-center">
-            <div class="font-serif text-4xl text-amber-800 mb-4">Andaluzzia</div>
-            <div class="animate-spin rounded-full h-12 w-12 border-b-4 border-amber-600 mx-auto"></div>
-        </div>
+  <!-- Skip link para accesibilidad -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Header con navegación -->
+  <header class="header" role="banner">
+    <div class="header__container">
+      <a href="./" class="header__logo" aria-label="Andaluzzia - Inicio">
+        <span class="header__logo-text" aria-hidden="true">🍺 Andaluzzia</span>
+      </a>
+      
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-primary" aria-label="Abrir menú">
+        <span class="hamburger"></span>
+      </button>
+      
+      <nav id="nav-primary" class="nav" role="navigation" aria-label="Menú principal">
+        <ul class="nav__list">
+          <li><a href="./" class="nav__link nav__link--active">Inicio</a></li>
+          <li><a href="./carta/" class="nav__link">Carta</a></li>
+          <li><a href="#eventos" class="nav__link">Eventos</a></li>
+          <li><a href="#reservas" class="nav__link nav__link--cta">Reservar</a></li>
+          <li><a href="#contacto" class="nav__link">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-40" role="navigation" aria-label="Navegación principal">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <a href="/" class="flex items-center space-x-2" aria-label="Andaluzzia - Inicio">
-                        <img src="/logo.png" alt="Andaluzzia Logo" class="h-16 w-auto">
-                    </a>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-amber-800 hover:text-amber-600 px-3 py-2 font-semibold transition">Inicio</a>
-                    <a href="#menu" class="text-amber-800 hover:text-amber-600 px-3 py-2 font-semibold transition">Menú</a>
-                    <a href="#nosotros" class="text-amber-800 hover:text-amber-600 px-3 py-2 font-semibold transition">Nosotros</a>
-                    <a href="#reservas" class="bg-amber-600 text-white px-6 py-2 rounded-full hover:bg-amber-700 transition font-semibold">Reservar</a>
-                </div>
-                <button class="md:hidden text-amber-800" aria-label="Menú móvil" onclick="toggleMenu()">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
+  <!-- Contenido principal -->
+  <main id="main-content" role="main">
+    
+    <!-- Hero Section - El corazón de Andaluzzia -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__pattern" aria-hidden="true"></div>
+      <div class="hero__content">
+        <span class="hero__badge">
+          <span class="hero__badge-icon" aria-hidden="true">✨</span>
+          Desde 1995 en el corazón de Sevilla
+        </span>
+        
+        <h1 id="hero-title" class="hero__title">
+          Cerveza con <span class="hero__title-accent">duende</span><br>
+          y tapas con <span class="hero__title-accent">alma</span>
+        </h1>
+        
+        <p class="hero__subtitle">
+          En Andaluzzia, cada caña cuenta una historia y cada tapa es un viaje por Andalucía. 
+          Ven a vivir la magia sevillana bajo el cielo del Guadalquivir.
+        </p>
+        
+        <div class="hero__actions">
+          <a href="#reservas" class="btn btn--primary btn--lg">
+            <span aria-hidden="true">📅</span>
+            Reservar mesa
+          </a>
+          <a href="./carta/" class="btn btn--secondary btn--lg">
+            <span aria-hidden="true">🍽️</span>
+            Ver carta
+          </a>
+          <button class="btn btn--ghost" id="hero-video-toggle" aria-expanded="false">
+            <span aria-hidden="true">▶️</span>
+            Ver Andaluzzia
+          </button>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-amber-50">
-            <a href="#inicio" class="block py-3 px-4 text-amber-800 hover:bg-amber-100">Inicio</a>
-            <a href="#menu" class="block py-3 px-4 text-amber-800 hover:bg-amber-100">Menú</a>
-            <a href="#nosotros" class="block py-3 px-4 text-amber-800 hover:bg-amber-100">Nosotros</a>
-            <a href="#reservas" class="block py-3 px-4 bg-amber-600 text-white text-center">Reservar</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-[url('/images/sevilla-bg.jpg')] bg-cover bg-center opacity-30"></div>
-        <div class="absolute inset-0 azulejo-pattern opacity-20"></div>
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-            <div class="mb-6">
-                <span class="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                    🍺 Bar Típico Sevillano
-                </span>
-            </div>
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-amber-800 mb-6 leading-tight">
-                Andaluzzia
-            </h1>
-            <p class="text-xl md:text-2xl text-amber-700 mb-4 font-semibold">
-                Tapas y Gastronomía Local
-            </p>
-            <p class="text-lg md:text-xl text-gray-700 mb-8">
-                Auténtico sabor sevillano en Triana desde 1984
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#menu" class="px-8 py-4 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition font-semibold text-lg shadow-lg hover:shadow-xl">
-                    Ver Nuestro Menú
-                </a>
-                <a href="#reservas" class="px-8 py-4 border-2 border-amber-600 text-amber-600 rounded-full hover:bg-amber-600 hover:text-white transition font-semibold text-lg">
-                    Reservar Mesa
-                </a>
-            </div>
-            <div class="mt-12 flex justify-center gap-8 text-amber-800">
-                <div class="text-center">
-                    <div class="text-3xl font-bold">⭐ 4.8</div>
-                    <div class="text-sm">Google Reviews</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold">🍺</div>
-                    <div class="text-sm">Cruzcampo</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold">📍</div>
-                    <div class="text-sm">Triana</div>
-                </div>
-            </div>
-        </div>
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-        </div>
+        
+        <!-- Indicador de scroll -->
+        <a href="#features" class="hero__scroll" aria-label="Desplazarse al contenido">
+          <span class="hero__scroll-icon" aria-hidden="true"></span>
+          <span style="font-size:.75rem">Explorar</span>
+        </a>
+      </div>
     </section>
 
-    <!-- Features -->
-    <section class="py-16 bg-amber-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
-                    <div class="text-5xl mb-4">🥘</div>
-                    <h3 class="font-serif text-2xl font-bold text-amber-800 mb-2">Tapas Tradicionales</h3>
-                    <p class="text-gray-600">Recetas auténticas sevillanas transmitidas de generación en generación</p>
-                </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
-                    <div class="text-5xl mb-4">🍺</div>
-                    <h3 class="font-serif text-2xl font-bold text-amber-800 mb-2">Cruzcampo Bien Tirada</h3>
-                    <p class="text-gray-600">La cerveza sevillana por excelencia, siempre a la temperatura perfecta</p>
-                </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
-                    <div class="text-5xl mb-4"></div>
-                    <h3 class="font-serif text-2xl font-bold text-amber-800 mb-2">Ambiente Andaluz</h3>
-                    <p class="text-gray-600">El mejor ambiente con azulejos, buen rollo y sabor a Sevilla</p>
-                </div>
-            </div>
-        </div>
+    <!-- Sección: Lo que nos hace únicos -->
+    <section id="features" class="section" aria-labelledby="features-title">
+      <header class="section__header">
+        <h2 id="features-title" class="section__title">El duende de Andaluzzia</h2>
+        <p class="section__subtitle">No somos solo una cervecería. Somos un pedacito de Andalucía en cada detalle.</p>
+      </header>
+      
+      <div class="divider">
+        <span class="divider__line" aria-hidden="true"></span>
+        <span class="divider__icon" aria-hidden="true">🎭</span>
+        <span class="divider__line" aria-hidden="true"></span>
+      </div>
+      
+      <div class="features">
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🍺</span>
+          <h3 class="feature-card__title">Cerveza Artesana</h3>
+          <p class="feature-card__text">Elaborada en Sevilla con cebada andaluza y agua del Guadalquivir. Rubia, tostada o IPA, cada estilo con carácter propio.</p>
+        </article>
+        
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🥘</span>
+          <h3 class="feature-card__title">Tapas con Historia</h3>
+          <p class="feature-card__text">Recetas de abuelas sevillanas, ingredientes de mercado y ese toque secreto que solo se aprende con el tiempo.</p>
+        </article>
+        
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">💃</span>
+          <h3 class="feature-card__title">Flamenco en Vivo</h3>
+          <p class="feature-card__text">Viernes y sábados, el compás de las palmas y el quejío del cante llenan nuestra terraza. Entradas gratuitas con consumo.</p>
+        </article>
+        
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🌅</span>
+          <h3 class="feature-card__title">Vistas al Guadalquivir</h3>
+          <p class="feature-card__text">Nuestra terraza es el mejor mirador de Sevilla. Atardeceres que parecen pintados y brisa que acaricia el alma.</p>
+        </article>
+      </div>
     </section>
 
-    <!-- Menu Preview -->
-    <section id="menu" class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="font-serif text-4xl md:text-5xl font-bold text-amber-800 mb-4">Nuestras Tapas</h2>
-            <div class="w-24 h-1 bg-amber-600 mx-auto"></div>
-            <p class="mt-4 text-gray-600">Lo mejor de la gastronomía andaluza</p>
-        </div>
-        <div id="menu-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Menu items loaded via JavaScript -->
-            <div class="text-center col-span-full py-12">
-                <div class="animate-spin rounded-full h-12 w-12 border-b-4 border-amber-600 mx-auto"></div>
-                <p class="mt-4 text-amber-600">Cargando menú...</p>
-            </div>
-        </div>
-        <div class="text-center mt-12">
-            <a href="/menu-completo" class="inline-block px-8 py-3 border-2 border-amber-600 text-amber-600 rounded-full hover:bg-amber-600 hover:text-white transition font-semibold">
-                Ver Menú Completo
-            </a>
-        </div>
+    <!-- Sección: Tapas Estrella -->
+    <section class="section tapas-showcase" aria-labelledby="tapas-title">
+      <header class="section__header">
+        <h2 id="tapas-title" class="section__title">Tapeo con estilo</h2>
+        <p class="section__subtitle">Nuestros imprescindibles. Pedidos una y otra vez, nunca fallan.</p>
+      </header>
+      
+      <div class="tapas-grid">
+        <article class="tapa-card">
+          <div class="tapa-card__img" role="img" aria-label="Croquetas de jamón ibérico"></div>
+          <div class="tapa-card__content">
+            <h3 class="tapa-card__title">Croquetas de la Abuela</h3>
+            <p class="tapa-card__desc">Bechamel cremosa con jamón 100% ibérico. La receta que nunca cambia.</p>
+            <span class="tapa-card__price">4,50€</span>
+          </div>
+        </article>
+        
+        <article class="tapa-card">
+          <div class="tapa-card__img" role="img" aria-label="Gambas al ajillo"></div>
+          <div class="tapa-card__content">
+            <h3 class="tapa-card__title">Gambas al Ajillo</h3>
+            <p class="tapa-card__desc">Gambas frescas, ajo, guindilla y aceite de oliva. El clásico que enamora.</p>
+            <span class="tapa-card__price">8,90€</span>
+          </div>
+        </article>
+        
+        <article class="tapa-card">
+          <div class="tapa-card__img" role="img" aria-label="Salmorejo cordobés"></div>
+          <div class="tapa-card__content">
+            <h3 class="tapa-card__title">Salmorejo con Virutas</h3>
+            <p class="tapa-card__desc">Tomate, pan, ajo y aceite. Coronado con virutas de jamón y huevo duro.</p>
+            <span class="tapa-card__price">6,50€</span>
+          </div>
+        </article>
+        
+        <article class="tapa-card">
+          <div class="tapa-card__img" role="img" aria-label="Churros con chocolate"></div>
+          <div class="tapa-card__content">
+            <h3 class="tapa-card__title">Churros con Chocolate</h3>
+            <p class="tapa-card__desc">Recién hechos, crujientes por fuera, suaves por dentro. Chocolate a la taza espeso.</p>
+            <span class="tapa-card__price">3,90€</span>
+          </div>
+        </article>
+      </div>
+      
+      <div style="text-align:center;margin-top:2rem">
+        <a href="./carta/" class="btn btn--outline">
+          Ver carta completa →
+        </a>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="nosotros" class="py-20 bg-amber-100">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-amber-800 mb-6">Nuestra Historia</h2>
-                    <p class="text-gray-700 mb-4 text-lg">
-                        Desde 1984, <strong>Andaluzzia</strong> es sinónimo de tradición sevillana en el corazón de Triana. 
-                    </p>
-                    <p class="text-gray-700 mb-4 text-lg">
-                        Nuestro bar típico sevillano mantiene vivas las recetas de siempre, con el sabor auténtico de Andalucía y el mejor ambiente para disfrutar de buenas tapas y una Cruzcampo bien tirada.
-                    </p>
-                    <p class="text-gray-700 mb-6 text-lg">
-                        Azulejos, arcos, buen rollo y gastronomía local. Eso es Andaluzzia.
-                    </p>
-                    <div class="flex gap-4">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-amber-600">40+</div>
-                            <div class="text-sm text-gray-600">Años de experiencia</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-amber-600">1000+</div>
-                            <div class="text-sm text-gray-600">Clientes felices</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-amber-600">50+</div>
-                            <div class="text-sm text-gray-600">Tapas diferentes</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="absolute inset-0 bg-amber-600 rounded-2xl transform rotate-3"></div>
-                    <img src="/images/nosotros.jpg" alt="Interior de Andaluzzia" class="relative rounded-2xl shadow-2xl w-full object-cover h-96">
-                </div>
-            </div>
+    <!-- Sección: Flamenco y Eventos -->
+    <section id="eventos" class="section flamenco-section" aria-labelledby="flamenco-title">
+      <div class="flamenco-content">
+        <span class="event-badge">
+          <span aria-hidden="true">🎵</span>
+          Flamenco en Vivo • Viernes y Sábados • 21:00h
+        </span>
+        
+        <h2 id="flamenco-title" class="flamenco-content__title">
+          Cuando el compás<br>se hace cerveza
+        </h2>
+        
+        <p class="flamenco-content__text">
+          Cada fin de semana, artistas locales llenan Andaluzzia de duende. 
+          Palmas, cante y baile que se funden con el tintineo de las cañas. 
+          Ven con tiempo, que las mejores mesas vuelan.
+        </p>
+        
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center">
+          <a href="#reservas" class="btn btn--primary btn--lg">
+            Reservar para flamenco
+          </a>
+          <a href="./eventos/" class="btn btn--ghost btn--lg">
+            Ver calendario de eventos
+          </a>
         </div>
+      </div>
     </section>
 
-    <!-- Reservations -->
-    <section id="reservas" class="py-20 px-4">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="font-serif text-4xl md:text-5xl font-bold text-amber-800 mb-4">Reserva tu Mesa</h2>
-                <div class="w-24 h-1 bg-amber-600 mx-auto"></div>
-                <p class="mt-4 text-gray-600">Te esperamos en Andaluzzia</p>
+    <!-- Sección: Lo que dicen nuestros clientes -->
+    <section class="section testimonials" aria-labelledby="testimonials-title">
+      <header class="section__header">
+        <h2 id="testimonials-title" class="section__title">Voces de Andaluzzia</h2>
+        <p class="section__subtitle">No lo decimos nosotros. Lo dicen quienes nos visitan.</p>
+      </header>
+      
+      <div class="testimonial-grid">
+        <article class="testimonial-card">
+          <blockquote class="testimonial-card__quote">"La mejor terraza de Sevilla. Atardecer, cerveza fría y flamenco... ¿qué más se puede pedir?"</blockquote>
+          <footer class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true"></div>
+            <div>
+              <div class="testimonial-card__name">María G.</div>
+              <div class="testimonial-card__meta">Google Reviews • ★★★★★</div>
             </div>
-            <form id="reservation-form" class="bg-white rounded-2xl shadow-xl p-8 space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="nombre" class="block text-amber-800 font-semibold mb-2">Nombre *</label>
-                        <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-3 border-2 border-amber-300 rounded-lg focus:outline-none focus:border-amber-600 transition" placeholder="Tu nombre">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-amber-800 font-semibold mb-2">Email *</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 border-2 border-amber-300 rounded-lg focus:outline-none focus:border-amber-600 transition" placeholder="tu@email.com">
-                    </div>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="telefono" class="block text-amber-800 font-semibold mb-2">Teléfono *</label>
-                        <input type="tel" id="telefono" name="telefono" required class="w-full px-4 py-3 border-2 border-amber-300 rounded-lg focus:outline-none focus:border-amber-600 transition" placeholder="600 000 000">
-                    </div>
-                    <div>
-                        <label for="personas" class="block text-amber-800 font-semibold mb-2">Personas *</label>
-                        <select id="personas" name="personas" required class="w-full px-4 py-3 border-2 border-amber-300 rounded-lg focus:outline-none focus:border-amber-600 transition">
-                            <option value="">Selecciona</option>
-                            <option value="1">1 persona</option>
-                            <option value="2">2 personas</option>
-                            <option value="3">3 personas</option>
-                            <option value="4">4 personas</option>
-                            <option value="5">5 personas</option>
-                            <option value="6">6 personas</option>
-                            <option value="7">7 personas</option>
-                            <option value="8">8+ personas</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="fecha" class="block text-amber-800 font-semibold mb-2">Fecha *</label>
-                        <input type="date" id="fecha" name="fecha" required class="w-full px-4 py-3 border-2 border-amber-300 rounded-lg focus:outline-none focus:border-amber-600 transition">
-                    </div>
-                    <div>
-                        <label for="hora" class="block text-amber-800 font-semibold mb-2">Hora *</label>
-                        <select id="hora" name="hora" required class="w-full px-4 py-3 border-2 border-amber-300 rounded-lg focus:outline-none focus:border-amber-600 transition">
-                            <option value="">Selecciona</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label for="notas" class="block text-amber-800 font-semibold mb-2">Notas (opcional)</label>
-                    <textarea id="notas" name="notas" rows="3" class="w-full px-4 py-3 border-2 border-amber-300 rounded-lg focus:outline-none focus:border-amber-600 transition" placeholder="Alergias, ocasión especial, etc."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-amber-600 text-white font-bold py-4 px-6 rounded-lg hover:bg-amber-700 transition text-lg shadow-lg">
-                    Confirmar Reserva
-                </button>
-            </form>
-        </div>
+          </footer>
+        </article>
+        
+        <article class="testimonial-card">
+          <blockquote class="testimonial-card__quote">"Las croquetas son de otro mundo. Y el personal... te hacen sentir como en casa."</blockquote>
+          <footer class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true"></div>
+            <div>
+              <div class="testimonial-card__name">Carlos R.</div>
+              <div class="testimonial-card__meta">TripAdvisor • ★★★★★</div>
+            </div>
+          </footer>
+        </article>
+        
+        <article class="testimonial-card">
+          <blockquote class="testimonial-card__quote">"Vine por la cerveza, me quedé por el ambiente. Andaluzzia tiene algo especial."</blockquote>
+          <footer class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true"></div>
+            <div>
+              <div class="testimonial-card__name">Laura M.</div>
+              <div class="testimonial-card__meta">Instagram • ★★★★★</div>
+            </div>
+          </footer>
+        </article>
+      </div>
     </section>
 
-    <!-- Contact & Location -->
-    <section class="py-20 bg-amber-900 text-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                    <div class="text-4xl mb-4">📍</div>
-                    <h3 class="font-serif text-xl font-bold mb-2">Dirección</h3>
-                    <p>Calle Betis, 45<br>Triana, Sevilla 41010</p>
-                </div>
-                <div>
-                    <div class="text-4xl mb-4">📞</div>
-                    <h3 class="font-serif text-xl font-bold mb-2">Teléfono</h3>
-                    <p>954 00 00 00</p>
-                </div>
-                <div>
-                    <div class="text-4xl mb-4">⏰</div>
-                    <h3 class="font-serif text-xl font-bold mb-2">Horario</h3>
-                    <p>Martes a Domingo<br>12:00 - 00:00</p>
-                    <p class="text-amber-300 text-sm mt-2">Lunes cerrado</p>
-                </div>
-            </div>
-            <div class="mt-12 text-center">
-                <a href="https://maps.google.com/?q=Calle+Betis+45+Sevilla" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition font-semibold">
-                    Ver en Google Maps
-                </a>
-            </div>
-        </div>
+    <!-- Sección: CTA Reservas -->
+    <section id="reservas" class="cta-section" aria-labelledby="cta-title">
+      <h2 id="cta-title" class="cta-section__title">¿Listo para vivir Andaluzzia?</h2>
+      <p class="cta-section__text">
+        Reserva tu mesa en 30 segundos. Sin esperas, sin complicaciones. 
+        Solo buena cerveza, mejores tapas y el mejor ambiente de Sevilla.
+      </p>
+      <a href="./reservas/" class="btn btn--primary btn--lg" style="background:white;color:var(--color-primary)">
+        <span aria-hidden="true">📅</span>
+        Reservar ahora
+      </a>
+      <p style="margin-top:1rem;font-size:.9rem;opacity:.9">
+        ¿Grupos grandes o eventos? <a href="mailto:eventos@andaluzzia.es" style="color:white;text-decoration:underline">Contáctanos</a>
+      </p>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-amber-950 text-amber-200 py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2024 Andaluzzia. Todos los derechos reservados.</p>
-            <p class="mt-2 text-sm">Bar Típico Sevillano - Triana, Sevilla</p>
-            <div class="mt-4 flex justify-center gap-4">
-                <a href="/politica-privacidad" class="text-amber-300 hover:text-white text-sm">Política de Privacidad</a>
-                <span>|</span>
-                <a href="/aviso-legal" class="text-amber-300 hover:text-white text-sm">Aviso Legal</a>
-                <span>|</span>
-                <a href="/cookies" class="text-amber-300 hover:text-white text-sm">Política de Cookies</a>
-            </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo" id="contacto">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="./" class="footer__logo">
+          <span class="footer__logo-text" aria-hidden="true">🍺 Andaluzzia</span>
+        </a>
+        <p class="footer__tagline">Cerveza artesana y tapas con alma sevillana desde 1995</p>
+        <div class="footer__social" aria-label="Redes sociales">
+          <a href="#" aria-label="Instagram" class="social-link">📷</a>
+          <a href="#" aria-label="Facebook" class="social-link">📘</a>
+          <a href="#" aria-label="Google Maps" class="social-link">🗺️</a>
+          <a href="#" aria-label="TikTok" class="social-link">🎵</a>
         </div>
-    </footer>
+      </div>
+      
+      <div>
+        <h4 class="footer__heading">Explora</h4>
+        <ul class="footer__list">
+          <li><a href="./carta/">Nuestra Carta</a></li>
+          <li><a href="./reservas/">Reservar Mesa</a></li>
+          <li><a href="./eventos/">Eventos y Flamenco</a></li>
+          <li><a href="./privacidad.html">Política de Privacidad</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="footer__heading">Contacto</h4>
+        <address class="footer__address">
+          <p>📍 Calle Betis, 42<br>41010 Sevilla, España</p>
+          <p>📞 <a href="tel:+34954000000">+34 954 000 000</a></p>
+          <p>✉️ <a href="mailto:hola@andaluzzia.es">hola@andaluzzia.es</a></p>
+          <p>🕐 Lun-Dom: 12:00 - 02:00</p>
+        </address>
+      </div>
+    </div>
+    
+    <div class="footer__bottom">
+      <p>&copy; <time datetime="2026">2026</time> Andaluzzia. Todos los derechos reservados.</p>
+      <ul class="footer__legal">
+        <li><a href="./aviso-legal.html">Aviso Legal</a></li>
+        <li><a href="./cookies.html">Cookies</a></li>
+        <li><a href="./accesibilidad.html">Accesibilidad</a></li>
+      </ul>
+    </div>
+  </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/34954000000?text=Hola%20Andaluzzia,%20quiero%20información" target="_blank" rel="noopener noreferrer" 
-       class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg z-40 transition-transform hover:scale-110"
-       aria-label="Contactar por WhatsApp">
-        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-    </a>
+  <!-- Cookie Consent -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" hidden>
+    <div class="cookie-banner__content">
+      <p id="cookie-title">
+        <strong>🍪 Cookies</strong>: Usamos cookies propias para mejorar tu experiencia. 
+        <a href="./cookies.html" target="_blank">Más información</a>
+      </p>
+      <div class="cookie-banner__actions">
+        <button id="cookie-reject" class="btn btn--ghost">Rechazar</button>
+        <button id="cookie-accept" class="btn btn--primary">Aceptar</button>
+      </div>
+    </div>
+  </div>
 
-    <!-- JavaScript -->
-    <script>
-        // Remove loader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1000);
+  <!-- Scripts al final para no bloquear render -->
+  <script src="./assets/js/main.js" defer></script>
+  <script>
+    // Mini-script inline para funcionalidades críticas del hero
+    document.addEventListener('DOMContentLoaded', () => {
+      // Menú móvil
+      const navToggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('#nav-primary');
+      if (navToggle && nav) {
+        navToggle.addEventListener('click', () => {
+          const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', !expanded);
+          nav.setAttribute('aria-expanded', !expanded);
+          document.body.style.overflow = !expanded ? 'hidden' : '';
         });
-
-        // Mobile menu toggle
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Load menu items
-        async function loadMenu() {
-            try {
-                const response = await fetch('/api/menu');
-                const platos = await response.json();
-                const container = document.getElementById('menu-container');
-                
-                if (platos.length > 0) {
-                    container.innerHTML = platos.slice(0, 6).map(plato => `
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-amber-200 hover:shadow-2xl transition">
-                            <div class="h-48 bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
-                                <span class="text-6xl">🍽️</span>
-                            </div>
-                            <div class="p-4">
-                                <div class="flex justify-between items-start mb-2">
-                                    <h3 class="font-serif text-xl font-bold text-amber-800">${plato.nombre}</h3>
-                                    <span class="text-lg font-semibold text-amber-600">${plato.precio}€</span>
-                                </div>
-                                <p class="text-gray-600 text-sm">${plato.descripcion}</p>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-            } catch (error) {
-                console.error('Error loading menu:', error);
-                document.getElementById('menu-container').innerHTML = '<p class="text-center col-span-full text-amber-600">Menú disponible próximamente</p>';
-            }
-        }
-
-        // Handle reservation form
-        document.getElementById('reservation-form').addEventListener('submit', async (e) => {
+      }
+      
+      // Cookie banner
+      const cookieBanner = document.getElementById('cookie-banner');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieReject = document.getElementById('cookie-reject');
+      
+      if (!localStorage.getItem('andaluzzia-cookies')) {
+        setTimeout(() => { if (cookieBanner) cookieBanner.hidden = false; }, 2000);
+      }
+      
+      if (cookieAccept) {
+        cookieAccept.addEventListener('click', () => {
+          localStorage.setItem('andaluzzia-cookies', 'accepted');
+          if (cookieBanner) cookieBanner.hidden = true;
+          showToast('✅ Preferencias guardadas', 'success');
+        });
+      }
+      if (cookieReject) {
+        cookieReject.addEventListener('click', () => {
+          localStorage.setItem('andaluzzia-cookies', 'rejected');
+          if (cookieBanner) cookieBanner.hidden = true;
+          showToast('🔒 Cookies rechazadas', 'info');
+        });
+      }
+      
+      // Smooth scroll para anclas
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+          const target = document.querySelector(href);
+          if (target) {
             e.preventDefault();
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
-            
-            try {
-                const response = await fetch('/api/reservas', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                
-                if (response.ok) {
-                    alert('¡Reserva realizada con éxito! Te contactaremos pronto.');
-                    e.target.reset();
-                } else {
-                    alert('Error al realizar la reserva. Inténtalo de nuevo.');
-                }
-            } catch (error) {
-                alert('Error de conexión. Inténtalo de nuevo.');
+            const headerOffset = 72;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            if (window.innerWidth < 768) {
+              navToggle?.setAttribute('aria-expanded', 'false');
+              nav?.setAttribute('aria-expanded', 'false');
+              document.body.style.overflow = '';
             }
+          }
         });
-
-        // Set minimum date to today
-        const dateInput = document.getElementById('fecha');
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
-
-        // Load menu on page load
-        loadMenu();
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Close mobile menu if open
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                }
-            });
-        });
-    </script>
+      });
+      
+      // Toast notification
+      function showToast(message, type = 'success') {
+        const existing = document.querySelector('.toast');
+        if (existing) existing.remove();
+        const toast = document.createElement('div');
+        toast.className = `toast toast--${type}`;
+        toast.setAttribute('role', 'alert');
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+          toast.style.animation = 'slideInRight 0.3s ease reverse';
+          setTimeout(() => toast.remove(), 300);
+        }, 3000);
+      }
+      
+      // Actualizar año en footer
+      const yearEl = document.querySelector('time[datetime]');
+      if (yearEl) {
+        const year = new Date().getFullYear();
+        yearEl.setAttribute('datetime', year);
+        yearEl.textContent = year;
+      }
+      
+      console.log('🍺 Andaluzzia: ¡Magia sevillana cargada!');
+    });
+  </script>
 </body>
 </html>
