@@ -7,9 +7,9 @@ const PORT = process.env.PORT || 3001;
 
 const startServer = async () => {
   try {
-    await connectDB();
+    await connectDB();   // verifica conectividad con Supabase
     app.listen(PORT, () => {
-      logger.info(`Servidor corriendo en puerto ${PORT}`);
+      logger.info(`Servidor Andaluzzia corriendo en puerto ${PORT}`);
       logger.info(`Frontend permitido: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
     });
   } catch (error) {

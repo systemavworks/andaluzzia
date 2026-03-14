@@ -1,14 +1,16 @@
-import { Router }       from 'express';
-import { Mesa }          from '../models/Mesa';
+import { Router }         from 'express';
+import { supabase }       from '../config/supabase';
 import { requireAdminKey } from '../middlewares/auth.middleware';
 
 const router = Router();
 
-/** Devuelve todas las mesas activas (público — para el maitre y reservas) */
+/** Mesas activas (público — para el maitre y reservas) */
 router.get('/', async (_req, res) => {
   try {
-    const mesas = await Mesa.find({ activa: true }).sort({ zona: 1, numero: 1 });
-    res.json(mesas);
+    const { data, error } = await supabase
+      .from('mesas').select('*').eq('activa', true).order('zona').order('numero');
+    if (error) throw error;
+    res.json(data);
   } catch {
     res.status(500).json({ error: 'Error obteniendo mesas' });
   }
@@ -17,9 +19,9 @@ router.get('/', async (_req, res) => {
 /** Crear mesa (solo admin) */
 router.post('/', requireAdminKey, async (req, res) => {
   try {
-    const mesa = new Mesa(req.body);
-    await mesa.save();
-    res.status(201).json(mesa);
+    const { data, error } = await supabase.from('mesas').insert(req.body).select().single();
+    if (error) throw error;
+    res.status(201).json(data);
   } catch {
     res.status(500).json({ error: 'Error creando mesa' });
   }
@@ -28,9 +30,10 @@ router.post('/', requireAdminKey, async (req, res) => {
 /** Actualizar mesa (solo admin) */
 router.put('/:id', requireAdminKey, async (req, res) => {
   try {
-    const mesa = await Mesa.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!mesa) { res.status(404).json({ error: 'Mesa no encontrada' }); return; }
-    res.json(mesa);
+    const { data, error } = await supabase
+      .from('mesas').update(req.body).eq('id', req.params.id).select().single();
+    if (!data || error) { res.status(404).json({ error: 'Mesa no encontrada' }); return; }
+    res.json(data);
   } catch {
     res.status(500).json({ error: 'Error actualizando mesa' });
   }
