@@ -92,7 +92,9 @@
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
       font-family: var(--font-sans);
-      background: var(--c-blanco);
+      background-color: var(--c-blanco);
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='80' height='80' fill='none' stroke='%237C2D12' stroke-opacity='.04' stroke-width='1'/%3E%3Crect x='16' y='16' width='48' height='48' fill='none' stroke='%237C2D12' stroke-opacity='.045' stroke-width='.8'/%3E%3Crect x='16' y='16' width='48' height='48' transform='rotate(45 40 40)' fill='none' stroke='%23D97706' stroke-opacity='.04' stroke-width='.8'/%3E%3Ccircle cx='40' cy='40' r='10' fill='none' stroke='%23D97706' stroke-opacity='.05' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%237C2D12' fill-opacity='.05'/%3E%3Cpath d='M40 3v13M40 64v13M3 40h13M64 40h13' stroke='%237C2D12' stroke-opacity='.04' stroke-width='1'/%3E%3C/svg%3E");
+      background-repeat: repeat;
       color: var(--c-negro);
       line-height: 1.65;
       overflow-x: hidden;
@@ -363,7 +365,10 @@
        SECTION COMMONS
     ========================================================= */
     .section { padding: 6rem 1.5rem; }
-    .section--alt { background: var(--c-crema); }
+    .section--alt {
+      background-color: var(--c-crema);
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='80' height='80' fill='none' stroke='%237C2D12' stroke-opacity='.07' stroke-width='1'/%3E%3Crect x='16' y='16' width='48' height='48' fill='none' stroke='%237C2D12' stroke-opacity='.08' stroke-width='.8'/%3E%3Crect x='16' y='16' width='48' height='48' transform='rotate(45 40 40)' fill='none' stroke='%23D97706' stroke-opacity='.07' stroke-width='.8'/%3E%3Ccircle cx='40' cy='40' r='10' fill='none' stroke='%23D97706' stroke-opacity='.09' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%237C2D12' fill-opacity='.08'/%3E%3Cpath d='M40 3v13M40 64v13M3 40h13M64 40h13' stroke='%237C2D12' stroke-opacity='.06' stroke-width='1'/%3E%3C/svg%3E");
+    }
     .container { max-width: 1280px; margin: 0 auto; }
     .section-eyebrow {
       display: inline-block;
@@ -519,11 +524,45 @@
     }
     .tapa-card:hover::before { opacity: 1; }
     .tapa-card__img {
-      height: 180px;
+      height: 192px;
       background: linear-gradient(135deg, var(--c-siena) 0%, var(--c-oro) 100%);
       position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
-      font-size: 3.5rem;
+    }
+    .tapa-card__img::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='40' height='40' fill='none' stroke='%23fff' stroke-opacity='.1' stroke-width='.8'/%3E%3Crect x='8' y='8' width='24' height='24' transform='rotate(45 20 20)' fill='none' stroke='%23fff' stroke-opacity='.07' stroke-width='.8'/%3E%3Ccircle cx='20' cy='20' r='6' fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='.8'/%3E%3C/svg%3E");
+      background-size: 40px 40px;
+      pointer-events: none; z-index: 1;
+    }
+    .tapa-card__img::after {
+      content: '';
+      position: absolute; inset: 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: calc(var(--radius-lg) - 8px);
+      pointer-events: none; z-index: 3;
+    }
+    .tapa-img-icon {
+      position: relative; z-index: 2;
+      width: 80px; height: 80px;
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition);
+    }
+    .tapa-img-icon svg {
+      width: 72px; height: 72px;
+      fill: none;
+      stroke: rgba(255,255,255,.38);
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,.35));
+      transition: var(--transition);
+    }
+    .tapa-card:hover .tapa-img-icon svg {
+      stroke: rgba(255,255,255,.6);
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.45));
+      transform: scale(1.08);
     }
     .tapa-card__badges {
       position: absolute; top: .75rem; left: .75rem;
@@ -605,11 +644,33 @@
       display: flex; align-items: center; justify-content: center;
     }
     .beer-glass {
-      width: 200px; height: 320px;
+      width: 220px; height: 360px;
       position: relative;
-      filter: drop-shadow(0 20px 60px rgba(134,239,172,.2));
+      filter: drop-shadow(0 20px 60px rgba(134,239,172,.28));
+      animation: glassSwell 7s ease-in-out infinite;
     }
     .beer-glass svg { width: 100%; height: 100%; }
+    @keyframes bubbleRise {
+      0%   { transform: translateY(0);      opacity: .75; }
+      85%  { opacity: .4; }
+      100% { transform: translateY(-210px); opacity: 0; }
+    }
+    @keyframes foamBob {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-5px); }
+    }
+    @keyframes glassSwell {
+      0%,100% { filter: drop-shadow(0 20px 60px rgba(134,239,172,.22)); }
+      50%      { filter: drop-shadow(0 28px 80px rgba(134,239,172,.45)); }
+    }
+    .beer-bubble   { animation: bubbleRise ease-in infinite; }
+    .beer-bubble-1 { animation-duration: 2.9s; animation-delay: 0s; }
+    .beer-bubble-2 { animation-duration: 3.6s; animation-delay: .9s; }
+    .beer-bubble-3 { animation-duration: 2.5s; animation-delay: 1.8s; }
+    .beer-bubble-4 { animation-duration: 4.1s; animation-delay: .45s; }
+    .beer-bubble-5 { animation-duration: 2.3s; animation-delay: 1.4s; }
+    .beer-bubble-6 { animation-duration: 3.3s; animation-delay: 2.3s; }
+    .beer-foam-group { animation: foamBob 2.8s ease-in-out infinite; }
 
     /* =========================================================
        GALERÍA AMBIENTAL
@@ -641,21 +702,59 @@
     .galeria-item:nth-child(4) { grid-column: span 4; }
     .galeria-item:nth-child(5) { grid-column: span 4; }
     .galeria-item:nth-child(6) { grid-column: span 4; }
-    .galeria-item__emoji {
-      font-size: 4rem; opacity: .6;
+    .galeria-svg {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 65%; height: 65%;
+      opacity: .45;
+      transition: var(--transition);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .galeria-item:hover .galeria-svg {
+      opacity: .68;
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+    .galeria-num {
+      position: absolute; top: .85rem; right: .85rem;
+      z-index: 4;
+      font-family: var(--font-serif);
+      font-size: .8rem; font-weight: 700; letter-spacing: .05em;
+      color: rgba(255,255,255,.45);
+      width: 32px; height: 32px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition);
+      backdrop-filter: blur(4px);
+    }
+    .galeria-item:hover .galeria-num {
+      color: rgba(255,255,255,.9);
+      border-color: rgba(255,255,255,.5);
+      background: rgba(0,0,0,.2);
+    }
+    .galeria-frame {
+      position: absolute; inset: 10px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: calc(var(--radius-lg) - 6px);
+      pointer-events: none; z-index: 3;
       transition: var(--transition);
     }
-    .galeria-item:hover .galeria-item__emoji { transform: scale(1.1); opacity: .9; }
+    .galeria-item:hover .galeria-frame { border-color: rgba(255,255,255,.25); }
     .galeria-item__overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.7) 0%, transparent 50%);
-      opacity: 0; transition: var(--transition);
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.3) 50%, transparent 100%);
+      opacity: .8; transition: var(--transition);
       display: flex; align-items: flex-end;
-      padding: 1.25rem;
+      padding: 1.1rem 1.25rem;
+      min-height: 45%; z-index: 4;
     }
     .galeria-item:hover .galeria-item__overlay { opacity: 1; }
     .galeria-item__label {
-      color: #fff; font-weight: 600; font-size: .9rem;
+      color: #fff; font-weight: 600; font-size: .88rem;
+      letter-spacing: .02em;
+      text-shadow: 0 1px 4px rgba(0,0,0,.5);
     }
     /* Colores distintos para cada foto */
     .galeria-item:nth-child(1) { background: linear-gradient(135deg, #7C2D12, #4E1809); }
@@ -1367,7 +1466,9 @@
 
         <article class="tapa-card">
           <div class="tapa-card__img" role="img" aria-label="Espinacas con Garbanzos">
-            <span aria-hidden="true">🥬</span>
+            <div class="tapa-img-icon">
+              <svg viewBox="0 0 72 72"><path d="M36 12 C20 12 10 24 10 36 C10 50 22 60 36 60 C50 60 62 50 62 36 C62 24 52 12 36 12Z"/><path d="M28 36 Q30 28 36 26 Q42 28 44 36"/><path d="M24 42 Q30 38 36 36 Q42 38 48 42"/><circle cx="30" cy="32" r="3"/><circle cx="42" cy="32" r="3"/><circle cx="36" cy="44" r="3"/></svg>
+            </div>
             <div class="tapa-card__badges">
               <span class="tapa-badge tapa-badge--hot">N.º 1</span>
               <span class="tapa-badge tapa-badge--chef">El Curro lo pide</span>
@@ -1386,7 +1487,9 @@
 
         <article class="tapa-card">
           <div class="tapa-card__img" role="img" aria-label="Pringá de Puchero">
-            <span aria-hidden="true">🥩</span>
+            <div class="tapa-img-icon">
+              <svg viewBox="0 0 72 72"><rect x="16" y="38" width="40" height="18" rx="3"/><path d="M20 38 C20 28 28 20 36 18 C44 20 52 28 52 38"/><path d="M24 50 L24 58 M36 50 L36 58 M48 50 L48 58"/><path d="M28 30 Q36 24 44 30"/></svg>
+            </div>
             <div class="tapa-card__badges">
               <span class="tapa-badge tapa-badge--hot">Imprescindible</span>
             </div>
@@ -1404,7 +1507,9 @@
 
         <article class="tapa-card">
           <div class="tapa-card__img" role="img" aria-label="Solomillo al Whisky">
-            <span aria-hidden="true">🥩</span>
+            <div class="tapa-img-icon">
+              <svg viewBox="0 0 72 72"><path d="M14 46 C14 34 22 22 36 20 C50 22 58 34 58 46 C58 52 54 56 36 56 C18 56 14 52 14 46Z"/><path d="M20 38 Q28 32 36 30 Q44 32 52 38"/><path d="M18 44 Q26 40 36 38 Q46 40 54 44"/></svg>
+            </div>
             <div class="tapa-card__badges">
               <span class="tapa-badge tapa-badge--chef">Estrella de la casa</span>
             </div>
@@ -1422,7 +1527,9 @@
 
         <article class="tapa-card">
           <div class="tapa-card__img" role="img" aria-label="Gambas al Ajillo">
-            <span aria-hidden="true">🦐</span>
+            <div class="tapa-img-icon">
+              <svg viewBox="0 0 72 72"><path d="M22 52 C18 44 20 34 28 28 C34 24 40 26 44 32 C48 38 44 48 38 52 C34 54 28 54 22 52Z"/><path d="M44 32 Q52 28 56 20"/><path d="M38 52 Q40 60 36 64"/><circle cx="24" cy="44" r="2"/><circle cx="30" cy="48" r="2"/><circle cx="36" cy="46" r="2"/></svg>
+            </div>
             <div class="tapa-card__badges">
               <span class="tapa-badge tapa-badge--hot">Muy pedido</span>
             </div>
@@ -1440,7 +1547,9 @@
 
         <article class="tapa-card">
           <div class="tapa-card__img" role="img" aria-label="Croquetas de Jamón Ibérico">
-            <span aria-hidden="true">🟤</span>
+            <div class="tapa-img-icon">
+              <svg viewBox="0 0 72 72"><ellipse cx="24" cy="36" rx="12" ry="8"/><ellipse cx="36" cy="32" rx="12" ry="8"/><ellipse cx="48" cy="36" rx="12" ry="8"/><ellipse cx="24" cy="48" rx="12" ry="8"/><ellipse cx="48" cy="48" rx="12" ry="8"/></svg>
+            </div>
             <div class="tapa-card__badges">
               <span class="tapa-badge tapa-badge--chef">El Curro lo pide</span>
             </div>
@@ -1458,7 +1567,9 @@
 
         <article class="tapa-card">
           <div class="tapa-card__img" role="img" aria-label="Plato del Día: Cocido Sevillano">
-            <span aria-hidden="true">🍲</span>
+            <div class="tapa-img-icon">
+              <svg viewBox="0 0 72 72"><path d="M16 42 C16 30 24 20 36 18 C48 20 56 30 56 42 L56 50 L16 50 Z"/><rect x="12" y="50" width="48" height="6" rx="2"/><path d="M28 8 Q28 14 32 18"/><path d="M36 6 Q36 14 36 18"/><path d="M44 8 Q44 14 40 18"/></svg>
+            </div>
             <div class="tapa-card__badges">
               <span class="tapa-badge tapa-badge--dia">Plato del día</span>
             </div>
@@ -1532,22 +1643,80 @@
 
         <div class="cruzcampo-visual" aria-hidden="true">
           <div class="beer-glass">
-            <svg viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
-              <!-- Vaso -->
-              <path d="M40 20 L160 20 L145 290 L55 290 Z" fill="rgba(255,215,0,.08)" stroke="rgba(255,215,0,.3)" stroke-width="2"/>
-              <!-- Cerveza (cuerpo ámbar) -->
-              <path d="M43 80 L157 80 L145 290 L55 290 Z" fill="rgba(217,119,6,.55)"/>
-              <!-- Espuma -->
-              <ellipse cx="100" cy="78" rx="57" ry="18" fill="rgba(255,255,255,.85)"/>
-              <ellipse cx="80"  cy="72" rx="20" ry="12" fill="rgba(255,255,255,.9)"/>
-              <ellipse cx="120" cy="70" rx="24" ry="14" fill="rgba(255,255,255,.9)"/>
-              <ellipse cx="100" cy="65" rx="30" ry="16" fill="#fff"/>
-              <!-- Burbujas -->
-              <circle cx="80"  cy="180" r="3" fill="rgba(255,215,0,.3)"/>
-              <circle cx="110" cy="220" r="2" fill="rgba(255,215,0,.3)"/>
-              <circle cx="90"  cy="250" r="2.5" fill="rgba(255,215,0,.3)"/>
-              <circle cx="120" cy="160" r="2" fill="rgba(255,215,0,.25)"/>
-              <circle cx="70"  cy="210" r="1.5" fill="rgba(255,215,0,.2)"/>
+            <svg viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Copa de Cruzcampo">
+              <defs>
+                <clipPath id="beerClip">
+                  <path d="M42 22 L158 22 L144 292 L56 292 Z"/>
+                </clipPath>
+                <linearGradient id="beerAmber" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0"   stop-color="rgba(155,75,0,.5)"/>
+                  <stop offset=".45" stop-color="rgba(228,138,18,.68)"/>
+                  <stop offset="1"   stop-color="rgba(165,70,5,.46)"/>
+                </linearGradient>
+                <linearGradient id="glassBody" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0"   stop-color="rgba(255,215,0,.05)"/>
+                  <stop offset=".38" stop-color="rgba(255,215,0,.15)"/>
+                  <stop offset="1"   stop-color="rgba(255,215,0,.04)"/>
+                </linearGradient>
+              </defs>
+              <!-- Glass body -->
+              <path d="M42 22 L158 22 L144 292 L56 292 Z"
+                fill="url(#glassBody)"
+                stroke="rgba(255,215,0,.34)" stroke-width="2"/>
+              <!-- Beer liquid -->
+              <path d="M45 82 L155 82 L144 292 L56 292 Z"
+                fill="url(#beerAmber)"
+                clip-path="url(#beerClip)"/>
+              <!-- Animated bubbles (clipped inside glass) -->
+              <g clip-path="url(#beerClip)">
+                <circle class="beer-bubble beer-bubble-1" cx="80"  cy="268" r="3"   fill="rgba(255,215,0,.42)"/>
+                <circle class="beer-bubble beer-bubble-2" cx="113" cy="248" r="2.5" fill="rgba(255,215,0,.36)"/>
+                <circle class="beer-bubble beer-bubble-3" cx="97"  cy="278" r="2"   fill="rgba(255,215,0,.4)"/>
+                <circle class="beer-bubble beer-bubble-4" cx="127" cy="258" r="3.5" fill="rgba(255,215,0,.3)"/>
+                <circle class="beer-bubble beer-bubble-5" cx="71"  cy="272" r="2"   fill="rgba(255,215,0,.38)"/>
+                <circle class="beer-bubble beer-bubble-6" cx="136" cy="262" r="2.5" fill="rgba(255,215,0,.32)"/>
+              </g>
+              <!-- Animated foam -->
+              <g class="beer-foam-group">
+                <ellipse cx="100" cy="82" rx="56" ry="19" fill="rgba(255,255,255,.88)"/>
+                <ellipse cx="76"  cy="72" rx="23" ry="14" fill="rgba(255,255,255,.92)"/>
+                <ellipse cx="125" cy="69" rx="26" ry="16" fill="rgba(255,255,255,.9)"/>
+                <ellipse cx="100" cy="63" rx="34" ry="19" fill="#fff"/>
+                <ellipse cx="68"  cy="66" rx="14" ry="9"  fill="rgba(255,255,255,.88)"/>
+                <ellipse cx="133" cy="64" rx="16" ry="10" fill="rgba(255,255,255,.85)"/>
+                <ellipse cx="100" cy="55" rx="22" ry="12" fill="rgba(255,255,255,.78)"/>
+                <ellipse cx="85"  cy="50" rx="12" ry="8"  fill="rgba(255,255,255,.65)"/>
+                <ellipse cx="116" cy="48" rx="14" ry="9"  fill="rgba(255,255,255,.6)"/>
+              </g>
+              <!-- Left shine stripe -->
+              <path d="M56 36 Q52 115 54 205"
+                fill="none" stroke="rgba(255,255,255,.22)" stroke-width="8"
+                stroke-linecap="round"/>
+              <!-- Secondary shine -->
+              <path d="M72 28 Q68 92 68 162"
+                fill="none" stroke="rgba(255,255,255,.09)" stroke-width="3.5"
+                stroke-linecap="round"/>
+              <!-- Top rim highlight -->
+              <ellipse cx="100" cy="22" rx="58" ry="7"
+                fill="none" stroke="rgba(255,255,255,.32)" stroke-width="1.5"/>
+              <!-- Label zone -->
+              <g stroke="rgba(255,215,0,.2)" stroke-linecap="round">
+                <line x1="74" y1="160" x2="126" y2="160"/>
+                <line x1="70" y1="170" x2="130" y2="170"/>
+                <line x1="74" y1="180" x2="126" y2="180"/>
+              </g>
+              <!-- Base glow -->
+              <ellipse cx="100" cy="292" rx="46" ry="6"
+                fill="rgba(255,215,0,.14)"/>
+              <!-- Condensation drops -->
+              <g fill="rgba(200,240,255,.18)">
+                <circle cx="34" cy="118" r="2.5"/>
+                <circle cx="38" cy="146" r="2"/>
+                <circle cx="32" cy="170" r="3"/>
+                <circle cx="167" cy="128" r="2"/>
+                <circle cx="163" cy="158" r="2.5"/>
+                <circle cx="166" cy="185" r="1.8"/>
+              </g>
             </svg>
           </div>
         </div>
@@ -1568,27 +1737,134 @@
 
       <div class="galeria-grid" role="list">
         <div class="galeria-item" role="listitem">
-          <span class="galeria-item__emoji" aria-hidden="true">🌅</span>
+          <span class="galeria-num" aria-hidden="true">01</span>
+          <div class="galeria-frame" aria-hidden="true"></div>
+          <svg class="galeria-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="100" cy="118" r="50" fill="rgba(255,200,50,.12)"/>
+            <circle cx="100" cy="118" r="34" fill="rgba(255,200,50,.18)"/>
+            <circle cx="100" cy="118" r="18" fill="rgba(255,200,50,.28)"/>
+            <g stroke="rgba(255,200,50,.2)" stroke-width="2.5" stroke-linecap="round">
+              <line x1="100" y1="52" x2="100" y2="40"/>
+              <line x1="136" y1="68" x2="145" y2="59"/>
+              <line x1="152" y1="104" x2="164" y2="104"/>
+              <line x1="64" y1="68" x2="55" y2="59"/>
+              <line x1="48" y1="104" x2="36" y2="104"/>
+              <line x1="124" y1="58" x2="130" y2="48"/>
+              <line x1="76" y1="58" x2="70" y2="48"/>
+            </g>
+            <line x1="14" y1="148" x2="186" y2="148" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+            <path d="M22 178 Q22 155 44 155 Q66 155 66 178" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1.5"/>
+            <path d="M70 178 Q70 155 92 155 Q114 155 114 178" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1.5"/>
+            <path d="M118 178 Q118 155 140 155 Q162 155 162 178" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1.5"/>
+          </svg>
           <div class="galeria-item__overlay"><span class="galeria-item__label">Atardecer en la terraza</span></div>
         </div>
         <div class="galeria-item" role="listitem">
-          <span class="galeria-item__emoji" aria-hidden="true">🥘</span>
+          <span class="galeria-num" aria-hidden="true">02</span>
+          <div class="galeria-frame" aria-hidden="true"></div>
+          <svg class="galeria-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="100" cy="100" r="74" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="2"/>
+            <circle cx="100" cy="100" r="64" fill="rgba(255,255,255,.05)"/>
+            <circle cx="100" cy="100" r="62" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+            <ellipse cx="83" cy="90" rx="17" ry="10" fill="rgba(255,255,255,.2)" transform="rotate(-20,83,90)"/>
+            <ellipse cx="117" cy="86" rx="17" ry="10" fill="rgba(255,255,255,.2)" transform="rotate(15,117,86)"/>
+            <circle cx="100" cy="115" r="14" fill="rgba(255,255,255,.14)"/>
+            <circle cx="100" cy="115" r="5" fill="rgba(255,255,255,.1)"/>
+            <g stroke="rgba(255,255,255,.18)" stroke-width="1.5" stroke-linecap="round">
+              <line x1="150" y1="64" x2="150" y2="136"/>
+              <line x1="146" y1="64" x2="146" y2="88"/>
+              <line x1="150" y1="64" x2="150" y2="88"/>
+              <line x1="154" y1="64" x2="154" y2="88"/>
+            </g>
+          </svg>
           <div class="galeria-item__overlay"><span class="galeria-item__label">Tapas de la casa</span></div>
         </div>
         <div class="galeria-item" role="listitem">
-          <span class="galeria-item__emoji" aria-hidden="true">🎶</span>
+          <span class="galeria-num" aria-hidden="true">03</span>
+          <div class="galeria-frame" aria-hidden="true"></div>
+          <svg class="galeria-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="100" cy="100" r="75" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.5"/>
+            <circle cx="100" cy="100" r="55" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="1.5"/>
+            <circle cx="100" cy="100" r="35" fill="none" stroke="rgba(255,255,255,.11)" stroke-width="1.5"/>
+            <g transform="translate(62,48)" fill="rgba(255,255,255,.28)">
+              <rect x="20" y="0" width="3.5" height="68" rx="1.75"/>
+              <ellipse cx="11" cy="66" rx="13" ry="9" transform="rotate(-15,11,66)"/>
+              <rect x="42" y="0" width="3.5" height="62" rx="1.75"/>
+              <ellipse cx="33" cy="60" rx="13" ry="9" transform="rotate(-15,33,60)"/>
+              <rect x="20" y="0" width="25" height="3.5" rx="1.75"/>
+              <rect x="20" y="9" width="25" height="3.5" rx="1.75"/>
+            </g>
+          </svg>
           <div class="galeria-item__overlay"><span class="galeria-item__label">Música en vivo</span></div>
         </div>
         <div class="galeria-item" role="listitem">
-          <span class="galeria-item__emoji" aria-hidden="true">🏺</span>
+          <span class="galeria-num" aria-hidden="true">04</span>
+          <div class="galeria-frame" aria-hidden="true"></div>
+          <svg class="galeria-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g stroke="rgba(255,255,255,.2)" stroke-width="1" fill="none">
+              <rect x="12" y="12" width="78" height="78" rx="2"/>
+              <rect x="110" y="12" width="78" height="78" rx="2"/>
+              <rect x="12" y="110" width="78" height="78" rx="2"/>
+              <rect x="110" y="110" width="78" height="78" rx="2"/>
+            </g>
+            <g stroke="rgba(255,255,255,.13)" stroke-width="1" fill="none">
+              <rect x="12" y="12" width="78" height="78" rx="2" transform="rotate(45,51,51)"/>
+              <rect x="110" y="12" width="78" height="78" rx="2" transform="rotate(45,149,51)"/>
+              <rect x="12" y="110" width="78" height="78" rx="2" transform="rotate(45,51,149)"/>
+              <rect x="110" y="110" width="78" height="78" rx="2" transform="rotate(45,149,149)"/>
+            </g>
+            <g fill="rgba(255,255,255,.14)">
+              <circle cx="51" cy="51" r="10"/>
+              <circle cx="149" cy="51" r="10"/>
+              <circle cx="51" cy="149" r="10"/>
+              <circle cx="149" cy="149" r="10"/>
+              <circle cx="100" cy="100" r="7"/>
+            </g>
+          </svg>
           <div class="galeria-item__overlay"><span class="galeria-item__label">Azulejos de Triana</span></div>
         </div>
         <div class="galeria-item" role="listitem">
-          <span class="galeria-item__emoji" aria-hidden="true">🍺</span>
+          <span class="galeria-num" aria-hidden="true">05</span>
+          <div class="galeria-frame" aria-hidden="true"></div>
+          <svg class="galeria-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M62 42 L138 42 L128 172 L72 172 Z" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.25)" stroke-width="2"/>
+            <path d="M65 76 L135 76 L128 172 L72 172 Z" fill="rgba(255,200,50,.28)"/>
+            <g fill="rgba(255,215,0,.38)">
+              <circle cx="82" cy="130" r="2.5"/>
+              <circle cx="100" cy="112" r="2"/>
+              <circle cx="118" cy="142" r="2"/>
+              <circle cx="90" cy="152" r="1.5"/>
+            </g>
+            <path d="M138 72 Q165 72 165 105 Q165 136 138 136" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="2.5"/>
+            <ellipse cx="100" cy="76" rx="36" ry="14" fill="rgba(255,255,255,.88)"/>
+            <ellipse cx="78" cy="68" rx="20" ry="12" fill="rgba(255,255,255,.9)"/>
+            <ellipse cx="124" cy="66" rx="24" ry="13" fill="rgba(255,255,255,.88)"/>
+            <ellipse cx="100" cy="60" rx="28" ry="15" fill="#fff"/>
+            <ellipse cx="100" cy="42" rx="36" ry="6" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+          </svg>
           <div class="galeria-item__overlay"><span class="galeria-item__label">Cruzcampo de grifo</span></div>
         </div>
         <div class="galeria-item" role="listitem">
-          <span class="galeria-item__emoji" aria-hidden="true">🌉</span>
+          <span class="galeria-num" aria-hidden="true">06</span>
+          <div class="galeria-frame" aria-hidden="true"></div>
+          <svg class="galeria-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 135 Q100 42 190 135" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="3"/>
+            <line x1="10" y1="135" x2="190" y2="135" stroke="rgba(255,255,255,.3)" stroke-width="3"/>
+            <g stroke="rgba(255,255,255,.18)" stroke-width="2">
+              <line x1="52" y1="135" x2="52" y2="168"/>
+              <line x1="100" y1="135" x2="100" y2="168"/>
+              <line x1="148" y1="135" x2="148" y2="168"/>
+            </g>
+            <path d="M10 158 Q40 151 70 158 Q100 165 130 158 Q160 151 190 158" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
+            <path d="M10 172 Q40 165 70 172 Q100 179 130 172 Q160 165 190 172" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="1.5"/>
+            <path d="M28 148 Q100 102 172 148" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+            <g fill="rgba(255,255,255,.16)">
+              <circle cx="62" cy="90" r="2"/>
+              <circle cx="80" cy="72" r="2"/>
+              <circle cx="120" cy="72" r="2"/>
+              <circle cx="138" cy="90" r="2"/>
+            </g>
+          </svg>
           <div class="galeria-item__overlay"><span class="galeria-item__label">Vistas al Guadalquivir</span></div>
         </div>
       </div>
