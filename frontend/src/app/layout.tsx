@@ -1,10 +1,16 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script';
 
 const inter    = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
+
+export const viewport: Viewport = {
+  width:            'device-width',
+  initialScale:     1,
+  themeColor:       '#7C2D12',
+};
 
 export const metadata: Metadata = {
   title:       'Andaluzzia - Restaurante Sevillano Auténtico | Triana',
@@ -24,8 +30,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
         {children}

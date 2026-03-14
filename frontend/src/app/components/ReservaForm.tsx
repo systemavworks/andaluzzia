@@ -20,6 +20,11 @@ export default function ReservaForm() {
   const [error,   setError]   = useState('');
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ReservaFormData>();
 
+  // Fecha mínima: mañana (no se reserva a última hora para hoy)
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const minDate = tomorrow.toISOString().split('T')[0];
+
   const onSubmit = async (data: ReservaFormData) => {
     setLoading(true);
     setError('');
@@ -72,7 +77,10 @@ export default function ReservaForm() {
       <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-amber-800 font-semibold mb-2">Teléfono *</label>
-          <input {...register('telefono', { required: 'Teléfono requerido' })}
+          <input {...register('telefono', {
+            required: 'Teléfono requerido',
+            pattern: { value: /^[6789]\d{8}$/, message: 'Teléfono español sin espacios (ej. 600123456)' },
+          })}
             className="w-full px-4 py-2 border-2 border-amber-300 rounded-lg focus:outline-none focus:border-amber-600"
             placeholder="600 000 000" />
           {errors.telefono && <p className="text-red-500 text-sm mt-1">{errors.telefono.message}</p>}
@@ -81,7 +89,7 @@ export default function ReservaForm() {
           <label className="block text-amber-800 font-semibold mb-2">Personas *</label>
           <select {...register('personas', { required: 'Número requerido' })}
             className="w-full px-4 py-2 border-2 border-amber-300 rounded-lg focus:outline-none focus:border-amber-600">
-            {[1,2,3,4,5,6,7,8,9,10].map(n => (
+            {Array.from({ length: 20 }, (_, i) => i + 1).map(n => (
               <option key={n} value={n}>{n} {n === 1 ? 'persona' : 'personas'}</option>
             ))}
           </select>
@@ -92,7 +100,14 @@ export default function ReservaForm() {
       <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-amber-800 font-semibold mb-2">Fecha *</label>
-          <input type="date" {...register('fecha', { required: 'Fecha requerida' })}
+          <input type="date" {...register('fecha', {
+            required: 'Fecha requerida',
+            min: { value: minDate, message: 'La fecha debe ser a partir de mañana' },
+            validate: v => {
+              const day = new Date(v).getUTCDay();
+              return day !== 1 || 'Los lunes estamos cerrados';
+            },
+          })}
             className="w-full px-4 py-2 border-2 border-amber-300 rounded-lg focus:outline-none focus:border-amber-600" />
           {errors.fecha && <p className="text-red-500 text-sm mt-1">{errors.fecha.message}</p>}
         </div>

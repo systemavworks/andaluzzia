@@ -7,7 +7,7 @@ export const getPlatos = async (req: Request, res: Response): Promise<void> => {
     const filtro: any = {};
     if (categoria)           filtro.categoria  = categoria;
     if (disponible !== undefined) filtro.disponible = disponible === 'true';
-    const platos = await Plato.find(filtro).sort({ categoria: 1, nombre: 1 });
+    const platos = await Plato.find(filtro).sort({ orden: 1, categoria: 1, nombre: 1 });
     res.json(platos);
   } catch {
     res.status(500).json({ error: 'Error obteniendo el menú' });

@@ -1,16 +1,27 @@
 import nodemailer from 'nodemailer';
+import { logger } from '../utils/logger';
 
-const transporter = nodemailer.createTransport({
-  host:   process.env.EMAIL_HOST,
-  port:   parseInt(process.env.EMAIL_PORT || '587'),
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const getTransporter = () => {
+  if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    return null;
+  }
+  return nodemailer.createTransport({
+    host:   process.env.EMAIL_HOST,
+    port:   parseInt(process.env.EMAIL_PORT || '587'),
+    secure: false,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+};
 
 export const enviarEmailConfirmacion = async (reserva: any): Promise<void> => {
+  const transporter = getTransporter();
+  if (!transporter) {
+    logger.warn('Email no configurado (EMAIL_HOST/USER/PASS ausentes) — reserva no notificada por email');
+    return;
+  }
   await transporter.sendMail({
     from:    `"Andaluzzia" <${process.env.EMAIL_USER}>`,
     to:      reserva.email,
