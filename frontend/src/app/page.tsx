@@ -71,7 +71,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <MaitreChat menuContext={menu} />
+      <MaitreChat />
       <WhatsAppWidget />
     </main>
   );

@@ -1,51 +1,57 @@
-import { Anthropic } from '@ai-sdk/anthropic';
-import { streamText } from 'ai';
+/**
+ * API Route /api/chat (Next.js)
+ *
+ * Proxy entre el componente MaitreChat y el backend Express.
+ * El backend es el responsable del contexto de BD, rate limiting,
+ * límite de tokens y la llamada a Anthropic.
+ *
+ * Aquí solo validamos el tamaño de la petición y reenviamos.
+ */
 
-export const maxDuration = 60;
+export const maxDuration = 30;
+
+const MAX_MESSAGES = 20;      // espejo del límite del backend
+const MAX_MSG_CHARS = 400;    // espejo del límite del backend
 
 export async function POST(req: Request) {
   try {
-    const { messages, menuContext } = await req.json();
+    const body = await req.json();
+    const { messages } = body as { messages: { role: string; content: string }[] };
 
-    const systemPrompt = `Eres "El Curro", el maitre virtual de Andaluzzia, un restaurante tradicional sevillano en Triana.
+    if (!Array.isArray(messages)) {
+      return new Response(JSON.stringify({ error: 'Petición inválida' }), { status: 400 });
+    }
 
-TU PERSONALIDAD:
-- Eres cercano, amable y con "salero" sevillano (sin caer en caricatura)
-- Usas expresiones naturales: "miarma", "quédate a gusto", "pa chuparse los dedos"
-- Eres profesional pero cálido, como el camarero de confianza del barrio
+    // Truncar si el usuario manipula el historial desde el cliente
+    const safeMessages = messages.slice(-MAX_MESSAGES).map(m => ({
+      ...m,
+      content: typeof m.content === 'string'
+        ? m.content.slice(0, MAX_MSG_CHARS)
+        : m.content,
+    }));
 
-TUS FUNCIONES:
-1. Recomendar tapas y platos del menú (usa SOLO el menú proporcionado)
-2. Sugerir maridajes con cerveza Cruzcampo
-3. Ayudar a reservar mesa (deriva al formulario de reservas)
-4. Contar curiosidades del restaurante y Sevilla
-
-REGLAS:
-- NUNCA inventes platos que no estén en el menú
-- Si no sabes algo, di "Déjame consultarlo con la cocina"
-- Respuestas breves: máximo 3-4 frases
-- Horario: Martes a Domingo 12:00-00:00 (Lunes cerrado)
-- Ubicación: Calle Betis, 45 — Triana, Sevilla
-- Teléfono: 954 00 00 00
-
-EJEMPLO DE TONO:
-"¡Bienvenío a Andaluzzia, arma! ¿Qué se le antoja hoy? Le recomiendo empezar
-por unas espinacas con garbanzos, que están pa chuparse los dedos. Y una
-Cruzcampo bien tirada, que no falte."
-
-Menú actual: ${JSON.stringify(menuContext)}`;
-
-    const result = streamText({
-      model:       new Anthropic().chat('claude-3-5-sonnet-20241022'),
-      system:      systemPrompt,
-      messages,
-      temperature: 0.7,
-      maxTokens:   300,
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001/api';
+    const response = await fetch(`${backendUrl}/chat`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ messages: safeMessages }),
     });
 
-    return result.toDataStreamResponse();
+    if (!response.ok) {
+      const error = await response.text();
+      return new Response(error, { status: response.status });
+    }
+
+    const data = await response.json();
+    return new Response(JSON.stringify(data), {
+      status:  200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   } catch (error) {
-    console.error('Error en chat IA:', error);
-    return new Response('Error procesando tu mensaje', { status: 500 });
+    console.error('Error en /api/chat:', error);
+    return new Response(
+      JSON.stringify({ error: 'El Curro se ha ido un momento a la cocina. Inténtalo de nuevo.' }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    );
   }
 }
