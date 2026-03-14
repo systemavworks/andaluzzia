@@ -4,7 +4,8 @@ import helmet        from 'helmet';
 import menuRoutes    from './routes/menu.routes';
 import reservaRoutes from './routes/reservas.routes';
 import mesaRoutes    from './routes/mesas.routes';
-import chatRoutes    from './routes/chat.routes';
+import chatRoutes     from './routes/chat.routes';
+import identifyRoutes from './routes/identify.routes';
 import { generalLimiter } from './middlewares/rateLimit.middleware';
 import { logger }    from './utils/logger';
 
@@ -26,6 +27,7 @@ app.use('/api/menu',     menuRoutes);
 app.use('/api/reservas', reservaRoutes);
 app.use('/api/mesas',    generalLimiter, mesaRoutes);
 app.use('/api/chat',     chatRoutes);
+app.use('/api/curro',   identifyRoutes);
 
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });

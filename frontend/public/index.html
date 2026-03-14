@@ -1295,6 +1295,31 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
+
+    /* ── Cámara Curro ──────────────────────────────────────────────────────── */
+    .curro-rec-card {
+      background: linear-gradient(135deg, var(--c-siena) 0%, rgba(124,45,18,.88) 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      animation: slideDown .3s ease;
+      border: 1px solid rgba(217,119,6,.3);
+    }
+    .curro-rec-card__title { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
+    .curro-rec-card__price { color: var(--c-oro); font-weight: 700; font-size: 1.3rem; }
+    .curro-rec-card__desc  { font-size: .9rem; opacity: .9; margin: .5rem 0; }
+    .curro-rec-card__pairing {
+      background: rgba(255,255,255,.12);
+      padding: .75rem;
+      border-radius: 8px;
+      margin-top: .75rem;
+      font-size: .88rem;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-14px); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
   </style>
 </head>
 <body>

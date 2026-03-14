@@ -17,6 +17,19 @@ import Anthropic from '@anthropic-ai/sdk';
 import { supabase }    from '../config/supabase';
 import { chatLimiter } from '../middlewares/rateLimit.middleware';
 import { logger }      from '../utils/logger';
+import {
+  detectUserStyle,
+  buildDuendeContext,
+  getTimeMode,
+  DuendeConfig,
+} from '../services/duende.service';
+import { getVenueState }        from '../services/venueState.service';
+import {
+  getRelevantMemory,
+  getCustomerFamiliarity,
+  storeInteraction,
+  extractTapaMentionedId,
+} from '../services/customerMemory.service';
 
 const router   = Router();
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
@@ -114,6 +127,7 @@ async function loadContexto() {
 function buildSystemPrompt(
   ctx: Awaited<ReturnType<typeof loadContexto>>,
   sessionSummary?: string,
+  duendeContext?:  string,
 ): string {
   const { tapas, vinos, horario, capacidadTotal } = ctx;
 
@@ -145,7 +159,8 @@ ${sessionSummary ? `\nCONTEXTO PREVIO: ${sessionSummary}` : ''}
 Ejemplos:
 U: ¿Qué tenéis? C: ¡Buenas miarma! Hoy está de lujo: salmorejo fresquito a 4,50, tortillitas de camarones pa morirse y pringá casera… ¿por dónde empezamos, guapo?
 U: Quiero reservar pa 3 a las 21h. C: ¡Pa ti que sí, quillo! Mesa pa tres a las nueve. ¿Nombre y teléfono, arma?
-U: Recomiéndame algo con fino. C: Ole corazón, las gambitas al ajillo con fino En Rama son un escándalo. Las tortillitas también van de lujo. ¿Te lo pongo?`;
+U: Recomiéndame algo con fino. C: Ole corazón, las gambitas al ajillo con fino En Rama son un escándalo. Las tortillitas también van de lujo. ¿Te lo pongo?
+${duendeContext ? `\n${duendeContext}` : ''}`;
 }
 
 // ── Handler principal ──────────────────────────────────────────────────────
@@ -199,8 +214,27 @@ router.post('/', chatLimiter, async (req: Request, res: Response) => {
     }
 
     // ── Cargar contexto BD y construir el system prompt ────────────────────
-    const ctx          = await loadContexto();
-    const systemPrompt = buildSystemPrompt(ctx, updatedSummary || session.summary);
+    const ctx       = await loadContexto();
+
+    // ── Duende Adaptativo + Memoria del cliente ────────────────────────────
+    const lastUserMsg    = safeMessages.filter(m => m.role === 'user').slice(-1)[0]?.content ?? '';
+    const [userStyle, venueState, memories, familiarity] = await Promise.all([
+      Promise.resolve(detectUserStyle(lastUserMsg)),
+      getVenueState(),
+      getRelevantMemory(sid, lastUserMsg),
+      getCustomerFamiliarity(sid),
+    ]);
+
+    const duendeConfig: DuendeConfig = {
+      andaluzIntensity:    0.80,
+      timeMode:            getTimeMode(),
+      venueState,
+      customerFamiliarity: familiarity,
+      responseBrevity:     userStyle.urgency === 'high' ? 'corto' : 'normal',
+    };
+
+    const duendeContext = buildDuendeContext(userStyle, duendeConfig, memories);
+    const systemPrompt  = buildSystemPrompt(ctx, updatedSummary || session.summary, duendeContext);
 
     // ── Llamada a Claude ───────────────────────────────────────────────────
     const response = await anthropic.messages.create({
@@ -213,6 +247,11 @@ router.post('/', chatLimiter, async (req: Request, res: Response) => {
 
     const text       = response.content[0].type === 'text' ? response.content[0].text : '';
     const tokensUsed = (response.usage?.input_tokens ?? 0) + (response.usage?.output_tokens ?? 0);
+
+    // ── Guardar interacción en memoria (no bloqueante) ─────────────────────
+    void extractTapaMentionedId(text).then(tapaId =>
+      storeInteraction(sid, lastUserMsg, text, tapaId, undefined, venueState),
+    );
 
     // ── Actualizar estado de sesión ────────────────────────────────────────
     sessions.set(sid, {

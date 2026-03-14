@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, X, AlertCircle } from 'lucide-react';
+import { Send, X, AlertCircle, Camera, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
@@ -27,6 +27,16 @@ export default function MaitreChat() {
   const [isLoading,    setIsLoading]    = useState(false);
   const [limitReached, setLimitReached] = useState(false);
   const [error,        setError]        = useState('');
+  const [sessionId,    setSessionId]    = useState<string>('');
+
+  // ── Cámara ─────────────────────────────────────────────────────────────
+  const [isCameraOpen,   setIsCameraOpen]   = useState(false);
+  const [isIdentifying,  setIsIdentifying]  = useState(false);
+  const [cameraError,    setCameraError]    = useState('');
+  const videoRef  = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Scroll automático al último mensaje
@@ -51,13 +61,17 @@ export default function MaitreChat() {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({
-          messages: newMessages.slice(-MAX_MESSAGES).map(({ role, content }) => ({ role, content })),
+          messages:  newMessages.slice(-MAX_MESSAGES).map(({ role, content }) => ({ role, content })),
+          sessionId: sessionId || undefined,
         }),
       });
 
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       const data = await res.json();
+
+      // Persistir el sessionId que devuelve el backend
+      if (data.sessionId && !sessionId) setSessionId(data.sessionId);
 
       const assistantMsg: Message = {
         id:      (Date.now() + 1).toString(),
@@ -66,16 +80,98 @@ export default function MaitreChat() {
       };
 
       setMessages(prev => [...prev, assistantMsg]);
-
-      if (data.limitReached) {
-        setLimitReached(true);
-      }
+      if (data.limitReached) setLimitReached(true);
     } catch {
       setError('El Curro está en la cocina un momento. Inténtalo de nuevo.');
     } finally {
       setIsLoading(false);
     }
-  }, [input, isLoading, limitReached, messages]);
+  }, [input, isLoading, limitReached, messages, sessionId]);
+
+  // ── Cámara: abrir ───────────────────────────────────────────────────────
+  const openCamera = useCallback(async () => {
+    setCameraError('');
+    setIsCameraOpen(true);
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } },
+      });
+      streamRef.current = stream;
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        videoRef.current.play();
+      }
+    } catch {
+      setCameraError('No se ha podido acceder a la cámara. Comprueba los permisos del navegador.');
+    }
+  }, []);
+
+  // ── Cámara: cerrar ──────────────────────────────────────────────────────
+  const closeCamera = useCallback(() => {
+    streamRef.current?.getTracks().forEach(t => t.stop());
+    streamRef.current = null;
+    setIsCameraOpen(false);
+    setCameraError('');
+  }, []);
+
+  // Limpiar stream al desmontar
+  useEffect(() => () => { streamRef.current?.getTracks().forEach(t => t.stop()); }, []);
+
+  // ── Cámara: capturar y enviar ───────────────────────────────────────────
+  const captureAndIdentify = useCallback(async () => {
+    if (!videoRef.current || !canvasRef.current || isIdentifying) return;
+
+    const video  = videoRef.current;
+    const canvas = canvasRef.current;
+    canvas.width  = video.videoWidth  || 640;
+    canvas.height = video.videoHeight || 480;
+    canvas.getContext('2d')?.drawImage(video, 0, 0);
+
+    const base64 = canvas.toDataURL('image/jpeg', 0.75);
+    closeCamera();
+    setIsIdentifying(true);
+
+    // Mensaje de espera en el chat
+    const thinkingMsg: Message = {
+      id:      `cam_${Date.now()}`,
+      role:    'assistant',
+      content: '📸 Déjame ver esa tapa un momentito, miarma…',
+    };
+    setMessages(prev => [...prev, thinkingMsg]);
+
+    try {
+      const res = await fetch('/api/curro/identify', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ image: base64, sessionId: sessionId || undefined }),
+      });
+
+      const data = await res.json();
+      let reply: string;
+
+      if (data.fallback) {
+        reply = data.suggestion || '¡No he podío pillarlo clarito! ¿Me dices tú qué tapa es?';
+      } else if (data.sin_match) {
+        reply = `Eso parece *${data.nombre_detectado}* pero no lo tengo en la carta. ${data.suggestion}`;
+      } else {
+        const vino = data.vino ? ` Marida de lujo con ${data.vino.nombre} (${data.vino.tipo}).` : '';
+        const maridaje = data.maridaje ? ` ${data.maridaje}.` : '';
+        reply = `¡Ole miarma! Eso es **${data.nombre}** — ${data.precio}€. ${data.descripcion}.${maridaje}${vino} ¿Te lo pongo?`;
+      }
+
+      setMessages(prev => [
+        ...prev.filter(m => m.id !== thinkingMsg.id),
+        { id: `cam_resp_${Date.now()}`, role: 'assistant', content: reply },
+      ]);
+    } catch {
+      setMessages(prev => [
+        ...prev.filter(m => m.id !== thinkingMsg.id),
+        { id: `cam_err_${Date.now()}`, role: 'assistant', content: 'Algo se ha liado en la cocina, arma. Inténtalo de nuevo.' },
+      ]);
+    } finally {
+      setIsIdentifying(false);
+    }
+  }, [closeCamera, isIdentifying, sessionId]);
 
   // Indicador de tokens restantes
   const userTurns      = messages.filter(m => m.role === 'user').length;
@@ -238,6 +334,19 @@ export default function MaitreChat() {
                     maxLength={MAX_MSG_CHARS}
                     className="flex-1 px-4 py-2 border-2 border-amber-300 rounded-full focus:outline-none focus:border-amber-600 transition-colors text-sm"
                   />
+                  {/* Botón cámara */}
+                  <button
+                    type="button"
+                    onClick={openCamera}
+                    disabled={isLoading || isIdentifying}
+                    aria-label="Identificar tapa con la cámara"
+                    className="w-11 h-11 bg-amber-100 hover:bg-amber-200 disabled:bg-amber-50 rounded-full flex items-center justify-center transition-colors flex-shrink-0"
+                  >
+                    {isIdentifying
+                      ? <Loader2 className="w-5 h-5 text-amber-600 animate-spin" />
+                      : <Camera  className="w-5 h-5 text-amber-700" />
+                    }
+                  </button>
                   <button
                     type="submit"
                     disabled={isLoading || !input.trim()}
@@ -249,7 +358,7 @@ export default function MaitreChat() {
               ) : (
                 <button
                   type="button"
-                  onClick={() => { setMessages([WELCOME_MSG]); setLimitReached(false); setInput(''); }}
+                  onClick={() => { setMessages([WELCOME_MSG]); setLimitReached(false); setInput(''); setSessionId(''); }}
                   className="w-full py-2 bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-full text-sm font-semibold transition-colors"
                 >
                   Nueva conversación
@@ -259,6 +368,52 @@ export default function MaitreChat() {
                 <p className="text-xs text-amber-500 mt-1 text-right">{input.length}/{MAX_MSG_CHARS}</p>
               )}
             </form>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── Modal de cámara ────────────────────────────────────────────────── */}
+      <AnimatePresence>
+        {isCameraOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85"
+            onClick={e => { if (e.target === e.currentTarget) closeCamera(); }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1,   opacity: 1 }}
+              exit={{ scale: 0.9,    opacity: 0 }}
+              className="bg-gray-900 border border-amber-700/40 rounded-2xl p-4 flex flex-col gap-3 w-[92vw] max-w-sm"
+            >
+              <div className="flex items-center justify-between">
+                <p className="text-amber-400 font-semibold text-sm">📸 ¿Qué tapa es esa, miarma?</p>
+                <button onClick={closeCamera} aria-label="Cerrar cámara" className="text-white/50 hover:text-white text-xl leading-none">✕</button>
+              </div>
+
+              {cameraError ? (
+                <p className="text-red-400 text-sm text-center py-6">{cameraError}</p>
+              ) : (
+                <div className="rounded-xl overflow-hidden bg-black aspect-video">
+                  <video ref={videoRef} autoPlay playsInline muted className="w-full h-full object-cover" />
+                </div>
+              )}
+
+              <canvas ref={canvasRef} className="hidden" />
+
+              {!cameraError && (
+                <button
+                  onClick={captureAndIdentify}
+                  className="w-full py-3 bg-amber-500 hover:bg-amber-400 text-gray-900 font-bold rounded-full transition-colors text-sm"
+                >
+                  📷 ¡Esto es! Identifica la tapa
+                </button>
+              )}
+
+              <p className="text-center text-white/30 text-xs">Apunta la cámara a tu tapa y dale al botón</p>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
