@@ -1,614 +1,1757 @@
 <!DOCTYPE html>
-<html lang="es-ES" class="no-js">
+<html lang="es-ES">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Meta Tags -->
-  <title>Andaluzzia 🍺 | Cervecería Sevillana con Alma Flamenca</title>
-  <meta name="description" content="Andaluzzia: Cervecería artesanal en Sevilla. Tapas tradicionales, cerveza de grifo y flamenco en vivo. ¡Reserva tu mesa con vistas al Guadalquivir!">
-  <meta name="keywords" content="cervecería sevilla, tapas andaluzas, flamenco en vivo, cerveza artesana, terraza guadalquivir, reservas sevilla">
-  <meta name="author" content="Victor - SystemaV Works">
+
+  <title>Andaluzzia | Bar de Tapas Sevillano · Triana, Sevilla</title>
+  <meta name="description" content="Andaluzzia, el sabor auténtico de Sevilla en Triana. Tapas tradicionales, Cruzcampo de grifo, flamenco en vivo y terraza al Guadalquivir. Reserva tu mesa.">
+  <meta name="keywords" content="bar tapas sevilla, triana sevilla, cruzcampo, tapas sevillanas, restaurante sevilla, flamenco sevilla, pringá, espinacas con garbanzos">
+  <meta name="author" content="Andaluzzia — Calle Betis 45, Triana, Sevilla">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#8B4513">
-  
-  <!-- Open Graph / Facebook -->
+  <meta name="theme-color" content="#7C2D12">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="restaurant">
   <meta property="og:url" content="https://andaluzzia.es/">
-  <meta property="og:title" content="Andaluzzia 🍺 | Cervecería Sevillana con Alma Flamenca">
-  <meta property="og:description" content="Tapas tradicionales, cerveza artesana y flamenco bajo el cielo de Sevilla.">
-  <meta property="og:image" content="https://andaluzzia.es/assets/img/og/andaluzzia-hero.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:title" content="Andaluzzia | Bar de Tapas Sevillano · Triana">
+  <meta property="og:description" content="Tapas de siempre, Cruzcampo bien tirada y el mejor ambiente de Triana. ¡Te esperamos!">
+  <meta property="og:image" content="https://andaluzzia.es/images/og-andaluzzia.jpg">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="Andaluzzia">
-  
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://andaluzzia.es/">
-  <meta name="twitter:title" content="Andaluzzia 🍺 | Cervecería Sevillana">
-  <meta name="twitter:description" content="Cerveza artesana, tapas con duende y flamenco en vivo.">
-  <meta name="twitter:image" content="https://andaluzzia.es/assets/img/og/andaluzzia-hero.jpg">
-  
-  <!-- Favicon & Icons -->
-  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/icons/favicon-16x16.png">
-  <link rel="manifest" href="./manifest.json">
-  
-  <!-- Preconnect para rendimiento -->
+  <meta name="twitter:title" content="Andaluzzia | Bar de Tapas Sevillano · Triana">
+  <meta name="twitter:description" content="Tapas de siempre, Cruzcampo bien tirada y el mejor ambiente de Triana.">
+  <meta name="twitter:image" content="https://andaluzzia.es/images/og-andaluzzia.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
+
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Fuentes: Inter + una toque flamenco con 'Dancing Script' para títulos decorativos -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Dancing+Script:wght@600;700&display=swap">
-  
-  <!-- Critical CSS inline para renderizado inmediato -->
-  <style>
-    /* Critical Above-the-Fold Styles */
-    :root{--color-primary:#8B4513;--color-primary-dark:#65300F;--color-secondary:#DAA520;--color-accent:#2E7D32;--color-bg:#121212;--color-bg-elevated:#1E1E1E;--color-text-primary:#FFFFFF;--color-text-secondary:#B0B0B0}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;font-size:16px}
-    body{font-family:'Inter',system-ui,sans-serif;background:var(--color-bg);color:var(--color-text-primary);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
-    .skip-link{position:absolute;top:-100px;left:1rem;background:var(--color-primary);color:white;padding:.75rem 1rem;z-index:1000;transition:top.15s}
-    .skip-link:focus{top:1rem;outline:2px solid var(--color-secondary);outline-offset:2px}
-    .header{position:sticky;top:0;z-index:500;background:rgba(30,30,30,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1);padding:.75rem 0}
-    .header__container{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 1rem}
-    .header__logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:inherit}
-    .header__logo-img{height:40px;width:auto}
-    .header__logo-text{font-family:'Dancing Script',cursive;font-size:1.5rem;font-weight:700;color:var(--color-secondary)}
-    .nav-toggle{display:none;background:none;border:none;padding:.5rem;cursor:pointer}
-    .hamburger{display:block;width:24px;height:2px;background:var(--color-text-primary);position:relative}
-    .hamburger::before,.hamburger::after{content:'';position:absolute;width:24px;height:2px;background:var(--color-text-primary);left:0}
-    .hamburger::before{top:-8px}.hamburger::after{top:8px}
-    .nav{display:flex;gap:1rem;align-items:center}
-    .nav__list{display:flex;gap:1rem;list-style:none}
-    .nav__link{display:block;padding:.5rem 1rem;font-weight:500;color:var(--color-text-secondary);border-radius:4px;transition:all.2s}
-    .nav__link:hover,.nav__link--active{color:var(--color-secondary);background:rgba(218,165,32,.1)}
-    .nav__link--cta{background:var(--color-primary);color:white}
-    .nav__link--cta:hover{background:var(--color-primary-dark)}
-    .hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 1rem;background:linear-gradient(135deg,var(--color-primary-dark) 0%,#1a1a2e 50%,var(--color-bg) 100%);overflow:hidden}
-    .hero__pattern{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23DAA520' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");background-size:60px 60px;animation:patternMove 20s linear infinite}
-    @keyframes patternMove{0%{background-position:0 0}100%{background-position:60px 60px}}
-    .hero__content{position:relative;z-index:1;max-width:800px}
-    .hero__badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(218,165,32,.2);color:var(--color-secondary);padding:.5rem 1rem;border-radius:9999px;font-size:.875rem;font-weight:500;margin-bottom:1.5rem;border:1px solid var(--color-secondary)}
-    .hero__badge-icon{font-size:1.25rem}
-    .hero__title{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem;letter-spacing:-.025em}
-    .hero__title-accent{color:var(--color-secondary);font-family:'Dancing Script',cursive;display:block;font-size:clamp(3rem,6vw,5.5rem)}
-    .hero__subtitle{font-size:clamp(1.125rem,2vw,1.5rem);color:var(--color-text-secondary);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
-    .hero__actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:3rem}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.5rem;font-weight:600;border-radius:8px;cursor:pointer;transition:all.2s;border:2px solid transparent;text-decoration:none;font-size:1rem}
-    .btn--primary{background:var(--color-primary);color:white}
-    .btn--primary:hover{background:var(--color-primary-dark);transform:translateY(-2px);box-shadow:0 10px 25px rgba(139,69,19,.4)}
-    .btn--secondary{background:transparent;color:var(--color-secondary);border-color:var(--color-secondary)}
-    .btn--secondary:hover{background:var(--color-secondary);color:#121212}
-    .btn--ghost{background:rgba(255,255,255,.1);color:white}
-    .btn--ghost:hover{background:rgba(255,255,255,.2)}
-    .btn--lg{padding:1rem 2rem;font-size:1.125rem}
-    .hero__scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--color-text-secondary);animation:bounce 2s infinite}
-    @keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-10px)}60%{transform:translateX(-50%) translateY(-5px)}}
-    .hero__scroll-icon{width:24px;height:24px;border:2px solid currentColor;border-radius:50%;border-top-color:transparent;animation:spin 2s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .section{padding:5rem 1rem}
-    .section__header{text-align:center;margin-bottom:3rem}
-    .section__title{font-size:clamp(1.75rem,3vw,2.5rem);font-weight:700;margin-bottom:1rem}
-    .section__subtitle{color:var(--color-text-secondary);max-width:600px;margin:0 auto}
-    .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2rem 0;color:var(--color-secondary)}
-    .divider__line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--color-secondary),transparent)}
-    .divider__icon{font-size:1.5rem}
-    .features{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));max-width:1200px;margin:0 auto}
-    .feature-card{background:var(--color-bg-elevated);border-radius:16px;padding:2rem;border:1px solid rgba(255,255,255,.1);transition:transform.3s,box-shadow.3s}
-    .feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
-    .feature-card__icon{font-size:3rem;margin-bottom:1rem}
-    .feature-card__title{font-size:1.25rem;font-weight:600;margin-bottom:.5rem}
-    .feature-card__text{color:var(--color-text-secondary);font-size:.95rem}
-    .tapas-showcase{background:linear-gradient(135deg,var(--color-bg-elevated),var(--color-bg));position:relative;overflow:hidden}
-    .tapas-showcase::before{content:'';position:absolute;top:-50%;right:-50%;width:100%;height:100%;background:radial-gradient(circle,rgba(218,165,32,.1) 0%,transparent 70%);pointer-events:none}
-    .tapas-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:1200px;margin:0 auto}
-    .tapa-card{display:flex;gap:1rem;background:rgba(255,255,255,.03);border-radius:12px;padding:1rem;border:1px solid rgba(255,255,255,.05);transition:background.2s}
-    .tapa-card:hover{background:rgba(255,255,255,.06)}
-    .tapa-card__img{width:80px;height:80px;border-radius:8px;object-fit:cover;flex-shrink:0;background:linear-gradient(135deg,var(--color-primary),var(--color-secondary))}
-    .tapa-card__content{flex:1}
-    .tapa-card__title{font-weight:600;margin-bottom:.25rem}
-    .tapa-card__desc{color:var(--color-text-secondary);font-size:.875rem;margin-bottom:.5rem}
-    .tapa-card__price{color:var(--color-secondary);font-weight:700;font-size:1.125rem}
-    .flamenco-section{position:relative;background:url('./assets/img/flamenco-bg.jpg') center/cover no-repeat fixed}
-    .flamenco-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(18,18,18,.95),rgba(139,69,19,.85))}
-    .flamenco-content{position:relative;z-index:1;text-align:center;color:white;max-width:800px;margin:0 auto}
-    .flamenco-content__title{font-family:'Dancing Script',cursive;font-size:clamp(2.5rem,4vw,4rem);margin-bottom:1rem}
-    .flamenco-content__text{font-size:1.125rem;margin-bottom:2rem;opacity:.9}
-    .event-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(218,165,32,.3);padding:.5rem 1rem;border-radius:9999px;font-size:.875rem;margin-bottom:1.5rem}
-    .testimonials{background:var(--color-bg-elevated)}
-    .testimonial-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));max-width:1200px;margin:0 auto}
-    .testimonial-card{background:var(--color-bg);border-radius:16px;padding:2rem;border-left:4px solid var(--color-secondary)}
-    .testimonial-card__quote{font-size:1.5rem;margin-bottom:1rem;font-style:italic}
-    .testimonial-card__author{display:flex;align-items:center;gap:1rem}
-    .testimonial-card__avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),var(--color-secondary))}
-    .testimonial-card__name{font-weight:600}
-    .testimonial-card__meta{color:var(--color-text-secondary);font-size:.875rem}
-    .cta-section{background:linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));text-align:center;padding:4rem 1rem}
-    .cta-section__title{font-size:clamp(1.75rem,3vw,2.5rem);font-weight:700;margin-bottom:1rem}
-    .cta-section__text{color:rgba(255,255,255,.9);max-width:600px;margin:0 auto 2rem}
-    .footer{background:var(--color-bg-elevated);border-top:1px solid rgba(255,255,255,.1);padding:3rem 1rem 1rem;margin-top:auto}
-    .footer__grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:1200px;margin:0 auto 2rem}
-    .footer__brand{display:flex;flex-direction:column;gap:1rem}
-    .footer__logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:inherit}
-    .footer__logo-text{font-family:'Dancing Script',cursive;font-size:1.5rem;font-weight:700;color:var(--color-secondary)}
-    .footer__tagline{color:var(--color-text-secondary);font-size:.9rem}
-    .footer__social{display:flex;gap:.75rem}
-    .social-link{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);border-radius:50%;color:white;transition:background.2s}
-    .social-link:hover{background:var(--color-secondary);color:#121212}
-    .footer__heading{font-weight:600;margin-bottom:1rem;color:var(--color-text-primary)}
-    .footer__list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-    .footer__list a{color:var(--color-text-secondary);text-decoration:none;transition:color.2s}
-    .footer__list a:hover{color:var(--color-secondary)}
-    .footer__address{font-style:normal;color:var(--color-text-secondary);font-size:.9rem;line-height:1.8}
-    .footer__address a{color:var(--color-text-primary)}
-    .footer__bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);font-size:.875rem;color:var(--color-text-secondary);max-width:1200px;margin:0 auto}
-    .footer__legal{display:flex;gap:1.5rem;flex-wrap:wrap}
-    .footer__legal a{color:var(--color-text-secondary);text-decoration:none}
-    .footer__legal a:hover{color:var(--color-text-primary)}
-    .cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--color-bg-elevated);border-top:1px solid rgba(255,255,255,.1);padding:1rem;z-index:900;animation:slideUp.3s ease}
-    @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-    .cookie-banner__content{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
-    .cookie-banner__content p{flex:1;min-width:280px;font-size:.9rem;color:var(--color-text-secondary)}
-    .cookie-banner__content a{color:var(--color-secondary)}
-    .cookie-banner__actions{display:flex;gap:.5rem}
-    .toast{position:fixed;bottom:1.5rem;right:1.5rem;padding:.75rem 1.25rem;border-radius:8px;font-weight:500;z-index:1000;animation:slideInRight.3s ease;box-shadow:0 10px 25px rgba(0,0,0,.5)}
-    .toast--success{background:var(--color-accent);color:white}
-    .toast--error{background:var(--color-error);color:white}
-    @keyframes slideInRight{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
-    @media(max-width:768px){.nav-toggle{display:block}.nav{position:fixed;top:64px;left:0;right:0;background:var(--color-bg-elevated);border-bottom:1px solid rgba(255,255,255,.1);padding:1rem;transform:translateY(-150%);transition:transform.3s;z-index:400}.nav[aria-expanded="true"]{transform:translateY(0)}.nav__list{flex-direction:column;align-items:flex-start}.nav__link{padding:.75rem 1rem;width:100%}.hero__actions{flex-direction:column;align-items:center}.footer__grid{grid-template-columns:1fr;text-align:center}.footer__social{justify-content:center}.footer__bottom{flex-direction:column;text-align:center}.footer__legal{justify-content:center}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-  </style>
-  
-  <!-- Estilos principales (cargados asíncronamente) -->
-  <link rel="stylesheet" href="./assets/css/variables.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="./assets/css/main.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="./assets/css/variables.css"><link rel="stylesheet" href="./assets/css/main.css"></noscript>
-  
-  <!-- Schema.org para Restaurant -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap">
+
+  <!-- Schema.org Restaurant -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BarOrPub",
     "name": "Andaluzzia",
-    "image": "https://andaluzzia.es/assets/img/og/andaluzzia-hero.jpg",
+    "image": "https://andaluzzia.es/images/og-andaluzzia.jpg",
     "telephone": "+34954000000",
     "priceRange": "€€",
-    "servesCuisine": "Española, Tapas, Cerveza Artesana",
+    "servesCuisine": ["Española", "Tapas", "Andaluza"],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Calle Betis, 42",
+      "streetAddress": "Calle Betis, 45",
       "addressLocality": "Sevilla",
       "postalCode": "41010",
       "addressCountry": "ES"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 37.3834,
-      "longitude": -6.0021
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "12:00",
-      "closes": "02:00"
-    },
-    "hasMenu": "https://andaluzzia.es/carta/",
-    "acceptsReservations": "True",
-    "amenityFeature": [
-      {"@type": "LocationFeature", "name": "Terraza con vistas al Guadalquivir"},
-      {"@type": "LocationFeature", "name": "Flamenco en vivo los viernes"},
-      {"@type": "LocationFeature", "name": "Cerveza artesana de grifo"},
-      {"@type": "LocationFeature", "name": "Acceso para sillas de ruedas"}
-    ]
+    "geo": { "@type": "GeoCoordinates", "latitude": 37.3826, "longitude": -6.0024 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "12:00", "closes": "00:00" }
+    ],
+    "hasMenu": "https://andaluzzia.es/#carta",
+    "acceptsReservations": "True"
   }
   </script>
+
+  <style>
+    /* =========================================================
+       VARIABLES & RESET
+    ========================================================= */
+    :root {
+      --c-siena:       #7C2D12;
+      --c-siena-dark:  #4E1809;
+      --c-siena-light: #9A3412;
+      --c-oro:         #D97706;
+      --c-oro-light:   #F59E0B;
+      --c-crema:       #FEF3C7;
+      --c-crema-dark:  #FDE68A;
+      --c-blanco:      #FFFBF5;
+      --c-negro:       #1A0A00;
+      --c-gris:        #78716C;
+      --c-gris-light:  #D6D3D1;
+      --font-serif:    'Playfair Display', Georgia, serif;
+      --font-sans:     'Inter', system-ui, sans-serif;
+      --font-script:   'Dancing Script', cursive;
+      --shadow-sm:     0 2px 8px rgba(0,0,0,.12);
+      --shadow-md:     0 8px 32px rgba(0,0,0,.18);
+      --shadow-lg:     0 20px 60px rgba(0,0,0,.25);
+      --radius:        12px;
+      --radius-lg:     20px;
+      --transition:    all .3s cubic-bezier(.4,0,.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--c-blanco);
+      color: var(--c-negro);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    /* =========================================================
+       SKIP LINK
+    ========================================================= */
+    .skip { position: absolute; top: -100px; left: 1rem; background: var(--c-siena); color: #fff; padding: .6rem 1.2rem; border-radius: 0 0 8px 8px; z-index: 9999; transition: top .2s; }
+    .skip:focus { top: 0; }
+
+    /* =========================================================
+       AZULEJO PATTERN (SVG inline)
+    ========================================================= */
+    .azulejo {
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D97706' stroke-opacity='.18' stroke-width='1'%3E%3Cpath d='M0 0h80v80H0z'/%3E%3Cpath d='M40 0v80M0 40h80'/%3E%3Ccircle cx='40' cy='40' r='18'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='80' cy='0' r='10'/%3E%3Ccircle cx='0' cy='80' r='10'/%3E%3Ccircle cx='80' cy='80' r='10'/%3E%3Cpath d='M22 22l36 36M58 22L22 58'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 80px 80px;
+    }
+    .azulejo-light {
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%237C2D12' stroke-opacity='.08' stroke-width='1'%3E%3Cpath d='M0 0h80v80H0z'/%3E%3Cpath d='M40 0v80M0 40h80'/%3E%3Ccircle cx='40' cy='40' r='18'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='80' cy='0' r='10'/%3E%3Ccircle cx='0' cy='80' r='10'/%3E%3Ccircle cx='80' cy='80' r='10'/%3E%3Cpath d='M22 22l36 36M58 22L22 58'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 80px 80px;
+    }
+
+    /* =========================================================
+       HEADER / NAV
+    ========================================================= */
+    .header {
+      position: sticky; top: 0; z-index: 800;
+      background: rgba(255,251,245,.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(124,45,18,.12);
+      transition: var(--transition);
+    }
+    .header.scrolled {
+      box-shadow: 0 4px 24px rgba(124,45,18,.15);
+    }
+    .header__inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: .9rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .header__logo {
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .header__logo-icon {
+      width: 42px; height: 42px;
+      background: var(--c-siena);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .header__logo-text {
+      font-family: var(--font-script);
+      font-size: 1.7rem;
+      color: var(--c-siena);
+      line-height: 1;
+    }
+    .nav__list {
+      list-style: none;
+      display: flex; align-items: center; gap: .25rem;
+    }
+    .nav__link {
+      display: block; padding: .5rem .9rem;
+      font-size: .92rem; font-weight: 500;
+      color: var(--c-gris);
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+    .nav__link:hover, .nav__link.active {
+      color: var(--c-siena);
+      background: rgba(124,45,18,.07);
+    }
+    .nav__link--reservar {
+      background: var(--c-siena);
+      color: #fff !important;
+      padding: .5rem 1.25rem;
+    }
+    .nav__link--reservar:hover {
+      background: var(--c-siena-dark) !important;
+      color: #fff !important;
+    }
+    .nav-toggle {
+      display: none; width: 40px; height: 40px;
+      flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      border-radius: 8px; transition: var(--transition);
+    }
+    .nav-toggle:hover { background: rgba(124,45,18,.07); }
+    .nav-toggle span {
+      display: block; width: 22px; height: 2px;
+      background: var(--c-siena); border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, var(--c-siena-dark) 0%, #3D0D00 40%, #1A0A00 100%);
+      overflow: hidden;
+    }
+    .hero__azulejo {
+      position: absolute; inset: 0;
+      opacity: .06;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D97706' stroke-opacity='1' stroke-width='1'%3E%3Cpath d='M0 0h80v80H0z'/%3E%3Cpath d='M40 0v80M0 40h80'/%3E%3Ccircle cx='40' cy='40' r='18'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='80' cy='0' r='10'/%3E%3Ccircle cx='0' cy='80' r='10'/%3E%3Ccircle cx='80' cy='80' r='10'/%3E%3Cpath d='M22 22l36 36M58 22L22 58'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 80px 80px;
+      animation: patternDrift 30s linear infinite;
+    }
+    @keyframes patternDrift {
+      from { background-position: 0 0; }
+      to   { background-position: 80px 80px; }
+    }
+    .hero__glow {
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(217,119,6,.18) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+    .hero__content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 2rem 1.5rem;
+      max-width: 860px;
+      animation: fadeUp .9s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero__badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(217,119,6,.2);
+      border: 1px solid rgba(217,119,6,.4);
+      color: var(--c-oro-light);
+      padding: .4rem 1rem;
+      border-radius: 9999px;
+      font-size: .82rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .hero__title em {
+      font-style: italic;
+      color: var(--c-oro-light);
+      display: block;
+    }
+    .hero__sub {
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      color: rgba(255,255,255,.7);
+      max-width: 580px; margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+    .hero__ctas {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+      margin-bottom: 4rem;
+    }
+    .hero__stats {
+      display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center;
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 2rem;
+    }
+    .hero__stat { text-align: center; }
+    .hero__stat-num {
+      font-family: var(--font-serif);
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--c-oro-light); line-height: 1;
+    }
+    .hero__stat-lbl {
+      font-size: .8rem; color: rgba(255,255,255,.55);
+      text-transform: uppercase; letter-spacing: .08em; margin-top: .3rem;
+    }
+    .hero__scroll {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      color: rgba(255,255,255,.4); font-size: .75rem;
+      animation: bobble 2.5s ease-in-out infinite;
+    }
+    @keyframes bobble {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+    .hero__scroll svg { width: 24px; height: 24px; }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .85rem 1.8rem;
+      font-size: 1rem; font-weight: 600;
+      border-radius: 10px; border: 2px solid transparent;
+      transition: var(--transition); white-space: nowrap;
+    }
+    .btn--primary {
+      background: var(--c-oro);
+      color: var(--c-negro);
+    }
+    .btn--primary:hover {
+      background: var(--c-oro-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(217,119,6,.4);
+    }
+    .btn--outline {
+      background: transparent;
+      border-color: rgba(255,255,255,.5);
+      color: #fff;
+    }
+    .btn--outline:hover {
+      background: rgba(255,255,255,.1);
+      border-color: #fff;
+    }
+    .btn--siena {
+      background: var(--c-siena);
+      color: #fff;
+    }
+    .btn--siena:hover {
+      background: var(--c-siena-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(124,45,18,.35);
+    }
+    .btn--ghost {
+      background: rgba(124,45,18,.08);
+      color: var(--c-siena);
+      border-color: rgba(124,45,18,.2);
+    }
+    .btn--ghost:hover {
+      background: rgba(124,45,18,.14);
+    }
+    .btn--lg { padding: 1rem 2.2rem; font-size: 1.05rem; }
+
+    /* =========================================================
+       SECTION COMMONS
+    ========================================================= */
+    .section { padding: 6rem 1.5rem; }
+    .section--alt { background: var(--c-crema); }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: .78rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--c-siena);
+      margin-bottom: .8rem;
+    }
+    .section-eyebrow::before { content: '— '; }
+    .section-eyebrow::after  { content: ' —'; }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--c-negro);
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.05rem; color: var(--c-gris);
+      max-width: 560px;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-header--center { text-align: center; }
+    .section-header--center .section-subtitle { margin: 0 auto; }
+    .ornament {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 1.5rem 0;
+      color: var(--c-oro);
+    }
+    .ornament__line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--c-oro), transparent);
+    }
+    .ornament__icon { font-size: 1.4rem; }
+
+    /* =========================================================
+       FEATURES — El duende de Andaluzzia
+    ========================================================= */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: #fff;
+      border: 1px solid rgba(124,45,18,.1);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      transition: var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--c-oro), var(--c-siena));
+      opacity: 0; transition: var(--transition);
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(124,45,18,.2);
+    }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-card__icon {
+      font-size: 2.5rem; margin-bottom: 1rem;
+      display: block;
+    }
+    .feature-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem; font-weight: 700;
+      margin-bottom: .5rem; color: var(--c-negro);
+    }
+    .feature-card__text { font-size: .93rem; color: var(--c-gris); line-height: 1.7; }
+
+    /* =========================================================
+       TAPAS SECTION
+    ========================================================= */
+    .tapas-section {
+      background: var(--c-negro);
+      position: relative; overflow: hidden;
+    }
+    .tapas-section .section-title,
+    .tapas-section .section-eyebrow { color: var(--c-oro-light); }
+    .tapas-section .section-subtitle { color: rgba(255,255,255,.5); }
+    .tapas-section .ornament__line {
+      background: linear-gradient(90deg, transparent, rgba(217,119,6,.5), transparent);
+    }
+    .tapas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.25rem;
+    }
+    .tapa-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .tapa-card:hover {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(217,119,6,.3);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.4);
+    }
+    .tapa-card__img {
+      height: 180px;
+      background: linear-gradient(135deg, var(--c-siena) 0%, var(--c-oro) 100%);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+    }
+    .tapa-card__badges {
+      position: absolute; top: .75rem; left: .75rem;
+      display: flex; flex-wrap: wrap; gap: .4rem;
+    }
+    .tapa-badge {
+      font-size: .68rem; font-weight: 700;
+      padding: .2rem .55rem; border-radius: 9999px;
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    .tapa-badge--hot   { background: #DC2626; color: #fff; }
+    .tapa-badge--chef  { background: var(--c-oro); color: var(--c-negro); }
+    .tapa-badge--dia   { background: #059669; color: #fff; }
+    .tapa-card__body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .tapa-card__cat {
+      font-size: .72rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--c-oro); margin-bottom: .4rem;
+    }
+    .tapa-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem; font-weight: 700;
+      color: #fff; margin-bottom: .4rem; line-height: 1.2;
+    }
+    .tapa-card__desc {
+      font-size: .87rem; color: rgba(255,255,255,.5);
+      line-height: 1.6; flex: 1; margin-bottom: 1rem;
+    }
+    .tapa-card__footer {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .tapa-card__price {
+      font-family: var(--font-serif);
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--c-oro-light);
+    }
+    .tapa-card__maridaje {
+      font-size: .75rem; color: rgba(255,255,255,.35);
+      text-align: right; max-width: 140px;
+    }
+    .ver-carta {
+      text-align: center; margin-top: 3rem;
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+    }
+
+    /* =========================================================
+       CRUZCAMPO SECTION
+    ========================================================= */
+    .cruzcampo-section {
+      background: linear-gradient(135deg, #1A3A1A 0%, #0D2B0D 100%);
+      position: relative; overflow: hidden;
+    }
+    .cruzcampo-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='60' cy='60' r='10'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .cruzcampo-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .cruzcampo-text .section-eyebrow { color: #86EFAC; }
+    .cruzcampo-text .section-title { color: #fff; }
+    .cruzcampo-text .section-subtitle { color: rgba(255,255,255,.6); max-width: 460px; }
+    .cruzcampo-features {
+      display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;
+    }
+    .cruzcampo-feature {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+    }
+    .cruzcampo-feature__icon { font-size: 1.6rem; flex-shrink: 0; }
+    .cruzcampo-feature__title { font-weight: 600; color: #fff; font-size: .95rem; }
+    .cruzcampo-feature__text  { font-size: .84rem; color: rgba(255,255,255,.45); margin-top: .2rem; }
+    .cruzcampo-visual {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .beer-glass {
+      width: 200px; height: 320px;
+      position: relative;
+      filter: drop-shadow(0 20px 60px rgba(134,239,172,.2));
+    }
+    .beer-glass svg { width: 100%; height: 100%; }
+
+    /* =========================================================
+       GALERÍA AMBIENTAL
+    ========================================================= */
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 1rem;
+    }
+    .galeria-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background: var(--c-siena);
+      min-height: 200px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .galeria-item:nth-child(1) { grid-column: span 7; grid-row: span 2; min-height: 380px; }
+    .galeria-item:nth-child(2) { grid-column: span 5; min-height: 180px; }
+    .galeria-item:nth-child(3) { grid-column: span 5; min-height: 180px; }
+    .galeria-item:nth-child(4) { grid-column: span 4; }
+    .galeria-item:nth-child(5) { grid-column: span 4; }
+    .galeria-item:nth-child(6) { grid-column: span 4; }
+    .galeria-item__emoji {
+      font-size: 4rem; opacity: .6;
+      transition: var(--transition);
+    }
+    .galeria-item:hover .galeria-item__emoji { transform: scale(1.1); opacity: .9; }
+    .galeria-item__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.7) 0%, transparent 50%);
+      opacity: 0; transition: var(--transition);
+      display: flex; align-items: flex-end;
+      padding: 1.25rem;
+    }
+    .galeria-item:hover .galeria-item__overlay { opacity: 1; }
+    .galeria-item__label {
+      color: #fff; font-weight: 600; font-size: .9rem;
+    }
+    /* Colores distintos para cada foto */
+    .galeria-item:nth-child(1) { background: linear-gradient(135deg, #7C2D12, #4E1809); }
+    .galeria-item:nth-child(2) { background: linear-gradient(135deg, #D97706, #92400E); }
+    .galeria-item:nth-child(3) { background: linear-gradient(135deg, #065F46, #064E3B); }
+    .galeria-item:nth-child(4) { background: linear-gradient(135deg, #1E3A5F, #1E40AF); }
+    .galeria-item:nth-child(5) { background: linear-gradient(135deg, #4A1D96, #6D28D9); }
+    .galeria-item:nth-child(6) { background: linear-gradient(135deg, #7C2D12, #D97706); }
+
+    /* =========================================================
+       FLAMENCO / EVENTOS
+    ========================================================= */
+    .flamenco-section {
+      background: linear-gradient(135deg, #1A0A00 0%, #3D0D00 50%, #7C2D12 100%);
+      position: relative; overflow: hidden;
+    }
+    .flamenco-section .azulejo {
+      position: absolute; inset: 0; opacity: .05;
+    }
+    .flamenco-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .flamenco-text .section-eyebrow { color: var(--c-oro-light); }
+    .flamenco-text .section-title { color: #fff; font-size: clamp(2.2rem, 4vw, 3.5rem); }
+    .flamenco-text p { color: rgba(255,255,255,.65); font-size: 1.05rem; line-height: 1.8; }
+    .eventos-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .evento-item {
+      display: flex; gap: 1.25rem; align-items: center;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      transition: var(--transition);
+    }
+    .evento-item:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(217,119,6,.4);
+    }
+    .evento-item__day {
+      width: 52px; height: 52px; flex-shrink: 0;
+      background: var(--c-oro);
+      border-radius: 10px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .evento-item__day-num {
+      font-family: var(--font-serif);
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--c-negro); line-height: 1;
+    }
+    .evento-item__day-mon {
+      font-size: .65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      color: var(--c-negro); opacity: .7;
+    }
+    .evento-item__title { font-weight: 600; color: #fff; font-size: .97rem; }
+    .evento-item__meta  { font-size: .82rem; color: rgba(255,255,255,.4); margin-top: .2rem; }
+    .flamenco-visual {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .flamenco-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(217,119,6,.25);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    .flamenco-emoji { font-size: 6rem; display: block; margin-bottom: 1rem; }
+    .flamenco-card__title {
+      font-family: var(--font-script);
+      font-size: 2rem; color: var(--c-oro-light);
+      margin-bottom: .5rem;
+    }
+    .flamenco-card__subtitle { color: rgba(255,255,255,.5); font-size: .9rem; }
+
+    /* =========================================================
+       TESTIMONIOS
+    ========================================================= */
+    .testimonios-section { background: var(--c-crema); position: relative; }
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .testimonio-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(124,45,18,.08);
+      transition: var(--transition);
+    }
+    .testimonio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .testimonio-stars { color: var(--c-oro); font-size: 1rem; margin-bottom: 1rem; }
+    .testimonio-quote {
+      font-family: var(--font-serif);
+      font-size: 1.05rem; font-style: italic;
+      color: var(--c-negro); line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .testimonio-quote::before { content: '"'; color: var(--c-oro); font-size: 1.5rem; }
+    .testimonio-quote::after  { content: '"'; color: var(--c-oro); font-size: 1.5rem; }
+    .testimonio-author { display: flex; align-items: center; gap: .85rem; }
+    .testimonio-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--c-siena), var(--c-oro));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem; color: #fff;
+      flex-shrink: 0;
+    }
+    .testimonio-name  { font-weight: 600; font-size: .95rem; }
+    .testimonio-meta  { font-size: .8rem; color: var(--c-gris); }
+    .rating-summary {
+      display: flex; align-items: center; gap: 2rem;
+      background: var(--c-siena);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .rating-big {
+      font-family: var(--font-serif);
+      font-size: 4rem; font-weight: 900;
+      color: var(--c-oro-light); line-height: 1;
+    }
+    .rating-details { color: rgba(255,255,255,.7); }
+    .rating-stars-big { font-size: 1.4rem; color: var(--c-oro); margin-bottom: .3rem; }
+    .rating-count { font-size: .85rem; }
+
+    /* =========================================================
+       HORARIO & UBICACIÓN
+    ========================================================= */
+    .info-section {
+      background: var(--c-negro); position: relative;
+    }
+    .info-section .azulejo {
+      position: absolute; inset: 0; opacity: .04;
+    }
+    .info-grid {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: start;
+    }
+    .info-box {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+    .info-box__title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--c-oro-light); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .horario-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .horario-item { display: flex; justify-content: space-between; align-items: center; }
+    .horario-day  { font-weight: 500; color: rgba(255,255,255,.7); font-size: .93rem; }
+    .horario-hours{ color: var(--c-oro-light); font-weight: 600; font-size: .93rem; }
+    .horario-item--closed .horario-day,
+    .horario-item--closed .horario-hours { color: rgba(255,255,255,.3); }
+    .horario-divider {
+      border: none; border-top: 1px solid rgba(255,255,255,.07);
+      margin: .8rem 0;
+    }
+    .contacto-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .contacto-item { display: flex; gap: 1rem; align-items: center; }
+    .contacto-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(217,119,6,.15);
+      border: 1px solid rgba(217,119,6,.25);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .contacto-label { font-size: .78rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .08em; }
+    .contacto-value { font-size: .95rem; color: #fff; font-weight: 500; }
+    .contacto-value a { color: var(--c-oro-light); }
+    .map-embed {
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 200px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1.5rem;
+      font-size: .9rem; color: rgba(255,255,255,.3);
+      cursor: pointer; transition: var(--transition);
+    }
+    .map-embed:hover { border-color: var(--c-oro); color: var(--c-oro); }
+
+    /* =========================================================
+       CTA RESERVAS
+    ========================================================= */
+    .cta-section {
+      background: linear-gradient(135deg, var(--c-siena) 0%, var(--c-siena-dark) 100%);
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .cta-section .azulejo {
+      position: absolute; inset: 0; opacity: .08;
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .cta-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700; color: #fff;
+      margin-bottom: 1rem;
+    }
+    .cta-sub { font-size: 1.05rem; color: rgba(255,255,255,.7); margin-bottom: 2.5rem; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .footer {
+      background: #0D0500;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer__top {
+      max-width: 1280px; margin: 0 auto;
+      padding: 4rem 1.5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer__brand-logo {
+      font-family: var(--font-script);
+      font-size: 2rem; color: var(--c-oro-light);
+      margin-bottom: .75rem;
+    }
+    .footer__brand-text { font-size: .88rem; color: rgba(255,255,255,.4); line-height: 1.7; max-width: 280px; }
+    .footer__social { display: flex; gap: .6rem; margin-top: 1.5rem; }
+    .footer__social-link {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: rgba(255,255,255,.5);
+      transition: var(--transition);
+    }
+    .footer__social-link:hover {
+      background: var(--c-oro);
+      border-color: var(--c-oro);
+      color: var(--c-negro);
+    }
+    .footer__heading {
+      font-size: .8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 1.25rem;
+    }
+    .footer__links { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .footer__links a {
+      font-size: .9rem; color: rgba(255,255,255,.55);
+      transition: var(--transition);
+    }
+    .footer__links a:hover { color: var(--c-oro-light); }
+    .footer__bottom {
+      max-width: 1280px; margin: 0 auto;
+      padding: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.05);
+      display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: space-between; gap: 1rem;
+      font-size: .82rem; color: rgba(255,255,255,.3);
+    }
+    .footer__legal { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer__legal a { color: rgba(255,255,255,.3); transition: var(--transition); }
+    .footer__legal a:hover { color: rgba(255,255,255,.7); }
+
+    /* =========================================================
+       COOKIE BANNER
+    ========================================================= */
+    .cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(13,5,0,.97);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(217,119,6,.25);
+      padding: 1.25rem 1.5rem;
+      z-index: 990;
+      animation: slideUpIn .4s ease;
+    }
+    @keyframes slideUpIn {
+      from { transform: translateY(100%); }
+      to   { transform: translateY(0); }
+    }
+    .cookie-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .cookie-text { font-size: .88rem; color: rgba(255,255,255,.6); flex: 1; min-width: 260px; }
+    .cookie-text a { color: var(--c-oro-light); }
+    .cookie-actions { display: flex; gap: .75rem; }
+    .cookie-btn {
+      padding: .55rem 1.2rem; border-radius: 8px;
+      font-size: .88rem; font-weight: 600;
+      transition: var(--transition);
+    }
+    .cookie-btn--accept { background: var(--c-oro); color: var(--c-negro); }
+    .cookie-btn--accept:hover { background: var(--c-oro-light); }
+    .cookie-btn--reject {
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.6);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .cookie-btn--reject:hover { background: rgba(255,255,255,.14); }
+
+    /* =========================================================
+       TOAST
+    ========================================================= */
+    .toast {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: #1A3A1A; color: #86EFAC;
+      border: 1px solid #166534;
+      padding: .85rem 1.4rem;
+      border-radius: 10px; font-weight: 600; font-size: .9rem;
+      box-shadow: var(--shadow-md);
+      z-index: 1000;
+      animation: toastIn .3s ease;
+    }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* =========================================================
+       DIVIDER DECORATIVO
+    ========================================================= */
+    .wave-divider { line-height: 0; overflow: hidden; }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (max-width: 1024px) {
+      .cruzcampo-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .cruzcampo-visual { display: none; }
+      .flamenco-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .info-grid { grid-template-columns: 1fr; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 4rem 1.25rem; }
+      .nav__list { display: none; }
+      .nav-toggle { display: flex; }
+      .nav__list.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 65px; left: 0; right: 0;
+        background: rgba(255,251,245,.98);
+        backdrop-filter: blur(16px);
+        padding: 1rem 1.5rem 2rem;
+        border-bottom: 1px solid rgba(124,45,18,.12);
+        gap: .25rem;
+        z-index: 799;
+        animation: menuSlide .2s ease;
+      }
+      @keyframes menuSlide {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .nav__link { padding: .75rem 1rem; }
+      .hero__stats { gap: 1.5rem; }
+      .galeria-grid { grid-template-columns: 1fr 1fr; }
+      .galeria-item { grid-column: auto !important; grid-row: auto !important; min-height: 160px !important; }
+      .footer__top { grid-template-columns: 1fr; gap: 2rem; }
+      .rating-summary { flex-direction: column; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Skip link para accesibilidad -->
-  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <a href="#main" class="skip">Saltar al contenido</a>
 
-  <!-- Header con navegación -->
-  <header class="header" role="banner">
-    <div class="header__container">
-      <a href="./" class="header__logo" aria-label="Andaluzzia - Inicio">
-        <span class="header__logo-text" aria-hidden="true">🍺 Andaluzzia</span>
+  <!-- ═══════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════ -->
+  <header class="header" id="header" role="banner">
+    <div class="header__inner">
+      <a href="/" class="header__logo" aria-label="Andaluzzia — Inicio">
+        <div class="header__logo-icon" aria-hidden="true">🍺</div>
+        <span class="header__logo-text">Andaluzzia</span>
       </a>
-      
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-primary" aria-label="Abrir menú">
-        <span class="hamburger"></span>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="Abrir menú de navegación">
+        <span></span><span></span><span></span>
       </button>
-      
-      <nav id="nav-primary" class="nav" role="navigation" aria-label="Menú principal">
-        <ul class="nav__list">
-          <li><a href="./" class="nav__link nav__link--active">Inicio</a></li>
-          <li><a href="./carta/" class="nav__link">Carta</a></li>
-          <li><a href="#eventos" class="nav__link">Eventos</a></li>
-          <li><a href="#reservas" class="nav__link nav__link--cta">Reservar</a></li>
-          <li><a href="#contacto" class="nav__link">Contacto</a></li>
+
+      <nav role="navigation" aria-label="Menú principal">
+        <ul class="nav__list" id="nav-list" role="list">
+          <li><a href="#features"   class="nav__link">El Local</a></li>
+          <li><a href="#carta"      class="nav__link">Carta</a></li>
+          <li><a href="#flamenco"   class="nav__link">Eventos</a></li>
+          <li><a href="#contacto"   class="nav__link">Contacto</a></li>
+          <li><a href="#reservas"   class="nav__link nav__link--reservar">Reservar mesa</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Contenido principal -->
-  <main id="main-content" role="main">
-    
-    <!-- Hero Section - El corazón de Andaluzzia -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__pattern" aria-hidden="true"></div>
-      <div class="hero__content">
-        <span class="hero__badge">
-          <span class="hero__badge-icon" aria-hidden="true">✨</span>
-          Desde 1995 en el corazón de Sevilla
-        </span>
-        
-        <h1 id="hero-title" class="hero__title">
-          Cerveza con <span class="hero__title-accent">duende</span><br>
-          y tapas con <span class="hero__title-accent">alma</span>
-        </h1>
-        
-        <p class="hero__subtitle">
-          En Andaluzzia, cada caña cuenta una historia y cada tapa es un viaje por Andalucía. 
-          Ven a vivir la magia sevillana bajo el cielo del Guadalquivir.
-        </p>
-        
-        <div class="hero__actions">
-          <a href="#reservas" class="btn btn--primary btn--lg">
-            <span aria-hidden="true">📅</span>
-            Reservar mesa
-          </a>
-          <a href="./carta/" class="btn btn--secondary btn--lg">
-            <span aria-hidden="true">🍽️</span>
-            Ver carta
-          </a>
-          <button class="btn btn--ghost" id="hero-video-toggle" aria-expanded="false">
-            <span aria-hidden="true">▶️</span>
-            Ver Andaluzzia
-          </button>
-        </div>
-        
-        <!-- Indicador de scroll -->
-        <a href="#features" class="hero__scroll" aria-label="Desplazarse al contenido">
-          <span class="hero__scroll-icon" aria-hidden="true"></span>
-          <span style="font-size:.75rem">Explorar</span>
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__azulejo" aria-hidden="true"></div>
+    <div class="hero__glow"    aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <div class="hero__badge" aria-label="Desde 1985 en Triana, Sevilla">
+        <span aria-hidden="true">✦</span> Desde 1985 · Triana, Sevilla
+      </div>
+
+      <h1 id="hero-title" class="hero__title">
+        Tapas con <em>duende</em>
+      </h1>
+
+      <p class="hero__sub">
+        El sabor auténtico de Sevilla en Calle Betis. Pringá, espinacas con garbanzos y
+        Cruzcampo bien tirada desde que Triana era Triana.
+      </p>
+
+      <div class="hero__ctas">
+        <a href="#reservas" class="btn btn--primary btn--lg">
+          <span aria-hidden="true">📅</span> Reservar mesa
+        </a>
+        <a href="#carta" class="btn btn--outline btn--lg">
+          <span aria-hidden="true">🍽️</span> Ver la carta
         </a>
       </div>
-    </section>
 
-    <!-- Sección: Lo que nos hace únicos -->
-    <section id="features" class="section" aria-labelledby="features-title">
-      <header class="section__header">
-        <h2 id="features-title" class="section__title">El duende de Andaluzzia</h2>
-        <p class="section__subtitle">No somos solo una cervecería. Somos un pedacito de Andalucía en cada detalle.</p>
-      </header>
-      
-      <div class="divider">
-        <span class="divider__line" aria-hidden="true"></span>
-        <span class="divider__icon" aria-hidden="true">🎭</span>
-        <span class="divider__line" aria-hidden="true"></span>
+      <div class="hero__stats" role="list">
+        <div class="hero__stat" role="listitem">
+          <div class="hero__stat-num">+40</div>
+          <div class="hero__stat-lbl">Años de historia</div>
+        </div>
+        <div class="hero__stat" role="listitem">
+          <div class="hero__stat-num">32</div>
+          <div class="hero__stat-lbl">Tapas de la carta</div>
+        </div>
+        <div class="hero__stat" role="listitem">
+          <div class="hero__stat-num">4.9</div>
+          <div class="hero__stat-lbl">Valoración Google</div>
+        </div>
+        <div class="hero__stat" role="listitem">
+          <div class="hero__stat-num">18</div>
+          <div class="hero__stat-lbl">Mesas disponibles</div>
+        </div>
       </div>
-      
-      <div class="features">
+    </div>
+
+    <a href="#features" class="hero__scroll" aria-label="Desplazarse hacia abajo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+      <span>Explorar</span>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FEATURES
+  ═══════════════════════════════════════════ -->
+  <section id="features" class="section azulejo-light" aria-labelledby="features-title">
+    <div class="container">
+      <header class="section-header section-header--center">
+        <span class="section-eyebrow">El duende de Andaluzzia</span>
+        <h2 id="features-title" class="section-title">No somos solo un bar.<br>Somos Sevilla.</h2>
+        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon">🌹</span><span class="ornament__line"></span></div>
+        <p class="section-subtitle">
+          Cuatro décadas sirviendo el mejor tapeo de Triana. Cada detalle, cada plato,
+          cada caña lleva el alma de esta ciudad.
+        </p>
+      </header>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🫙</span>
+          <h3 class="feature-card__title">Recetas de siempre</h3>
+          <p class="feature-card__text">Las mismas recetas que usaba la abuela Lola en 1985. Sin fusiones ni extravagancias. Solo sabor sevillano de verdad.</p>
+        </article>
         <article class="feature-card">
           <span class="feature-card__icon" aria-hidden="true">🍺</span>
-          <h3 class="feature-card__title">Cerveza Artesana</h3>
-          <p class="feature-card__text">Elaborada en Sevilla con cebada andaluza y agua del Guadalquivir. Rubia, tostada o IPA, cada estilo con carácter propio.</p>
+          <h3 class="feature-card__title">Cruzcampo de grifo</h3>
+          <p class="feature-card__text">La cerveza sevillana por excelencia, servida a 3°C en vaso frío y con la espuma perfecta. Como manda la tradición de Triana.</p>
         </article>
-        
-        <article class="feature-card">
-          <span class="feature-card__icon" aria-hidden="true">🥘</span>
-          <h3 class="feature-card__title">Tapas con Historia</h3>
-          <p class="feature-card__text">Recetas de abuelas sevillanas, ingredientes de mercado y ese toque secreto que solo se aprende con el tiempo.</p>
-        </article>
-        
         <article class="feature-card">
           <span class="feature-card__icon" aria-hidden="true">💃</span>
-          <h3 class="feature-card__title">Flamenco en Vivo</h3>
-          <p class="feature-card__text">Viernes y sábados, el compás de las palmas y el quejío del cante llenan nuestra terraza. Entradas gratuitas con consumo.</p>
+          <h3 class="feature-card__title">Flamenco en vivo</h3>
+          <p class="feature-card__text">Viernes y sábados, cante y baile auténtico en nuestra terraza. Entradas gratuitas con consumición. Ven con tiempo.</p>
         </article>
-        
         <article class="feature-card">
-          <span class="feature-card__icon" aria-hidden="true">🌅</span>
-          <h3 class="feature-card__title">Vistas al Guadalquivir</h3>
-          <p class="feature-card__text">Nuestra terraza es el mejor mirador de Sevilla. Atardeceres que parecen pintados y brisa que acaricia el alma.</p>
+          <span class="feature-card__icon" aria-hidden="true">🌊</span>
+          <h3 class="feature-card__title">Terraza al Guadalquivir</h3>
+          <p class="feature-card__text">El mejor mirador de Sevilla. Atardeceres imposibles frente al Guadalquivir mientras le das al tapeo. ¿Hace falta más?</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🤵</span>
+          <h3 class="feature-card__title">El Curro te guía</h3>
+          <p class="feature-card__text">Nuestro maitre virtual con IA conoce cada plato, cada horario y cada detalle. Pregúntale lo que sea, arma.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">🏛️</span>
+          <h3 class="feature-card__title">Salón privado</h3>
+          <p class="feature-card__text">Dos salones privados para eventos, cenas de empresa y celebraciones. Hasta 20 personas con decoración exclusiva.</p>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Sección: Tapas Estrella -->
-    <section class="section tapas-showcase" aria-labelledby="tapas-title">
-      <header class="section__header">
-        <h2 id="tapas-title" class="section__title">Tapeo con estilo</h2>
-        <p class="section__subtitle">Nuestros imprescindibles. Pedidos una y otra vez, nunca fallan.</p>
+  <!-- ═══════════════════════════════════════════
+       CARTA DE TAPAS
+  ═══════════════════════════════════════════ -->
+  <section id="carta" class="section tapas-section" aria-labelledby="carta-title">
+    <div class="container">
+      <header class="section-header section-header--center">
+        <span class="section-eyebrow">Nuestra carta</span>
+        <h2 id="carta-title" class="section-title">Lo más pedido</h2>
+        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon">🍽️</span><span class="ornament__line"></span></div>
+        <p class="section-subtitle">Los imprescindibles de Andaluzzia. Pedidos una y otra vez, nunca decepcionan.</p>
       </header>
-      
+
       <div class="tapas-grid">
+
         <article class="tapa-card">
-          <div class="tapa-card__img" role="img" aria-label="Croquetas de jamón ibérico"></div>
-          <div class="tapa-card__content">
-            <h3 class="tapa-card__title">Croquetas de la Abuela</h3>
-            <p class="tapa-card__desc">Bechamel cremosa con jamón 100% ibérico. La receta que nunca cambia.</p>
-            <span class="tapa-card__price">4,50€</span>
+          <div class="tapa-card__img" role="img" aria-label="Espinacas con Garbanzos">
+            <span aria-hidden="true">🥬</span>
+            <div class="tapa-card__badges">
+              <span class="tapa-badge tapa-badge--hot">N.º 1</span>
+              <span class="tapa-badge tapa-badge--chef">El Curro lo pide</span>
+            </div>
+          </div>
+          <div class="tapa-card__body">
+            <div class="tapa-card__cat">Tapas · Verduras</div>
+            <h3 class="tapa-card__title">Espinacas con Garbanzos</h3>
+            <p class="tapa-card__desc">El plato más sevillano que existe. Comino, pimentón de La Vera y un toque de vinagre de Jerez. Receta de la abuela Lola desde 1985.</p>
+            <div class="tapa-card__footer">
+              <span class="tapa-card__price">4,50€</span>
+              <span class="tapa-card__maridaje">🍺 Con Cruzcampo de barril</span>
+            </div>
           </div>
         </article>
-        
+
         <article class="tapa-card">
-          <div class="tapa-card__img" role="img" aria-label="Gambas al ajillo"></div>
-          <div class="tapa-card__content">
+          <div class="tapa-card__img" role="img" aria-label="Pringá de Puchero">
+            <span aria-hidden="true">🥩</span>
+            <div class="tapa-card__badges">
+              <span class="tapa-badge tapa-badge--hot">Imprescindible</span>
+            </div>
+          </div>
+          <div class="tapa-card__body">
+            <div class="tapa-card__cat">Tapas · Montadito</div>
+            <h3 class="tapa-card__title">Pringá de Puchero</h3>
+            <p class="tapa-card__desc">La joya de Triana. Carnes del cocido sevillano desmenuzadas y sofritas sobre pan de telera recién horneado.</p>
+            <div class="tapa-card__footer">
+              <span class="tapa-card__price">3,50€</span>
+              <span class="tapa-card__maridaje">🍺 Cruzcampo — no se discute</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tapa-card">
+          <div class="tapa-card__img" role="img" aria-label="Solomillo al Whisky">
+            <span aria-hidden="true">🥩</span>
+            <div class="tapa-card__badges">
+              <span class="tapa-badge tapa-badge--chef">Estrella de la casa</span>
+            </div>
+          </div>
+          <div class="tapa-card__body">
+            <div class="tapa-card__cat">Tapas · Carnes</div>
+            <h3 class="tapa-card__title">Solomillo al Whisky</h3>
+            <p class="tapa-card__desc">Medallones de solomillo ibérico en salsa de whisky con ajo y pimienta negra. La tapa que triunfa desde los 70.</p>
+            <div class="tapa-card__footer">
+              <span class="tapa-card__price">6,50€</span>
+              <span class="tapa-card__maridaje">🍷 Vino tinto de la tierra</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tapa-card">
+          <div class="tapa-card__img" role="img" aria-label="Gambas al Ajillo">
+            <span aria-hidden="true">🦐</span>
+            <div class="tapa-card__badges">
+              <span class="tapa-badge tapa-badge--hot">Muy pedido</span>
+            </div>
+          </div>
+          <div class="tapa-card__body">
+            <div class="tapa-card__cat">Tapas · Mariscos</div>
             <h3 class="tapa-card__title">Gambas al Ajillo</h3>
-            <p class="tapa-card__desc">Gambas frescas, ajo, guindilla y aceite de oliva. El clásico que enamora.</p>
-            <span class="tapa-card__price">8,90€</span>
+            <p class="tapa-card__desc">Gambas blancas de Huelva en cazuela de barro con ajo laminado, guindilla y perejil. Llegan chisporroteando.</p>
+            <div class="tapa-card__footer">
+              <span class="tapa-card__price">8,50€</span>
+              <span class="tapa-card__maridaje">🥂 Fino en rama o Cruzcampo</span>
+            </div>
           </div>
         </article>
-        
+
         <article class="tapa-card">
-          <div class="tapa-card__img" role="img" aria-label="Salmorejo cordobés"></div>
-          <div class="tapa-card__content">
-            <h3 class="tapa-card__title">Salmorejo con Virutas</h3>
-            <p class="tapa-card__desc">Tomate, pan, ajo y aceite. Coronado con virutas de jamón y huevo duro.</p>
-            <span class="tapa-card__price">6,50€</span>
+          <div class="tapa-card__img" role="img" aria-label="Croquetas de Jamón Ibérico">
+            <span aria-hidden="true">🟤</span>
+            <div class="tapa-card__badges">
+              <span class="tapa-badge tapa-badge--chef">El Curro lo pide</span>
+            </div>
+          </div>
+          <div class="tapa-card__body">
+            <div class="tapa-card__cat">Tapas · Frituras</div>
+            <h3 class="tapa-card__title">Croquetas de Jamón Ibérico</h3>
+            <p class="tapa-card__desc">Bechamel densa con tropezones de jamón ibérico de bellota. Crujientes por fuera, cremosas por dentro. Como las de la Conchi.</p>
+            <div class="tapa-card__footer">
+              <span class="tapa-card__price">5,00€</span>
+              <span class="tapa-card__maridaje">🍺 Cruzcampo de grifo</span>
+            </div>
           </div>
         </article>
-        
+
         <article class="tapa-card">
-          <div class="tapa-card__img" role="img" aria-label="Churros con chocolate"></div>
-          <div class="tapa-card__content">
-            <h3 class="tapa-card__title">Churros con Chocolate</h3>
-            <p class="tapa-card__desc">Recién hechos, crujientes por fuera, suaves por dentro. Chocolate a la taza espeso.</p>
-            <span class="tapa-card__price">3,90€</span>
+          <div class="tapa-card__img" role="img" aria-label="Plato del Día: Cocido Sevillano">
+            <span aria-hidden="true">🍲</span>
+            <div class="tapa-card__badges">
+              <span class="tapa-badge tapa-badge--dia">Plato del día</span>
+            </div>
+          </div>
+          <div class="tapa-card__body">
+            <div class="tapa-card__cat">Especiales · Solo Mar y Jue</div>
+            <h3 class="tapa-card__title">Cocido Sevillano</h3>
+            <p class="tapa-card__desc">Garbanzos de Pedrera, verduras de temporada, pollo de corral, ternera morcillo, chorizo y morcilla. El puchero completo.</p>
+            <div class="tapa-card__footer">
+              <span class="tapa-card__price">12,00€</span>
+              <span class="tapa-card__maridaje">🍺 Cruzcampo clara y fresca</span>
+            </div>
           </div>
         </article>
+
       </div>
-      
-      <div style="text-align:center;margin-top:2rem">
-        <a href="./carta/" class="btn btn--outline">
-          Ver carta completa →
+
+      <div class="ver-carta">
+        <a href="#reservas" class="btn btn--primary btn--lg">
+          <span aria-hidden="true">📅</span> Reservar y tapear
+        </a>
+        <a href="#" class="btn btn--outline btn--lg">
+          <span aria-hidden="true">📋</span> Carta completa (PDF)
         </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Sección: Flamenco y Eventos -->
-    <section id="eventos" class="section flamenco-section" aria-labelledby="flamenco-title">
-      <div class="flamenco-content">
-        <span class="event-badge">
-          <span aria-hidden="true">🎵</span>
-          Flamenco en Vivo • Viernes y Sábados • 21:00h
-        </span>
-        
-        <h2 id="flamenco-title" class="flamenco-content__title">
-          Cuando el compás<br>se hace cerveza
-        </h2>
-        
-        <p class="flamenco-content__text">
-          Cada fin de semana, artistas locales llenan Andaluzzia de duende. 
-          Palmas, cante y baile que se funden con el tintineo de las cañas. 
-          Ven con tiempo, que las mejores mesas vuelan.
-        </p>
-        
-        <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center">
-          <a href="#reservas" class="btn btn--primary btn--lg">
-            Reservar para flamenco
-          </a>
-          <a href="./eventos/" class="btn btn--ghost btn--lg">
-            Ver calendario de eventos
-          </a>
+  <!-- ═══════════════════════════════════════════
+       CRUZCAMPO
+  ═══════════════════════════════════════════ -->
+  <section class="section cruzcampo-section" aria-labelledby="cruzcampo-title">
+    <div class="container">
+      <div class="cruzcampo-inner">
+        <div class="cruzcampo-text">
+          <span class="section-eyebrow">La cerveza de Sevilla</span>
+          <h2 id="cruzcampo-title" class="section-title">Cruzcampo.<br>Sin más explicaciones.</h2>
+          <p class="section-subtitle">Fundada en Sevilla en 1904, la Cruzcampo es la cerveza que se toma con las tapas desde hace 120 años. En Andaluzzia la servimos como dios manda.</p>
+          <div class="cruzcampo-features">
+            <div class="cruzcampo-feature">
+              <span class="cruzcampo-feature__icon" aria-hidden="true">🌡️</span>
+              <div>
+                <div class="cruzcampo-feature__title">Servida a 3°C exactos</div>
+                <div class="cruzcampo-feature__text">El grifo calibrado cada mañana. Vaso frío de nevera. La temperatura que manda la tradición.</div>
+              </div>
+            </div>
+            <div class="cruzcampo-feature">
+              <span class="cruzcampo-feature__icon" aria-hidden="true">🍺</span>
+              <div>
+                <div class="cruzcampo-feature__title">Tubo, caña o doble</div>
+                <div class="cruzcampo-feature__text">El tamaño que quieras, siempre con la espuma perfecta y la presión justa de barril.</div>
+              </div>
+            </div>
+            <div class="cruzcampo-feature">
+              <span class="cruzcampo-feature__icon" aria-hidden="true">🏆</span>
+              <div>
+                <div class="cruzcampo-feature__title">120 años de tradición</div>
+                <div class="cruzcampo-feature__text">La cerveza que nació en Sevilla y nunca ha salido del corazón de sus bares. Patrimonio líquido de Andalucía.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cruzcampo-visual" aria-hidden="true">
+          <div class="beer-glass">
+            <svg viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+              <!-- Vaso -->
+              <path d="M40 20 L160 20 L145 290 L55 290 Z" fill="rgba(255,215,0,.08)" stroke="rgba(255,215,0,.3)" stroke-width="2"/>
+              <!-- Cerveza (cuerpo ámbar) -->
+              <path d="M43 80 L157 80 L145 290 L55 290 Z" fill="rgba(217,119,6,.55)"/>
+              <!-- Espuma -->
+              <ellipse cx="100" cy="78" rx="57" ry="18" fill="rgba(255,255,255,.85)"/>
+              <ellipse cx="80"  cy="72" rx="20" ry="12" fill="rgba(255,255,255,.9)"/>
+              <ellipse cx="120" cy="70" rx="24" ry="14" fill="rgba(255,255,255,.9)"/>
+              <ellipse cx="100" cy="65" rx="30" ry="16" fill="#fff"/>
+              <!-- Burbujas -->
+              <circle cx="80"  cy="180" r="3" fill="rgba(255,215,0,.3)"/>
+              <circle cx="110" cy="220" r="2" fill="rgba(255,215,0,.3)"/>
+              <circle cx="90"  cy="250" r="2.5" fill="rgba(255,215,0,.3)"/>
+              <circle cx="120" cy="160" r="2" fill="rgba(255,215,0,.25)"/>
+              <circle cx="70"  cy="210" r="1.5" fill="rgba(255,215,0,.2)"/>
+            </svg>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Sección: Lo que dicen nuestros clientes -->
-    <section class="section testimonials" aria-labelledby="testimonials-title">
-      <header class="section__header">
-        <h2 id="testimonials-title" class="section__title">Voces de Andaluzzia</h2>
-        <p class="section__subtitle">No lo decimos nosotros. Lo dicen quienes nos visitan.</p>
+  <!-- ═══════════════════════════════════════════
+       GALERÍA
+  ═══════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="galeria-title">
+    <div class="container">
+      <header class="section-header section-header--center">
+        <span class="section-eyebrow">El ambiente</span>
+        <h2 id="galeria-title" class="section-title">Así es Andaluzzia</h2>
+        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon">📸</span><span class="ornament__line"></span></div>
       </header>
-      
-      <div class="testimonial-grid">
-        <article class="testimonial-card">
-          <blockquote class="testimonial-card__quote">"La mejor terraza de Sevilla. Atardecer, cerveza fría y flamenco... ¿qué más se puede pedir?"</blockquote>
-          <footer class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true"></div>
+
+      <div class="galeria-grid" role="list">
+        <div class="galeria-item" role="listitem">
+          <span class="galeria-item__emoji" aria-hidden="true">🌅</span>
+          <div class="galeria-item__overlay"><span class="galeria-item__label">Atardecer en la terraza</span></div>
+        </div>
+        <div class="galeria-item" role="listitem">
+          <span class="galeria-item__emoji" aria-hidden="true">🥘</span>
+          <div class="galeria-item__overlay"><span class="galeria-item__label">Tapas de la casa</span></div>
+        </div>
+        <div class="galeria-item" role="listitem">
+          <span class="galeria-item__emoji" aria-hidden="true">💃</span>
+          <div class="galeria-item__overlay"><span class="galeria-item__label">Flamenco en vivo</span></div>
+        </div>
+        <div class="galeria-item" role="listitem">
+          <span class="galeria-item__emoji" aria-hidden="true">🏺</span>
+          <div class="galeria-item__overlay"><span class="galeria-item__label">Azulejos de Triana</span></div>
+        </div>
+        <div class="galeria-item" role="listitem">
+          <span class="galeria-item__emoji" aria-hidden="true">🍺</span>
+          <div class="galeria-item__overlay"><span class="galeria-item__label">Cruzcampo de grifo</span></div>
+        </div>
+        <div class="galeria-item" role="listitem">
+          <span class="galeria-item__emoji" aria-hidden="true">🌉</span>
+          <div class="galeria-item__overlay"><span class="galeria-item__label">Vistas al Guadalquivir</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FLAMENCO & EVENTOS
+  ═══════════════════════════════════════════ -->
+  <section id="flamenco" class="section flamenco-section" aria-labelledby="flamenco-title">
+    <div class="azulejo" aria-hidden="true"></div>
+    <div class="container">
+      <div class="flamenco-inner">
+        <div class="flamenco-text">
+          <span class="section-eyebrow">Flamenco &amp; Cultura</span>
+          <h2 id="flamenco-title" class="section-title">Cuando el compás se hace cerveza</h2>
+          <p>Cada fin de semana, artistas de Triana llenan Andaluzzia de duende. Palmas, cante y baile que se funden con el tintineo de las cañas. Ven con tiempo, que las mejores mesas vuelan.</p>
+
+          <div class="eventos-list">
+            <div class="evento-item">
+              <div class="evento-item__day">
+                <span class="evento-item__day-num">V</span>
+                <span class="evento-item__day-mon">Vie</span>
+              </div>
+              <div>
+                <div class="evento-item__title">Noche Flamenca — Cante Jondo</div>
+                <div class="evento-item__meta">Todos los viernes · 21:00h · Entrada libre con consumición</div>
+              </div>
+            </div>
+            <div class="evento-item">
+              <div class="evento-item__day">
+                <span class="evento-item__day-num">S</span>
+                <span class="evento-item__day-mon">Sáb</span>
+              </div>
+              <div>
+                <div class="evento-item__title">Baile Flamenco &amp; Guitarra en Vivo</div>
+                <div class="evento-item__meta">Todos los sábados · 21:30h · Entrada libre con consumición</div>
+              </div>
+            </div>
+            <div class="evento-item">
+              <div class="evento-item__day" style="background: var(--c-siena);">
+                <span class="evento-item__day-num" style="color:#fff;">21</span>
+                <span class="evento-item__day-mon" style="color:rgba(255,255,255,.7);">Abr</span>
+              </div>
+              <div>
+                <div class="evento-item__title">Feria de Abril — Horario especial 16:00–03:00</div>
+                <div class="evento-item__meta">Ambiente de caseta toda la noche · Reserva obligatoria</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:2rem">
+            <a href="#reservas" class="btn btn--primary btn--lg">
+              <span aria-hidden="true">📅</span> Reservar para el espectáculo
+            </a>
+          </div>
+        </div>
+
+        <div class="flamenco-visual">
+          <div class="flamenco-card">
+            <span class="flamenco-emoji" aria-hidden="true">💃</span>
+            <div class="flamenco-card__title">Tablao Andaluzzia</div>
+            <div class="flamenco-card__subtitle">Viernes &amp; Sábados · 21:00h<br>Artistas de Triana &amp; Jerez<br><br>
+              <span style="color: var(--c-oro-light); font-size:.85rem;">Entrada gratuita con consumición</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIOS
+  ═══════════════════════════════════════════ -->
+  <section class="section testimonios-section" aria-labelledby="testimonios-title">
+    <div class="container">
+      <header class="section-header section-header--center">
+        <span class="section-eyebrow">Lo que dicen</span>
+        <h2 id="testimonios-title" class="section-title">Voces de Andaluzzia</h2>
+        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon">⭐</span><span class="ornament__line"></span></div>
+      </header>
+
+      <div class="rating-summary" role="complementary" aria-label="Valoración general">
+        <div class="rating-big">4.9</div>
+        <div class="rating-details">
+          <div class="rating-stars-big">★★★★★</div>
+          <div class="rating-count">Basado en +840 reseñas en Google y TripAdvisor</div>
+        </div>
+      </div>
+
+      <div class="testimonios-grid">
+        <article class="testimonio-card">
+          <div class="testimonio-stars" aria-label="5 estrellas">★★★★★</div>
+          <blockquote class="testimonio-quote">La mejor terraza de Sevilla. Atardecer, Cruzcampo fría y flamenco... ¿qué más se puede pedir? El Curro nos atendió de maravilla.</blockquote>
+          <footer class="testimonio-author">
+            <div class="testimonio-avatar" aria-hidden="true">M</div>
             <div>
-              <div class="testimonial-card__name">María G.</div>
-              <div class="testimonial-card__meta">Google Reviews • ★★★★★</div>
+              <div class="testimonio-name">María G.</div>
+              <div class="testimonio-meta">Google Reviews · Sevilla</div>
             </div>
           </footer>
         </article>
-        
-        <article class="testimonial-card">
-          <blockquote class="testimonial-card__quote">"Las croquetas son de otro mundo. Y el personal... te hacen sentir como en casa."</blockquote>
-          <footer class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true"></div>
+
+        <article class="testimonio-card">
+          <div class="testimonio-stars" aria-label="5 estrellas">★★★★★</div>
+          <blockquote class="testimonio-quote">Las espinacas con garbanzos son de otro mundo. Y la pringá... madre mía. El personal te hace sentir como en casa desde el primer momento.</blockquote>
+          <footer class="testimonio-author">
+            <div class="testimonio-avatar" aria-hidden="true">C</div>
             <div>
-              <div class="testimonial-card__name">Carlos R.</div>
-              <div class="testimonial-card__meta">TripAdvisor • ★★★★★</div>
+              <div class="testimonio-name">Carlos R.</div>
+              <div class="testimonio-meta">TripAdvisor · Madrid</div>
             </div>
           </footer>
         </article>
-        
-        <article class="testimonial-card">
-          <blockquote class="testimonial-card__quote">"Vine por la cerveza, me quedé por el ambiente. Andaluzzia tiene algo especial."</blockquote>
-          <footer class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true"></div>
+
+        <article class="testimonio-card">
+          <div class="testimonio-stars" aria-label="5 estrellas">★★★★★</div>
+          <blockquote class="testimonio-quote">Vine por el flamenco, me quedé por las tapas. El solomillo al whisky es lo mejor que he comido en Sevilla. Andaluzzia tiene algo especial.</blockquote>
+          <footer class="testimonio-author">
+            <div class="testimonio-avatar" aria-hidden="true">L</div>
             <div>
-              <div class="testimonial-card__name">Laura M.</div>
-              <div class="testimonial-card__meta">Instagram • ★★★★★</div>
+              <div class="testimonio-name">Laura M.</div>
+              <div class="testimonio-meta">Instagram · Barcelona</div>
             </div>
           </footer>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Sección: CTA Reservas -->
-    <section id="reservas" class="cta-section" aria-labelledby="cta-title">
-      <h2 id="cta-title" class="cta-section__title">¿Listo para vivir Andaluzzia?</h2>
-      <p class="cta-section__text">
-        Reserva tu mesa en 30 segundos. Sin esperas, sin complicaciones. 
-        Solo buena cerveza, mejores tapas y el mejor ambiente de Sevilla.
-      </p>
-      <a href="./reservas/" class="btn btn--primary btn--lg" style="background:white;color:var(--color-primary)">
-        <span aria-hidden="true">📅</span>
-        Reservar ahora
-      </a>
-      <p style="margin-top:1rem;font-size:.9rem;opacity:.9">
-        ¿Grupos grandes o eventos? <a href="mailto:eventos@andaluzzia.es" style="color:white;text-decoration:underline">Contáctanos</a>
-      </p>
-    </section>
+  <!-- ═══════════════════════════════════════════
+       HORARIO & CONTACTO
+  ═══════════════════════════════════════════ -->
+  <section id="contacto" class="section info-section" aria-labelledby="info-title">
+    <div class="azulejo" aria-hidden="true"></div>
+    <div class="container">
+      <header class="section-header section-header--center" style="margin-bottom:3rem;">
+        <span class="section-eyebrow" style="color:var(--c-oro-light);">Encuéntranos</span>
+        <h2 id="info-title" class="section-title" style="color:#fff;">Horario &amp; Contacto</h2>
+      </header>
 
+      <div class="info-grid">
+        <div class="info-box">
+          <h3 class="info-box__title"><span aria-hidden="true">🕐</span> Horario</h3>
+          <ul class="horario-list">
+            <li class="horario-item horario-item--closed">
+              <span class="horario-day">Lunes</span>
+              <span class="horario-hours">Cerrado</span>
+            </li>
+            <hr class="horario-divider">
+            <li class="horario-item">
+              <span class="horario-day">Martes — Jueves</span>
+              <span class="horario-hours">12:00 — 00:00</span>
+            </li>
+            <li class="horario-item">
+              <span class="horario-day">Viernes</span>
+              <span class="horario-hours">12:00 — 02:00 🎵</span>
+            </li>
+            <li class="horario-item">
+              <span class="horario-day">Sábado</span>
+              <span class="horario-hours">12:00 — 02:00 💃</span>
+            </li>
+            <li class="horario-item">
+              <span class="horario-day">Domingo</span>
+              <span class="horario-hours">12:00 — 00:00</span>
+            </li>
+          </ul>
+          <div style="margin-top:1.5rem; padding:1rem; background:rgba(217,119,6,.1); border:1px solid rgba(217,119,6,.2); border-radius:10px;">
+            <p style="color:var(--c-oro-light); font-size:.85rem; font-weight:600;">⚠️ Semana Santa y Feria de Abril</p>
+            <p style="color:rgba(255,255,255,.5); font-size:.82rem; margin-top:.3rem;">Horarios especiales. Consulta disponibilidad con El Curro o por teléfono.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="info-box" style="margin-bottom:1.25rem;">
+            <h3 class="info-box__title"><span aria-hidden="true">📍</span> Dónde estamos</h3>
+            <ul class="contacto-list">
+              <li class="contacto-item">
+                <div class="contacto-icon" aria-hidden="true">📍</div>
+                <div>
+                  <div class="contacto-label">Dirección</div>
+                  <div class="contacto-value">Calle Betis, 45 — 41010 Triana, Sevilla</div>
+                </div>
+              </li>
+              <li class="contacto-item">
+                <div class="contacto-icon" aria-hidden="true">📞</div>
+                <div>
+                  <div class="contacto-label">Teléfono</div>
+                  <div class="contacto-value"><a href="tel:+34954000000">+34 954 000 000</a></div>
+                </div>
+              </li>
+              <li class="contacto-item">
+                <div class="contacto-icon" aria-hidden="true">✉️</div>
+                <div>
+                  <div class="contacto-label">Email</div>
+                  <div class="contacto-value"><a href="mailto:hola@andaluzzia.es">hola@andaluzzia.es</a></div>
+                </div>
+              </li>
+              <li class="contacto-item">
+                <div class="contacto-icon" aria-hidden="true">💬</div>
+                <div>
+                  <div class="contacto-label">WhatsApp</div>
+                  <div class="contacto-value"><a href="https://wa.me/34600000000">+34 600 000 000</a></div>
+                </div>
+              </li>
+            </ul>
+            <a href="https://maps.google.com/?q=Calle+Betis+45+Triana+Sevilla" target="_blank" rel="noopener noreferrer" class="map-embed" aria-label="Ver en Google Maps">
+              <span>🗺️ &nbsp; Ver en Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA RESERVAS
+  ═══════════════════════════════════════════ -->
+  <section id="reservas" class="section cta-section" aria-labelledby="cta-title">
+    <div class="azulejo" aria-hidden="true"></div>
+    <div class="cta-inner">
+      <h2 id="cta-title" class="cta-title">
+        ¿Listo para vivir<br>Andaluzzia, arma?
+      </h2>
+      <p class="cta-sub">
+        Reserva tu mesa en 30 segundos. Sin esperas ni complicaciones. Solo tapas de verdad,
+        Cruzcampo bien tirada y el mejor ambiente de Triana.
+      </p>
+      <div class="cta-actions">
+        <a href="/" class="btn btn--primary btn--lg">
+          <span aria-hidden="true">📅</span> Reservar mesa ahora
+        </a>
+        <a href="tel:+34954000000" class="btn btn--outline btn--lg">
+          <span aria-hidden="true">📞</span> Llamar al local
+        </a>
+      </div>
+      <p style="margin-top:1.5rem; color:rgba(255,255,255,.6); font-size:.9rem;">
+        ¿Grupo grande o evento privado?
+        <a href="mailto:eventos@andaluzzia.es" style="color:#fff; text-decoration:underline;">eventos@andaluzzia.es</a>
+      </p>
+    </div>
+  </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo" id="contacto">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <a href="./" class="footer__logo">
-          <span class="footer__logo-text" aria-hidden="true">🍺 Andaluzzia</span>
-        </a>
-        <p class="footer__tagline">Cerveza artesana y tapas con alma sevillana desde 1995</p>
-        <div class="footer__social" aria-label="Redes sociales">
-          <a href="#" aria-label="Instagram" class="social-link">📷</a>
-          <a href="#" aria-label="Facebook" class="social-link">📘</a>
-          <a href="#" aria-label="Google Maps" class="social-link">🗺️</a>
-          <a href="#" aria-label="TikTok" class="social-link">🎵</a>
-        </div>
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-logo">🍺 Andaluzzia</div>
+        <p class="footer__brand-text">
+          Tapas con duende, Cruzcampo de grifo y flamenco en vivo desde 1985 en el
+          corazón de Triana, Sevilla. Calle Betis, 45.
+        </p>
+        <nav class="footer__social" aria-label="Redes sociales">
+          <a href="#" class="footer__social-link" aria-label="Instagram">📷</a>
+          <a href="#" class="footer__social-link" aria-label="Facebook">📘</a>
+          <a href="#" class="footer__social-link" aria-label="TikTok">🎵</a>
+          <a href="#" class="footer__social-link" aria-label="Google Maps">🗺️</a>
+        </nav>
       </div>
-      
+
       <div>
         <h4 class="footer__heading">Explora</h4>
-        <ul class="footer__list">
-          <li><a href="./carta/">Nuestra Carta</a></li>
-          <li><a href="./reservas/">Reservar Mesa</a></li>
-          <li><a href="./eventos/">Eventos y Flamenco</a></li>
-          <li><a href="./privacidad.html">Política de Privacidad</a></li>
+        <ul class="footer__links">
+          <li><a href="#carta">Nuestra carta</a></li>
+          <li><a href="#flamenco">Eventos y flamenco</a></li>
+          <li><a href="#reservas">Reservar mesa</a></li>
+          <li><a href="#contacto">Cómo llegar</a></li>
         </ul>
       </div>
-      
+
+      <div>
+        <h4 class="footer__heading">Legal</h4>
+        <ul class="footer__links">
+          <li><a href="./aviso-legal.html">Aviso legal</a></li>
+          <li><a href="./politica-privacidad.html">Privacidad</a></li>
+          <li><a href="./cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+
       <div>
         <h4 class="footer__heading">Contacto</h4>
-        <address class="footer__address">
-          <p>📍 Calle Betis, 42<br>41010 Sevilla, España</p>
-          <p>📞 <a href="tel:+34954000000">+34 954 000 000</a></p>
-          <p>✉️ <a href="mailto:hola@andaluzzia.es">hola@andaluzzia.es</a></p>
-          <p>🕐 Lun-Dom: 12:00 - 02:00</p>
+        <address style="font-style:normal;">
+          <ul class="footer__links">
+            <li><a href="tel:+34954000000">📞 +34 954 000 000</a></li>
+            <li><a href="mailto:hola@andaluzzia.es">✉️ hola@andaluzzia.es</a></li>
+            <li><span style="color:rgba(255,255,255,.3);">📍 Calle Betis, 45</span></li>
+            <li><span style="color:rgba(255,255,255,.3);">Triana, Sevilla 41010</span></li>
+          </ul>
         </address>
       </div>
     </div>
-    
+
     <div class="footer__bottom">
-      <p>&copy; <time datetime="2026">2026</time> Andaluzzia. Todos los derechos reservados.</p>
-      <ul class="footer__legal">
-        <li><a href="./aviso-legal.html">Aviso Legal</a></li>
-        <li><a href="./cookies.html">Cookies</a></li>
-        <li><a href="./accesibilidad.html">Accesibilidad</a></li>
-      </ul>
+      <p>© <time id="year">2026</time> Andaluzzia — Todos los derechos reservados.</p>
+      <nav class="footer__legal" aria-label="Navegación legal">
+        <a href="./aviso-legal.html">Aviso legal</a>
+        <a href="./politica-privacidad.html">Privacidad</a>
+        <a href="./cookies.html">Cookies</a>
+      </nav>
     </div>
   </footer>
 
-  <!-- Cookie Consent -->
-  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" hidden>
-    <div class="cookie-banner__content">
-      <p id="cookie-title">
-        <strong>🍪 Cookies</strong>: Usamos cookies propias para mejorar tu experiencia. 
-        <a href="./cookies.html" target="_blank">Más información</a>
+  <!-- ═══════════════════════════════════════════
+       COOKIE BANNER
+  ═══════════════════════════════════════════ -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-msg" hidden>
+    <div class="cookie-inner">
+      <p id="cookie-msg" class="cookie-text">
+        🍪 Usamos cookies propias para mejorar tu experiencia y guardar tus preferencias.
+        <a href="./cookies.html" target="_blank" rel="noopener">Más información</a>
       </p>
-      <div class="cookie-banner__actions">
-        <button id="cookie-reject" class="btn btn--ghost">Rechazar</button>
-        <button id="cookie-accept" class="btn btn--primary">Aceptar</button>
+      <div class="cookie-actions">
+        <button id="cookie-reject" class="cookie-btn cookie-btn--reject">Rechazar</button>
+        <button id="cookie-accept" class="cookie-btn cookie-btn--accept">Aceptar</button>
       </div>
     </div>
   </div>
 
-  <!-- Scripts al final para no bloquear render -->
-  <script src="./assets/js/main.js" defer></script>
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════════ -->
   <script>
-    // Mini-script inline para funcionalidades críticas del hero
-    document.addEventListener('DOMContentLoaded', () => {
-      // Menú móvil
-      const navToggle = document.querySelector('.nav-toggle');
-      const nav = document.querySelector('#nav-primary');
-      if (navToggle && nav) {
-        navToggle.addEventListener('click', () => {
-          const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-          navToggle.setAttribute('aria-expanded', !expanded);
-          nav.setAttribute('aria-expanded', !expanded);
-          document.body.style.overflow = !expanded ? 'hidden' : '';
-        });
-      }
-      
-      // Cookie banner
-      const cookieBanner = document.getElementById('cookie-banner');
-      const cookieAccept = document.getElementById('cookie-accept');
-      const cookieReject = document.getElementById('cookie-reject');
-      
-      if (!localStorage.getItem('andaluzzia-cookies')) {
-        setTimeout(() => { if (cookieBanner) cookieBanner.hidden = false; }, 2000);
-      }
-      
-      if (cookieAccept) {
-        cookieAccept.addEventListener('click', () => {
-          localStorage.setItem('andaluzzia-cookies', 'accepted');
-          if (cookieBanner) cookieBanner.hidden = true;
-          showToast('✅ Preferencias guardadas', 'success');
-        });
-      }
-      if (cookieReject) {
-        cookieReject.addEventListener('click', () => {
-          localStorage.setItem('andaluzzia-cookies', 'rejected');
-          if (cookieBanner) cookieBanner.hidden = true;
-          showToast('🔒 Cookies rechazadas', 'info');
-        });
-      }
-      
-      // Smooth scroll para anclas
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const href = this.getAttribute('href');
-          if (href === '#') return;
-          const target = document.querySelector(href);
-          if (target) {
-            e.preventDefault();
-            const headerOffset = 72;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-            if (window.innerWidth < 768) {
-              navToggle?.setAttribute('aria-expanded', 'false');
-              nav?.setAttribute('aria-expanded', 'false');
-              document.body.style.overflow = '';
-            }
-          }
-        });
-      });
-      
-      // Toast notification
-      function showToast(message, type = 'success') {
-        const existing = document.querySelector('.toast');
-        if (existing) existing.remove();
-        const toast = document.createElement('div');
-        toast.className = `toast toast--${type}`;
-        toast.setAttribute('role', 'alert');
-        toast.textContent = message;
-        document.body.appendChild(toast);
-        setTimeout(() => {
-          toast.style.animation = 'slideInRight 0.3s ease reverse';
-          setTimeout(() => toast.remove(), 300);
-        }, 3000);
-      }
-      
-      // Actualizar año en footer
-      const yearEl = document.querySelector('time[datetime]');
-      if (yearEl) {
-        const year = new Date().getFullYear();
-        yearEl.setAttribute('datetime', year);
-        yearEl.textContent = year;
-      }
-      
-      console.log('🍺 Andaluzzia: ¡Magia sevillana cargada!');
+  (function () {
+    'use strict';
+
+    // ── Header scroll effect ──────────────────────────────────────────────
+    const header = document.getElementById('header');
+    const onScroll = () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // ── Mobile nav ────────────────────────────────────────────────────────
+    const toggle  = document.getElementById('nav-toggle');
+    const navList = document.getElementById('nav-list');
+    toggle.addEventListener('click', () => {
+      const open = navList.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
     });
+    // Cerrar al hacer clic en un enlace
+    navList.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navList.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ── Smooth scroll con offset del header ──────────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const id = this.getAttribute('href').slice(1);
+        if (!id) return;
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        const offset = header.offsetHeight + 8;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    // ── Active nav link on scroll ─────────────────────────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav__link[href^="#"]');
+    const observer  = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav__link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => observer.observe(s));
+
+    // ── Cookies ───────────────────────────────────────────────────────────
+    const banner = document.getElementById('cookie-banner');
+    if (!localStorage.getItem('andal-cookies')) {
+      setTimeout(() => { banner.hidden = false; }, 2200);
+    }
+
+    function toast(msg) {
+      const el = document.createElement('div');
+      el.className = 'toast'; el.textContent = msg;
+      el.setAttribute('role', 'status'); el.setAttribute('aria-live', 'polite');
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 3200);
+    }
+
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('andal-cookies', 'accepted');
+      banner.hidden = true;
+      toast('✅ Preferencias guardadas');
+    });
+    document.getElementById('cookie-reject').addEventListener('click', () => {
+      localStorage.setItem('andal-cookies', 'rejected');
+      banner.hidden = true;
+    });
+
+    // ── Año en footer ─────────────────────────────────────────────────────
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // ── Animate on scroll (cards) ─────────────────────────────────────────
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeUp .6s ease both';
+          animObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.feature-card, .tapa-card, .testimonio-card, .evento-item')
+      .forEach(el => {
+        el.style.opacity = '0';
+        animObserver.observe(el);
+      });
+
+  })();
   </script>
 </body>
 </html>
