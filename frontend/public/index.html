@@ -111,12 +111,12 @@
        AZULEJO PATTERN (SVG inline)
     ========================================================= */
     .azulejo {
-      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D97706' stroke-opacity='.18' stroke-width='1'%3E%3Cpath d='M0 0h80v80H0z'/%3E%3Cpath d='M40 0v80M0 40h80'/%3E%3Ccircle cx='40' cy='40' r='18'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='80' cy='0' r='10'/%3E%3Ccircle cx='0' cy='80' r='10'/%3E%3Ccircle cx='80' cy='80' r='10'/%3E%3Cpath d='M22 22l36 36M58 22L22 58'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: 80px 80px;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23D97706' stop-opacity='.22'/%3E%3Cstop offset='1' stop-color='%237C2D12' stop-opacity='.12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='none' stroke='url(%23g)' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='22' fill='none' stroke='url(%23g)' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='8' fill='rgba(217%2C119%2C6%2C.12)'/%3E%3Cpath d='M50 0v100M0 50h100' stroke='url(%23g)' stroke-width='.8'/%3E%3Cpath d='M28 28l44 44M72 28 28 72' stroke='url(%23g)' stroke-width='.7'/%3E%3Ccircle cx='0' cy='0' r='6' fill='rgba(217%2C119%2C6%2C.1)'/%3E%3Ccircle cx='100' cy='0' r='6' fill='rgba(217%2C119%2C6%2C.1)'/%3E%3Ccircle cx='0' cy='100' r='6' fill='rgba(217%2C119%2C6%2C.1)'/%3E%3Ccircle cx='100' cy='100' r='6' fill='rgba(217%2C119%2C6%2C.1)'/%3E%3C/svg%3E");
+      background-size: 100px 100px;
     }
     .azulejo-light {
-      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%237C2D12' stroke-opacity='.08' stroke-width='1'%3E%3Cpath d='M0 0h80v80H0z'/%3E%3Cpath d='M40 0v80M0 40h80'/%3E%3Ccircle cx='40' cy='40' r='18'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='80' cy='0' r='10'/%3E%3Ccircle cx='0' cy='80' r='10'/%3E%3Ccircle cx='80' cy='80' r='10'/%3E%3Cpath d='M22 22l36 36M58 22L22 58'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: 80px 80px;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='none' stroke='%237C2D12' stroke-opacity='.07' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='22' fill='none' stroke='%237C2D12' stroke-opacity='.07' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%237C2D12' fill-opacity='.04'/%3E%3Cpath d='M50 0v100M0 50h100' stroke='%237C2D12' stroke-opacity='.05' stroke-width='.8'/%3E%3Cpath d='M28 28l44 44M72 28 28 72' stroke='%23D97706' stroke-opacity='.06' stroke-width='.7'/%3E%3C/svg%3E");
+      background-size: 100px 100px;
     }
 
     /* =========================================================
@@ -203,21 +203,34 @@
     }
     .hero__azulejo {
       position: absolute; inset: 0;
-      opacity: .06;
-      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D97706' stroke-opacity='1' stroke-width='1'%3E%3Cpath d='M0 0h80v80H0z'/%3E%3Cpath d='M40 0v80M0 40h80'/%3E%3Ccircle cx='40' cy='40' r='18'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='80' cy='0' r='10'/%3E%3Ccircle cx='0' cy='80' r='10'/%3E%3Ccircle cx='80' cy='80' r='10'/%3E%3Cpath d='M22 22l36 36M58 22L22 58'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: 80px 80px;
-      animation: patternDrift 30s linear infinite;
+      opacity: .09;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='none' stroke='%23D97706' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='22' fill='none' stroke='%23D97706' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%23D97706' fill-opacity='.4'/%3E%3Cpath d='M50 0v100M0 50h100' stroke='%23D97706' stroke-width='.8'/%3E%3Cpath d='M28 28l44 44M72 28 28 72' stroke='%23D97706' stroke-width='.7'/%3E%3Ccircle cx='0' cy='0' r='6' fill='%23D97706' fill-opacity='.5'/%3E%3Ccircle cx='100' cy='0' r='6' fill='%23D97706' fill-opacity='.5'/%3E%3Ccircle cx='0' cy='100' r='6' fill='%23D97706' fill-opacity='.5'/%3E%3Ccircle cx='100' cy='100' r='6' fill='%23D97706' fill-opacity='.5'/%3E%3C/svg%3E");
+      background-size: 100px 100px;
+      animation: patternDrift 40s linear infinite;
     }
     @keyframes patternDrift {
       from { background-position: 0 0; }
-      to   { background-position: 80px 80px; }
+      to   { background-position: 100px 100px; }
     }
     .hero__glow {
       position: absolute;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(217,119,6,.18) 0%, transparent 70%);
+      width: 900px; height: 900px;
+      background: radial-gradient(ellipse, rgba(217,119,6,.22) 0%, rgba(124,45,18,.1) 40%, transparent 70%);
       top: 50%; left: 50%; transform: translate(-50%,-50%);
       pointer-events: none;
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+    .hero__glow2 {
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(124,45,18,.25) 0%, transparent 65%);
+      bottom: 10%; right: 5%;
+      pointer-events: none;
+      animation: glowPulse 8s ease-in-out 3s infinite;
+    }
+    @keyframes glowPulse {
+      0%,100% { opacity: .7; transform: translate(-50%,-50%) scale(1); }
+      50%      { opacity: 1;  transform: translate(-50%,-50%) scale(1.08); }
     }
     .hero__content {
       position: relative; z-index: 2;
@@ -301,13 +314,22 @@
       transition: var(--transition); white-space: nowrap;
     }
     .btn--primary {
-      background: var(--c-oro);
+      background: linear-gradient(135deg, var(--c-oro) 0%, var(--c-oro-light) 100%);
       color: var(--c-negro);
+      position: relative; overflow: hidden;
     }
+    .btn--primary::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform .5s ease;
+    }
+    .btn--primary:hover::after { transform: translateX(100%); }
     .btn--primary:hover {
-      background: var(--c-oro-light);
+      background: linear-gradient(135deg, var(--c-oro-light) 0%, #FBBF24 100%);
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(217,119,6,.4);
+      box-shadow: 0 12px 35px rgba(217,119,6,.45);
     }
     .btn--outline {
       background: transparent;
@@ -369,13 +391,19 @@
     .ornament {
       display: flex; align-items: center; gap: 1rem;
       margin: 1.5rem 0;
-      color: var(--c-oro);
     }
     .ornament__line {
       flex: 1; height: 1px;
       background: linear-gradient(90deg, transparent, var(--c-oro), transparent);
     }
-    .ornament__icon { font-size: 1.4rem; }
+    .ornament__icon {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ornament__icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--c-oro); fill: none; stroke-width: 1.6;
+    }
 
     /* =========================================================
        FEATURES — El duende de Andaluzzia
@@ -386,30 +414,62 @@
       gap: 1.5rem;
     }
     .feature-card {
-      background: #fff;
+      background: rgba(255,251,245,.7);
       border: 1px solid rgba(124,45,18,.1);
       border-radius: var(--radius-lg);
-      padding: 2rem 1.75rem;
+      padding: 2.25rem 2rem;
       transition: var(--transition);
       position: relative; overflow: hidden;
+      backdrop-filter: blur(8px);
     }
     .feature-card::before {
       content: '';
-      position: absolute; top: 0; left: 0;
-      width: 4px; height: 100%;
-      background: linear-gradient(180deg, var(--c-oro), var(--c-siena));
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--c-oro), var(--c-siena), var(--c-oro));
+      background-size: 200% 100%;
       opacity: 0; transition: var(--transition);
+      animation: shimmerLine 2s linear infinite;
+    }
+    .feature-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 20%, rgba(217,119,6,.06) 0%, transparent 60%);
+      opacity: 0; transition: var(--transition);
+      pointer-events: none;
+    }
+    @keyframes shimmerLine {
+      0%   { background-position: 0 0; }
+      100% { background-position: 200% 0; }
     }
     .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(124,45,18,.2);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(124,45,18,.14), 0 2px 8px rgba(0,0,0,.06);
+      border-color: rgba(217,119,6,.25);
     }
     .feature-card:hover::before { opacity: 1; }
-    .feature-card__icon {
-      font-size: 2.5rem; margin-bottom: 1rem;
-      display: block;
+    .feature-card:hover::after  { opacity: 1; }
+    .feature-card__icon-wrap {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, rgba(124,45,18,.1) 0%, rgba(217,119,6,.1) 100%);
+      border: 1px solid rgba(217,119,6,.2);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+      transition: var(--transition);
     }
+    .feature-card:hover .feature-card__icon-wrap {
+      background: linear-gradient(135deg, var(--c-siena) 0%, var(--c-oro) 100%);
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(217,119,6,.3);
+    }
+    .feature-card__icon-wrap svg {
+      width: 26px; height: 26px;
+      stroke: var(--c-siena);
+      fill: none;
+      transition: var(--transition);
+    }
+    .feature-card:hover .feature-card__icon-wrap svg { stroke: #fff; }
     .feature-card__title {
       font-family: var(--font-serif);
       font-size: 1.2rem; font-weight: 700;
@@ -442,13 +502,22 @@
       overflow: hidden;
       transition: var(--transition);
       display: flex; flex-direction: column;
+      position: relative;
+    }
+    .tapa-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at top, rgba(217,119,6,.08) 0%, transparent 60%);
+      opacity: 0; transition: var(--transition);
+      pointer-events: none; z-index: 0;
     }
     .tapa-card:hover {
       background: rgba(255,255,255,.07);
-      border-color: rgba(217,119,6,.3);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,.4);
+      border-color: rgba(217,119,6,.4);
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 20px 50px rgba(0,0,0,.45), 0 0 0 1px rgba(217,119,6,.15);
     }
+    .tapa-card:hover::before { opacity: 1; }
     .tapa-card__img {
       height: 180px;
       background: linear-gradient(135deg, var(--c-siena) 0%, var(--c-oro) 100%);
@@ -552,12 +621,19 @@
       gap: 1rem;
     }
     .galeria-item {
-      border-radius: var(--radius);
+      border-radius: var(--radius-lg);
       overflow: hidden;
       position: relative;
       background: var(--c-siena);
       min-height: 200px;
       display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .galeria-item:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg);
+      z-index: 2;
     }
     .galeria-item:nth-child(1) { grid-column: span 7; grid-row: span 2; min-height: 380px; }
     .galeria-item:nth-child(2) { grid-column: span 5; min-height: 180px; }
@@ -946,6 +1022,8 @@
       padding: 2.5rem;
       text-align: center;
       position: relative;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 60px rgba(217,119,6,.1), inset 0 1px 0 rgba(255,255,255,.05);
     }
     .curro-card__glow {
       position: absolute;
@@ -1050,13 +1128,28 @@
       margin: 2rem 0;
     }
     .curro-feature {
-      display: flex; gap: .8rem; align-items: flex-start;
+      display: flex; gap: .9rem; align-items: flex-start;
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.07);
       border-radius: var(--radius);
       padding: .9rem 1rem;
+      transition: var(--transition);
     }
-    .curro-feature__icon { font-size: 1.4rem; flex-shrink: 0; }
+    .curro-feature:hover {
+      background: rgba(217,119,6,.07);
+      border-color: rgba(217,119,6,.2);
+    }
+    .curro-feature__icon-wrap {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(217,119,6,.12);
+      border: 1px solid rgba(217,119,6,.2);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .curro-feature__icon-wrap svg {
+      width: 18px; height: 18px;
+      stroke: var(--c-oro-light); fill: none;
+    }
     .curro-feature__title { font-size: .88rem; font-weight: 600; color: #fff; }
     .curro-feature__text  { font-size: .77rem; color: rgba(255,255,255,.4); margin-top: .15rem; }
     .curro-ctas { display: flex; flex-wrap: wrap; gap: .85rem; }
@@ -1141,6 +1234,7 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero__azulejo" aria-hidden="true"></div>
     <div class="hero__glow"    aria-hidden="true"></div>
+    <div class="hero__glow2"   aria-hidden="true"></div>
 
     <div class="hero__content">
       <div class="hero__badge" aria-label="Desde 1985 en Triana, Sevilla">
@@ -1158,10 +1252,12 @@
 
       <div class="hero__ctas">
         <a href="#reservas" class="btn btn--primary btn--lg">
-          <span aria-hidden="true">📅</span> Reservar mesa
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Reservar mesa
         </a>
         <a href="#carta" class="btn btn--outline btn--lg">
-          <span aria-hidden="true">🍽️</span> Ver la carta
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+          Ver la carta
         </a>
       </div>
 
@@ -1201,7 +1297,7 @@
       <header class="section-header section-header--center">
         <span class="section-eyebrow">El duende de Andaluzzia</span>
         <h2 id="features-title" class="section-title">No somos solo un bar.<br>Somos Sevilla.</h2>
-        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon">🌹</span><span class="ornament__line"></span></div>
+        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon"><svg viewBox="0 0 24 24"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ornament__line"></span></div>
         <p class="section-subtitle">
           Cuatro décadas sirviendo el mejor tapeo de Triana. Cada detalle, cada plato,
           cada caña lleva el alma de esta ciudad.
@@ -1210,32 +1306,44 @@
 
       <div class="features-grid">
         <article class="feature-card">
-          <span class="feature-card__icon" aria-hidden="true">🫙</span>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <h3 class="feature-card__title">Recetas de siempre</h3>
           <p class="feature-card__text">Las mismas recetas que usaba la abuela Lola en 1985. Sin fusiones ni extravagancias. Solo sabor sevillano de verdad.</p>
         </article>
         <article class="feature-card">
-          <span class="feature-card__icon" aria-hidden="true">🍺</span>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M6 2h12l1 7H5L6 2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 9c0 5 2 8 7 9 5-1 7-4 7-9" stroke-linecap="round"/><rect x="10" y="18" width="4" height="3" rx="1" stroke-linecap="round"/><path d="M8 21h8" stroke-linecap="round"/></svg>
+          </div>
           <h3 class="feature-card__title">Cruzcampo de grifo</h3>
           <p class="feature-card__text">La cerveza sevillana por excelencia, servida a 3°C en vaso frío y con la espuma perfecta. Como manda la tradición de Triana.</p>
         </article>
         <article class="feature-card">
-          <span class="feature-card__icon" aria-hidden="true">🎶</span>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19V6l12-3v13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="19" r="3" stroke-linecap="round"/><circle cx="18" cy="16" r="3" stroke-linecap="round"/></svg>
+          </div>
           <h3 class="feature-card__title">Ambiente &amp; Música</h3>
           <p class="feature-card__text">Música en vivo los fines de semana y el mejor ambiente de Triana. Ven con tiempo, que las mesas vuelan.</p>
         </article>
         <article class="feature-card">
-          <span class="feature-card__icon" aria-hidden="true">🌊</span>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <h3 class="feature-card__title">Terraza al Guadalquivir</h3>
           <p class="feature-card__text">El mejor mirador de Sevilla. Atardeceres imposibles frente al Guadalquivir mientras le das al tapeo. ¿Hace falta más?</p>
         </article>
         <article class="feature-card">
-          <span class="feature-card__icon" aria-hidden="true">🤵</span>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="8" r="3" stroke-linecap="round"/><path d="M6 20v-1a6 6 0 0112 0v1" stroke-linecap="round"/><path d="M18 9l2 2-2 2M20 11h-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <h3 class="feature-card__title">El Curro te guía</h3>
           <p class="feature-card__text">Nuestro maitre virtual con IA conoce cada plato, cada horario y cada detalle. Pregúntale lo que sea, arma.</p>
         </article>
         <article class="feature-card">
-          <span class="feature-card__icon" aria-hidden="true">🏛️</span>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1" stroke-linecap="round"/><rect x="14" y="3" width="7" height="7" rx="1" stroke-linecap="round"/><rect x="14" y="14" width="7" height="7" rx="1" stroke-linecap="round"/><path d="M3 17.5h4m-2-2v4M3 14h7v7H3z" stroke-linecap="round"/></svg>
+          </div>
           <h3 class="feature-card__title">Salón privado</h3>
           <p class="feature-card__text">Dos salones privados para eventos, cenas de empresa y celebraciones. Hasta 20 personas con decoración exclusiva.</p>
         </article>
@@ -1251,7 +1359,7 @@
       <header class="section-header section-header--center">
         <span class="section-eyebrow">Nuestra carta</span>
         <h2 id="carta-title" class="section-title">Lo más pedido</h2>
-        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon">🍽️</span><span class="ornament__line"></span></div>
+        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon"><svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ornament__line"></span></div>
         <p class="section-subtitle">Los imprescindibles de Andaluzzia. Pedidos una y otra vez, nunca decepcionan.</p>
       </header>
 
@@ -1370,10 +1478,12 @@
 
       <div class="ver-carta">
         <a href="#reservas" class="btn btn--primary btn--lg">
-          <span aria-hidden="true">📅</span> Reservar y tapear
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Reservar y tapear
         </a>
         <a href="#" class="btn btn--outline btn--lg">
-          <span aria-hidden="true">📋</span> Carta completa (PDF)
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Carta completa (PDF)
         </a>
       </div>
     </div>
@@ -1391,21 +1501,27 @@
           <p class="section-subtitle">Fundada en Sevilla en 1904, la Cruzcampo es la cerveza que se toma con las tapas desde hace 120 años. En Andaluzzia la servimos como dios manda.</p>
           <div class="cruzcampo-features">
             <div class="cruzcampo-feature">
-              <span class="cruzcampo-feature__icon" aria-hidden="true">🌡️</span>
+              <span class="cruzcampo-feature__icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#86EFAC" stroke-width="1.8" stroke-linecap="round"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26A4.5 4.5 0 1014 14.76z"/></svg>
+              </span>
               <div>
                 <div class="cruzcampo-feature__title">Servida a 3°C exactos</div>
                 <div class="cruzcampo-feature__text">El grifo calibrado cada mañana. Vaso frío de nevera. La temperatura que manda la tradición.</div>
               </div>
             </div>
             <div class="cruzcampo-feature">
-              <span class="cruzcampo-feature__icon" aria-hidden="true">🍺</span>
+              <span class="cruzcampo-feature__icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#86EFAC" stroke-width="1.8" stroke-linecap="round"><path d="M6 2h12l1 7H5L6 2z"/><path d="M5 9c0 5 2 8 7 9 5-1 7-4 7-9"/><path d="M6 2v.01"/></svg>
+              </span>
               <div>
                 <div class="cruzcampo-feature__title">Tubo, caña o doble</div>
                 <div class="cruzcampo-feature__text">El tamaño que quieras, siempre con la espuma perfecta y la presión justa de barril.</div>
               </div>
             </div>
             <div class="cruzcampo-feature">
-              <span class="cruzcampo-feature__icon" aria-hidden="true">🏆</span>
+              <span class="cruzcampo-feature__icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#86EFAC" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
+              </span>
               <div>
                 <div class="cruzcampo-feature__title">120 años de tradición</div>
                 <div class="cruzcampo-feature__text">La cerveza que nació en Sevilla y nunca ha salido del corazón de sus bares. Patrimonio líquido de Andalucía.</div>
@@ -1447,7 +1563,7 @@
       <header class="section-header section-header--center">
         <span class="section-eyebrow">El ambiente</span>
         <h2 id="galeria-title" class="section-title">Así es Andaluzzia</h2>
-        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon">📸</span><span class="ornament__line"></span></div>
+        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke-linecap="round"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18" stroke-linecap="round"/></svg></span><span class="ornament__line"></span></div>
       </header>
 
       <div class="galeria-grid" role="list">
@@ -1531,7 +1647,8 @@
           </div>
 
           <a href="/" class="btn btn--primary" style="width:100%;justify-content:center;">
-            <span aria-hidden="true">💬</span> Hablar con El Curro
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Hablar con El Curro
           </a>
         </div>
 
@@ -1549,42 +1666,54 @@
 
           <div class="curro-features">
             <div class="curro-feature">
-              <span class="curro-feature__icon" aria-hidden="true">🧠</span>
+              <div class="curro-feature__icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 2a7 7 0 017 7c0 3.5-2.5 6-5 7v2H10v-2C7.5 15 5 12.5 5 9a7 7 0 017-7z" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 21h4" stroke-linecap="round"/></svg>
+              </div>
               <div>
                 <div class="curro-feature__title">Carta completa en tiempo real</div>
                 <div class="curro-feature__text">Consulta directamente la base de datos del restaurante: platos, precios, alergenos y sugerencias del día.</div>
               </div>
             </div>
             <div class="curro-feature">
-              <span class="curro-feature__icon" aria-hidden="true">🕐</span>
+              <div class="curro-feature__icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="9" stroke-linecap="round"/><path d="M12 7v5l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
               <div>
                 <div class="curro-feature__title">Disponible 24/7</div>
-                <div class="curro-feature__text">Horarios, disponibilidad de mesas, eventos de flamenco… El Curro responde aunque el local esté cerrado.</div>
+                <div class="curro-feature__text">Horarios, disponibilidad de mesas y más… El Curro responde aunque el local esté cerrado.</div>
               </div>
             </div>
             <div class="curro-feature">
-              <span class="curro-feature__icon" aria-hidden="true">🌹</span>
+              <div class="curro-feature__icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke-linecap="round"/><path d="M12 8v4l3 2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 12a5 5 0 0110 0" stroke-linecap="round"/></svg>
+              </div>
               <div>
                 <div class="curro-feature__title">Salero sevillano auténtico</div>
                 <div class="curro-feature__text">No es un chatbot frío. Es El Curro, con expresiones de Triana y la personalidad del camarero de toda la vida.</div>
               </div>
             </div>
             <div class="curro-feature">
-              <span class="curro-feature__icon" aria-hidden="true">🔒</span>
+              <div class="curro-feature__icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2" stroke-linecap="round"/><path d="M7 11V7a5 5 0 0110 0v4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
               <div>
                 <div class="curro-feature__title">100% seguro y privado</div>
                 <div class="curro-feature__text">La IA corre en nuestro servidor. Tus datos no salen de Andaluzzia. Sin rastreos ni publicidad.</div>
               </div>
             </div>
             <div class="curro-feature">
-              <span class="curro-feature__icon" aria-hidden="true">🍺</span>
+              <div class="curro-feature__icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M6 2h12l1 7H5L6 2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 9c0 5 2 8 7 9 5-1 7-4 7-9" stroke-linecap="round"/></svg>
+              </div>
               <div>
                 <div class="curro-feature__title">Maridajes con Cruzcampo</div>
                 <div class="curro-feature__text">Te sugiere qué tapa pega mejor con cada bebida. Porque en Sevilla el maridaje es un arte.</div>
               </div>
             </div>
             <div class="curro-feature">
-              <span class="curro-feature__icon" aria-hidden="true">📅</span>
+              <div class="curro-feature__icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round"/><path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" stroke-linecap="round" stroke-width="2.5"/></svg>
+              </div>
               <div>
                 <div class="curro-feature__title">Guía tus reservas</div>
                 <div class="curro-feature__text">Te informa sobre disponibilidad y te redirige al formulario en segundos. Sin esperar al teléfono.</div>
@@ -1594,10 +1723,12 @@
 
           <div class="curro-ctas">
             <a href="/" class="btn btn--primary btn--lg">
-              <span aria-hidden="true">💬</span> Probar con El Curro
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              Probar con El Curro
             </a>
             <a href="#reservas" class="btn btn--ghost btn--lg">
-              <span aria-hidden="true">📅</span> Reservar mesa
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Reservar mesa
             </a>
           </div>
         </div>
@@ -1679,7 +1810,7 @@
       <header class="section-header section-header--center">
         <span class="section-eyebrow">Lo que dicen</span>
         <h2 id="testimonios-title" class="section-title">Voces de Andaluzzia</h2>
-        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon">⭐</span><span class="ornament__line"></span></div>
+        <div class="ornament"><span class="ornament__line"></span><span class="ornament__icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ornament__line"></span></div>
       </header>
 
       <div class="rating-summary" role="complementary" aria-label="Valoración general">
@@ -1743,7 +1874,10 @@
 
       <div class="info-grid">
         <div class="info-box">
-          <h3 class="info-box__title"><span aria-hidden="true">🕐</span> Horario</h3>
+          <h3 class="info-box__title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            Horario
+          </h3>
           <ul class="horario-list">
             <li class="horario-item horario-item--closed">
               <span class="horario-day">Lunes</span>
@@ -1760,7 +1894,7 @@
             </li>
             <li class="horario-item">
               <span class="horario-day">Sábado</span>
-              <span class="horario-hours">12:00 — 02:00 💃</span>
+              <span class="horario-hours">12:00 — 02:00</span>
             </li>
             <li class="horario-item">
               <span class="horario-day">Domingo</span>
@@ -1768,38 +1902,52 @@
             </li>
           </ul>
           <div style="margin-top:1.5rem; padding:1rem; background:rgba(217,119,6,.1); border:1px solid rgba(217,119,6,.2); border-radius:10px;">
-            <p style="color:var(--c-oro-light); font-size:.85rem; font-weight:600;">⚠️ Semana Santa y Feria de Abril</p>
+            <p style="color:var(--c-oro-light); font-size:.85rem; font-weight:600;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Semana Santa y Feria de Abril
+            </p>
             <p style="color:rgba(255,255,255,.5); font-size:.82rem; margin-top:.3rem;">Horarios especiales. Consulta disponibilidad con El Curro o por teléfono.</p>
           </div>
         </div>
 
         <div>
           <div class="info-box" style="margin-bottom:1.25rem;">
-            <h3 class="info-box__title"><span aria-hidden="true">📍</span> Dónde estamos</h3>
+            <h3 class="info-box__title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 22s-8-5.686-8-12a8 8 0 0116 0c0 6.314-8 12-8 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              Dónde estamos
+            </h3>
             <ul class="contacto-list">
               <li class="contacto-item">
-                <div class="contacto-icon" aria-hidden="true">📍</div>
+                <div class="contacto-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s-8-5.686-8-12a8 8 0 0116 0c0 6.314-8 12-8 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                </div>
                 <div>
                   <div class="contacto-label">Dirección</div>
                   <div class="contacto-value">Calle Betis, 45 — 41010 Triana, Sevilla</div>
                 </div>
               </li>
               <li class="contacto-item">
-                <div class="contacto-icon" aria-hidden="true">📞</div>
+                <div class="contacto-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
                 <div>
                   <div class="contacto-label">Teléfono</div>
                   <div class="contacto-value"><a href="tel:+34954000000">+34 954 000 000</a></div>
                 </div>
               </li>
               <li class="contacto-item">
-                <div class="contacto-icon" aria-hidden="true">✉️</div>
+                <div class="contacto-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
                 <div>
                   <div class="contacto-label">Email</div>
                   <div class="contacto-value"><a href="mailto:hola@andaluzzia.es">hola@andaluzzia.es</a></div>
                 </div>
               </li>
               <li class="contacto-item">
-                <div class="contacto-icon" aria-hidden="true">💬</div>
+                <div class="contacto-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                </div>
                 <div>
                   <div class="contacto-label">WhatsApp</div>
                   <div class="contacto-value"><a href="https://wa.me/34600000000">+34 600 000 000</a></div>
@@ -1807,7 +1955,8 @@
               </li>
             </ul>
             <a href="https://maps.google.com/?q=Calle+Betis+45+Triana+Sevilla" target="_blank" rel="noopener noreferrer" class="map-embed" aria-label="Ver en Google Maps">
-              <span>🗺️ &nbsp; Ver en Google Maps</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s-8-5.686-8-12a8 8 0 0116 0c0 6.314-8 12-8 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span>Ver en Google Maps</span>
             </a>
           </div>
         </div>
@@ -1830,10 +1979,12 @@
       </p>
       <div class="cta-actions">
         <a href="/" class="btn btn--primary btn--lg">
-          <span aria-hidden="true">📅</span> Reservar mesa ahora
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Reservar mesa ahora
         </a>
         <a href="tel:+34954000000" class="btn btn--outline btn--lg">
-          <span aria-hidden="true">📞</span> Llamar al local
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Llamar al local
         </a>
       </div>
       <p style="margin-top:1.5rem; color:rgba(255,255,255,.6); font-size:.9rem;">
