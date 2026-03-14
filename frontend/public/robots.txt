@@ -1,0 +1,24 @@
+# robots.txt para Andaluzzia.es
+# Bar Típico Sevillano - Triana, Sevilla
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://andaluzzia.es/sitemap.xml
+
+# Crawl-delay para no sobrecargar
+Crawl-delay: 1
+
+# Evitar indexar páginas de administración
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Permitir todo lo demás
+Allow: /
+Allow: /menu
+Allow: /reservas
+Allow: /nosotros
+Allow: /contacto
