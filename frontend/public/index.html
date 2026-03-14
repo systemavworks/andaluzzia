@@ -34,7 +34,8 @@
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap">
+  <!-- Playfair Display SC (headings) + Playfair Display (italic hero) + Karla (body) + Dancing Script (logo) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&family=Karla:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap">
 
   <!-- Schema.org Restaurant -->
   <script type="application/ld+json">
@@ -79,7 +80,8 @@
       --c-gris:        #78716C;
       --c-gris-light:  #D6D3D1;
       --font-serif:    'Playfair Display', Georgia, serif;
-      --font-sans:     'Inter', system-ui, sans-serif;
+      --font-serif-sc: 'Playfair Display SC', 'Playfair Display', Georgia, serif;
+      --font-sans:     'Karla', system-ui, sans-serif;
       --font-script:   'Dancing Script', cursive;
       --shadow-sm:     0 2px 8px rgba(0,0,0,.12);
       --shadow-md:     0 8px 32px rgba(0,0,0,.18);
@@ -234,6 +236,58 @@
       0%,100% { opacity: .7; transform: translate(-50%,-50%) scale(1); }
       50%      { opacity: 1;  transform: translate(-50%,-50%) scale(1.08); }
     }
+
+    /* ── Hero Liquid Glass Blobs (Liquid Glass style) ────────────────── */
+    .hero__blob {
+      position: absolute;
+      filter: blur(72px) saturate(1.4);
+      pointer-events: none;
+      animation: blobMorph 10s ease-in-out infinite;
+      border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
+    }
+    .hero__blob--1 {
+      width: 680px; height: 520px;
+      background: radial-gradient(ellipse, rgba(217,119,6,.16) 0%, rgba(124,45,18,.07) 55%, transparent 100%);
+      top: -8%; left: -8%;
+      animation-duration: 11s;
+    }
+    .hero__blob--2 {
+      width: 460px; height: 500px;
+      background: radial-gradient(ellipse, rgba(124,45,18,.13) 0%, rgba(78,24,9,.06) 55%, transparent 100%);
+      bottom: 0%; right: -4%;
+      animation-duration: 14s;
+      animation-delay: -4s;
+    }
+    .hero__blob--3 {
+      width: 320px; height: 280px;
+      background: radial-gradient(ellipse, rgba(251,191,36,.09) 0%, transparent 70%);
+      top: 28%; right: 12%;
+      animation-duration: 8s;
+      animation-delay: -6.5s;
+      border-radius: 30% 70% 60% 40% / 60% 30% 70% 40%;
+    }
+    @keyframes blobMorph {
+      0%,100% { border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%; }
+      33%      { border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%; }
+      66%      { border-radius: 70% 30% 50% 50% / 30% 70% 50% 50%; }
+    }
+
+    /* ── Kinetic typography hero ─────────────────────────────────────── */
+    .hero__title--kinetic span,
+    .hero__title--kinetic em {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(28px) rotate(-1.5deg);
+      animation: wordReveal .65s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes wordReveal {
+      to { opacity: 1; transform: translateY(0) rotate(0deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero__title--kinetic span,
+      .hero__title--kinetic em { animation: none; opacity: 1; transform: none; }
+    }
+
     .hero__content {
       position: relative; z-index: 2;
       text-align: center; padding: 2rem 1.5rem;
@@ -380,7 +434,7 @@
     .section-eyebrow::before { content: '— '; }
     .section-eyebrow::after  { content: ' —'; }
     .section-title {
-      font-family: var(--font-serif);
+      font-family: var(--font-serif-sc);
       font-size: clamp(2rem, 3.5vw, 3rem);
       font-weight: 700; line-height: 1.15;
       color: var(--c-negro);
@@ -419,13 +473,14 @@
       gap: 1.5rem;
     }
     .feature-card {
-      background: rgba(255,251,245,.7);
+      background: rgba(255,251,245,.62);
       border: 1px solid rgba(124,45,18,.1);
       border-radius: var(--radius-lg);
       padding: 2.25rem 2rem;
       transition: var(--transition);
       position: relative; overflow: hidden;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
     }
     .feature-card::before {
       content: '';
@@ -449,8 +504,11 @@
     }
     .feature-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(124,45,18,.14), 0 2px 8px rgba(0,0,0,.06);
-      border-color: rgba(217,119,6,.25);
+      box-shadow: 0 16px 48px rgba(124,45,18,.14), 0 2px 8px rgba(0,0,0,.06),
+                  0 0 0 1px rgba(217,119,6,.3), inset 0 1px 0 rgba(255,255,255,.4);
+      border-color: rgba(217,119,6,.22);
+      backdrop-filter: blur(28px) saturate(200%);
+      -webkit-backdrop-filter: blur(28px) saturate(200%);
     }
     .feature-card:hover::before { opacity: 1; }
     .feature-card:hover::after  { opacity: 1; }
@@ -843,16 +901,19 @@
       gap: 1.5rem;
     }
     .testimonio-card {
-      background: #fff;
+      background: rgba(255,255,255,.78);
       border-radius: var(--radius-lg);
       padding: 2rem;
       box-shadow: var(--shadow-sm);
       border: 1px solid rgba(124,45,18,.08);
       transition: var(--transition);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
     }
     .testimonio-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-md), 0 0 0 1px rgba(217,119,6,.18),
+                  inset 0 1px 0 rgba(255,255,255,.55);
     }
     .testimonio-stars { color: var(--c-oro); font-size: 1rem; margin-bottom: 1rem; }
     .testimonio-quote {
@@ -1292,6 +1353,13 @@
       .footer__top { grid-template-columns: 1fr; gap: 2rem; }
       .rating-summary { flex-direction: column; text-align: center; }
     }
+    /* ── Focus visible (WCAG 2.4.7) ──────────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--c-oro);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
@@ -1359,14 +1427,19 @@
     <div class="hero__azulejo" aria-hidden="true"></div>
     <div class="hero__glow"    aria-hidden="true"></div>
     <div class="hero__glow2"   aria-hidden="true"></div>
+    <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+    <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+    <div class="hero__blob hero__blob--3" aria-hidden="true"></div>
 
     <div class="hero__content">
       <div class="hero__badge" aria-label="Desde 1985 en Triana, Sevilla">
         <span aria-hidden="true">✦</span> Desde 1985 · Triana, Sevilla
       </div>
 
-      <h1 id="hero-title" class="hero__title">
-        Tapas con <em>duende</em>
+      <h1 id="hero-title" class="hero__title hero__title--kinetic">
+        <span style="animation-delay:.05s">Tapas</span>
+        <span style="animation-delay:.20s">con</span>
+        <em style="animation-delay:.35s">duende</em>
       </h1>
 
       <p class="hero__sub">
