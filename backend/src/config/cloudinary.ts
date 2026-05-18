@@ -10,11 +10,11 @@ cloudinary.config({
 
 const storage = new CloudinaryStorage({
   cloudinary,
-  params: {
-    folder:          'andaluzzia',
+  params: async () => ({
+    folder: 'andaluzzia',
     allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
-    transformation:  [{ width: 800, height: 600, crop: 'limit' }],
-  },
+    transformation: [{ width: 800, height: 600, crop: 'limit' }],
+  }),
 });
 
 export const upload = multer({ storage });

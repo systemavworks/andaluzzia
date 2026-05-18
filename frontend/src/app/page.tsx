@@ -6,16 +6,64 @@ import MenuCard       from './components/MenuCard';
 import ReservaForm    from './components/ReservaForm';
 import { motion } from 'framer-motion';
 
+interface PlatoApi {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  precio: number;
+  categoria: string;
+  foto_url?: string | null;
+  disponible: boolean;
+  alergenos?: string[];
+  es_recomendado?: boolean;
+  es_plato_dia?: boolean;
+  es_lo_mas_rico?: boolean;
+  maridaje?: string;
+}
+
+interface PlatoUI {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  precio: number;
+  categoria: string;
+  imagen: string;
+  disponible: boolean;
+  alergenos?: string[];
+  esRecomendado?: boolean;
+  esPlatoDia?: boolean;
+  esLoMasRico?: boolean;
+  maridaje?: string;
+}
+
 export default function Home() {
-  const [menu,    setMenu]    = useState([]);
+  const [menu,    setMenu]    = useState<PlatoUI[]>([]);
   const [loading, setLoading] = useState(true);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001/api';
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/menu`)
+    fetch(`${backendUrl}/menu`)
       .then(res  => res.json())
-      .then(data => { setMenu(data); setLoading(false); })
+      .then((data: PlatoApi[]) => {
+        const normalized = (Array.isArray(data) ? data : []).map((plato) => ({
+          id: plato.id,
+          nombre: plato.nombre,
+          descripcion: plato.descripcion,
+          precio: plato.precio,
+          categoria: plato.categoria,
+          imagen: plato.foto_url ?? '',
+          disponible: plato.disponible,
+          alergenos: plato.alergenos,
+          esRecomendado: plato.es_recomendado,
+          esPlatoDia: plato.es_plato_dia,
+          esLoMasRico: plato.es_lo_mas_rico,
+          maridaje: plato.maridaje,
+        }));
+        setMenu(normalized);
+        setLoading(false);
+      })
       .catch(err => { console.error('Error loading menu:', err); setLoading(false); });
-  }, []);
+  }, [backendUrl]);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
@@ -48,7 +96,7 @@ export default function Home() {
           <div className="text-center text-amber-600">Cargando menú...</div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {menu.map((plato: any) => <MenuCard key={plato._id} plato={plato} />)}
+            {menu.map((plato) => <MenuCard key={plato.id} plato={plato} />)}
           </div>
         )}
       </section>

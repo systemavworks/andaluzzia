@@ -94,18 +94,16 @@ async function findTapaInDB(nombrePosible: string): Promise<TapaConMaridaje | nu
 /** Log analítico no bloqueante */
 async function logCameraUse(
   sessionId:     string,
-  nombreDetectado: string,
   confidence:    number,
   tapaId?:       number,
-  success?:      boolean,
+  fallback?:     boolean,
 ): Promise<void> {
   try {
     await supabase.from('identificaciones_camara').insert({
-      session_id:       sessionId,
-      nombre_detectado: nombreDetectado,
-      confidence_score: confidence,
-      tapa_encontrada:  tapaId   ?? null,
-      exito:            success  ?? false,
+      session_id: sessionId,
+      tapa_id: tapaId ?? null,
+      confidence,
+      fallback: fallback ?? false,
     });
   } catch { /* analytics, no crítico */ }
 }
@@ -184,7 +182,7 @@ router.post('/identify', identifyLimiter, async (req: Request, res: Response) =>
     // ── Búsqueda en carta si hay suficiente confianza ──────────────────
     if (confidence >= 0.55) {
       const tapa = await findTapaInDB(nombre_posible);
-      void logCameraUse(sid, nombre_posible, confidence, tapa?.id, !!tapa);
+      void logCameraUse(sid, confidence, tapa?.id, !tapa);
 
       if (tapa) {
         res.json({
@@ -207,7 +205,7 @@ router.post('/identify', identifyLimiter, async (req: Request, res: Response) =>
     }
 
     // ── Identificación parcial (sin coincidencia en carta) ──────────────
-    void logCameraUse(sid, nombre_posible, confidence, undefined, false);
+    void logCameraUse(sid, confidence, undefined, false);
     res.json({
       fallback:              false,
       sin_match:             true,

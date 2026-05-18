@@ -43,10 +43,10 @@ export const reservaValidators = [
 /** Validadores para crear/actualizar platos (solo admin) */
 export const platoValidators = [
   body('nombre').trim().notEmpty().withMessage('Nombre requerido').isLength({ max: 120 }),
-  body('descripcion').trim().notEmpty().withMessage('Descripción requerida').isLength({ max: 500 }),
+  body('descripcion').trim().notEmpty().withMessage('Descripción requerida').isLength({ max: 180 }),
   body('precio').isFloat({ min: 0.5, max: 500 }).withMessage('Precio inválido'),
   body('categoria')
-    .isIn(['tapas', 'raciones', 'postres', 'bebidas', 'especiales'])
+    .isIn(['frías', 'calientes', 'pescaíto', 'carnes', 'postres', 'bebidas', 'especiales'])
     .withMessage('Categoría no válida'),
   body('alergenos').optional().isArray(),
 ];

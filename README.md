@@ -6,7 +6,7 @@
 | Frontend     | Next.js 14 + Vercel               |
 | Backend      | Express + Railway                 |
 | IA           | Claude 3.5 Sonnet (Anthropic)     |
-| Base de datos| MongoDB Atlas                     |
+| Base de datos| Supabase (PostgreSQL)             |
 | Imágenes     | Cloudinary                        |
 | Pagos        | Stripe                            |
 | WhatsApp     | Twilio Business API               |
@@ -32,7 +32,11 @@ cp backend/.env.example         backend/.env
 # Rellena los valores con tus credenciales
 ```
 
+Notas:
+- El backend usa `SUPABASE_URL` y `SUPABASE_SERVICE_ROLE_KEY`.
+- El frontend solo debe contener variables `NEXT_PUBLIC_*`.
+
 ## Deploy
 - **Frontend** → Vercel
 - **Backend**  → Railway
-- **DB**       → MongoDB Atlas
+- **DB**       → Supabase

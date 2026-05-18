@@ -16,7 +16,10 @@ const MAX_MSG_CHARS = 400;    // espejo del límite del backend
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { messages } = body as { messages: { role: string; content: string }[] };
+    const { messages, sessionId } = body as {
+      messages: { role: string; content: string }[];
+      sessionId?: string;
+    };
 
     if (!Array.isArray(messages)) {
       return new Response(JSON.stringify({ error: 'Petición inválida' }), { status: 400 });
@@ -31,11 +34,20 @@ export async function POST(req: Request) {
     }));
 
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001/api';
-    const response = await fetch(`${backendUrl}/chat`, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ messages: safeMessages }),
-    });
+    let response: Response;
+    try {
+      response = await fetch(`${backendUrl}/chat`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ messages: safeMessages, sessionId }),
+        signal:  AbortSignal.timeout(8000),
+      });
+    } catch {
+      return new Response(
+        JSON.stringify({ error: 'Backend de chat no disponible temporalmente' }),
+        { status: 503, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
 
     if (!response.ok) {
       const error = await response.text();

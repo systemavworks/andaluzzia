@@ -19,6 +19,7 @@ export default function ReservaForm() {
   const [success, setSuccess] = useState(false);
   const [error,   setError]   = useState('');
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ReservaFormData>();
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001/api';
 
   // Fecha mínima: mañana (no se reserva a última hora para hoy)
   const tomorrow = new Date();
@@ -29,7 +30,7 @@ export default function ReservaForm() {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/reservas`, data);
+      const response = await axios.post(`${backendUrl}/reservas`, data);
       if (response.status === 201) {
         setSuccess(true);
         reset();

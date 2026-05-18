@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 interface Plato {
-  _id:           string;
+  id:            number;
   nombre:        string;
   descripcion:   string;
   precio:        number;

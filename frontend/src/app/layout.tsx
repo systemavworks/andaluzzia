@@ -13,6 +13,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title:       'Andaluzzia - Restaurante Sevillano Auténtico | Triana',
   description: 'Tapas tradicionales, Cruzcampo y el mejor ambiente sevillano. Reserva tu mesa en Andaluzzia.es',
   keywords:    ['restaurante sevilla', 'tapas', 'triana', 'andaluzzia', 'cruzcampo'],

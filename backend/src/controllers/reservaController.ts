@@ -19,13 +19,16 @@ export const crearReserva = async (req: Request, res: Response): Promise<void> =
     if (error) throw error;
 
     // Guardar/actualizar cliente para memoria de fidelidad
-    supabase.from('clientes')
-      .upsert(
-        { telefono, nombre, email, ultima_visita: new Date().toISOString().split('T')[0] },
-        { onConflict: 'telefono' }
-      )
-      .then(() => {})
-      .catch(e => logger.warn('Error upserting cliente', { error: e }));
+    void (async () => {
+      try {
+        await supabase.from('clientes').upsert(
+          { telefono, nombre, email, ultima_visita: new Date().toISOString().split('T')[0] },
+          { onConflict: 'telefono' }
+        );
+      } catch (error) {
+        logger.warn('Error upserting cliente', { error });
+      }
+    })();
 
     // Notificaciones no-bloqueantes: un fallo no cancela la reserva
     const reservaNotif = { ...reserva, nombre: reserva.nombre_cliente };
